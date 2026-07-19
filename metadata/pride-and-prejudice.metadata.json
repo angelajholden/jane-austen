@@ -1,0 +1,1042 @@
+{
+	"id": "pride-and-prejudice",
+	"title": "Pride and Prejudice",
+	"slug": "pride-and-prejudice",
+	"author": "Jane Austen",
+	"gutenbergId": 1342,
+	"sourceFile": "books/pride-and-prejudice.txt",
+	"chapterCount": 61,
+	"sentenceCount": 5899,
+	"paragraphCount": 2121,
+	"characters": [
+		{
+			"name": "Elizabeth Bennet",
+			"id": "elizabeth-bennet",
+			"aliases": ["Elizabeth", "Lizzy", "Eliza", "Miss Elizabeth Bennet", "Miss Elizabeth"],
+			"ambiguousAliases": [
+				{
+					"alias": "Miss Bennet",
+					"ambiguous": true,
+					"notes": "The title can refer to Jane, Elizabeth, or another unmarried Bennet daughter depending on context."
+				}
+			]
+		},
+		{
+			"name": "Fitzwilliam Darcy",
+			"id": "fitzwilliam-darcy",
+			"aliases": ["Mr. Darcy", "Darcy"]
+		},
+		{
+			"name": "Jane Bennet",
+			"id": "jane-bennet",
+			"aliases": ["Jane", "Miss Jane Bennet"],
+			"notes": "The alias “Miss Bennet” is context-dependent and is recorded separately as ambiguous.",
+			"ambiguousAliases": [
+				{
+					"alias": "Miss Bennet",
+					"ambiguous": true,
+					"notes": "Usually Jane as the eldest unmarried Bennet daughter, but the title can refer to another Bennet daughter depending on context."
+				}
+			]
+		},
+		{
+			"name": "Charles Bingley",
+			"id": "charles-bingley",
+			"aliases": ["Mr. Bingley", "Bingley"]
+		},
+		{
+			"name": "Mr. Bennet",
+			"id": "mr-bennet",
+			"aliases": []
+		},
+		{
+			"name": "Mrs. Bennet",
+			"id": "mrs-bennet",
+			"aliases": []
+		},
+		{
+			"name": "Lydia Bennet",
+			"id": "lydia-bennet",
+			"aliases": ["Lydia", "Miss Lydia Bennet", "Mrs. Wickham"]
+		},
+		{
+			"name": "George Wickham",
+			"id": "george-wickham",
+			"aliases": ["Mr. Wickham", "Wickham"]
+		},
+		{
+			"name": "Mary Bennet",
+			"id": "mary-bennet",
+			"aliases": ["Mary", "Miss Mary Bennet"]
+		},
+		{
+			"name": "Catherine Bennet",
+			"id": "catherine-bennet",
+			"aliases": ["Kitty", "Miss Catherine Bennet", "Miss Kitty"]
+		},
+		{
+			"name": "William Collins",
+			"id": "william-collins",
+			"aliases": ["Mr. Collins", "Collins"]
+		},
+		{
+			"name": "Charlotte Lucas",
+			"id": "charlotte-lucas",
+			"aliases": ["Charlotte", "Miss Lucas", "Mrs. Collins"]
+		},
+		{
+			"name": "Caroline Bingley",
+			"id": "caroline-bingley",
+			"aliases": ["Miss Bingley", "Caroline"]
+		},
+		{
+			"name": "Louisa Hurst",
+			"id": "louisa-hurst",
+			"aliases": ["Mrs. Hurst", "Louisa"]
+		},
+		{
+			"name": "Mr. Hurst",
+			"id": "mr-hurst",
+			"aliases": ["Hurst"]
+		},
+		{
+			"name": "Georgiana Darcy",
+			"id": "georgiana-darcy",
+			"aliases": ["Georgiana", "Miss Darcy"]
+		},
+		{
+			"name": "Lady Catherine de Bourgh",
+			"id": "lady-catherine-de-bourgh",
+			"aliases": ["Lady Catherine", "her Ladyship"]
+		},
+		{
+			"name": "Anne de Bourgh",
+			"id": "anne-de-bourgh",
+			"aliases": ["Miss de Bourgh", "Anne"]
+		},
+		{
+			"name": "Colonel Fitzwilliam",
+			"id": "colonel-fitzwilliam",
+			"aliases": ["Colonel Fitzwilliam"]
+		},
+		{
+			"name": "Edward Gardiner",
+			"id": "edward-gardiner",
+			"aliases": ["Mr. Gardiner", "Gardiner"]
+		},
+		{
+			"name": "Mrs. Gardiner",
+			"id": "mrs-gardiner",
+			"aliases": ["Aunt Gardiner", "Mrs. Edward Gardiner"]
+		},
+		{
+			"name": "Sir William Lucas",
+			"id": "sir-william-lucas",
+			"aliases": ["Sir William"]
+		},
+		{
+			"name": "Lady Lucas",
+			"id": "lady-lucas",
+			"aliases": []
+		},
+		{
+			"name": "Maria Lucas",
+			"id": "maria-lucas",
+			"aliases": ["Maria", "Miss Maria Lucas"]
+		},
+		{
+			"name": "Mr. Philips",
+			"id": "mr-philips",
+			"aliases": ["Uncle Philips"]
+		},
+		{
+			"name": "Mrs. Philips",
+			"id": "mrs-philips",
+			"aliases": ["Aunt Philips"]
+		},
+		{
+			"name": "Colonel Forster",
+			"id": "colonel-forster",
+			"aliases": ["Colonel Forster"]
+		},
+		{
+			"name": "Harriet Forster",
+			"id": "harriet-forster",
+			"aliases": ["Mrs. Forster", "Harriet"]
+		},
+		{
+			"name": "Mr. Denny",
+			"id": "mr-denny",
+			"aliases": ["Denny"]
+		},
+		{
+			"name": "Mary King",
+			"id": "mary-king",
+			"aliases": ["Miss King", "Mary King"]
+		},
+		{
+			"name": "Mrs. Reynolds",
+			"id": "mrs-reynolds",
+			"aliases": []
+		},
+		{
+			"name": "Mrs. Jenkinson",
+			"id": "mrs-jenkinson",
+			"aliases": []
+		},
+		{
+			"name": "Mrs. Annesley",
+			"id": "mrs-annesley",
+			"aliases": []
+		},
+		{
+			"name": "Mrs. Younge",
+			"id": "mrs-younge",
+			"aliases": []
+		},
+		{
+			"name": "Lady Anne Darcy",
+			"id": "lady-anne-darcy",
+			"aliases": ["Lady Anne"]
+		},
+		{
+			"name": "Mrs. Long",
+			"id": "mrs-long",
+			"aliases": []
+		},
+		{
+			"name": "Mr. Morris",
+			"id": "mr-morris",
+			"aliases": []
+		},
+		{
+			"name": "Mr. Robinson",
+			"id": "mr-robinson",
+			"aliases": []
+		},
+		{
+			"name": "Mr. Jones",
+			"id": "mr-jones",
+			"aliases": []
+		},
+		{
+			"name": "Mrs. Hill",
+			"id": "mrs-hill",
+			"aliases": ["Hill"]
+		},
+		{
+			"name": "Nicholls",
+			"id": "nicholls",
+			"aliases": []
+		},
+		{
+			"name": "Sarah",
+			"id": "sarah",
+			"aliases": []
+		},
+		{
+			"name": "Sally",
+			"id": "sally",
+			"aliases": []
+		},
+		{
+			"name": "Chamberlayne",
+			"id": "chamberlayne",
+			"aliases": []
+		},
+		{
+			"name": "Pratt",
+			"id": "pratt",
+			"aliases": []
+		},
+		{
+			"name": "Miss Pope",
+			"id": "miss-pope",
+			"aliases": []
+		},
+		{
+			"name": "Mr. Goulding",
+			"id": "mr-goulding",
+			"aliases": ["Goulding"]
+		},
+		{
+			"name": "Mrs. Goulding",
+			"id": "mrs-goulding",
+			"aliases": []
+		}
+	],
+	"places": [
+		{
+			"name": "Longbourn",
+			"id": "longbourn",
+			"type": "estate",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Netherfield Park",
+			"id": "netherfield-park",
+			"type": "estate",
+			"aliases": ["Netherfield"],
+			"notes": ""
+		},
+		{
+			"name": "Meryton",
+			"id": "meryton",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Lucas Lodge",
+			"id": "lucas-lodge",
+			"type": "house",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Pemberley",
+			"id": "pemberley",
+			"type": "estate",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Rosings Park",
+			"id": "rosings-park",
+			"type": "estate",
+			"aliases": ["Rosings"],
+			"notes": ""
+		},
+		{
+			"name": "Hunsford",
+			"id": "hunsford",
+			"type": "village",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Hunsford Parsonage",
+			"id": "hunsford-parsonage",
+			"type": "parsonage",
+			"aliases": ["the parsonage-house"],
+			"notes": "The Collins residence at Hunsford; the expanded name is descriptive rather than a formal address."
+		},
+		{
+			"name": "Lambton",
+			"id": "lambton",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Gracechurch Street",
+			"id": "gracechurch-street",
+			"type": "street",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Cheapside",
+			"id": "cheapside",
+			"type": "district",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Grosvenor Street",
+			"id": "grosvenor-street",
+			"type": "street",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "St. James’s",
+			"id": "st-jamess",
+			"type": "district",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Brighton",
+			"id": "brighton",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Newcastle",
+			"id": "newcastle",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Ramsgate",
+			"id": "ramsgate",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Kympton",
+			"id": "kympton",
+			"type": "parish",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Clapham",
+			"id": "clapham",
+			"type": "district",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Bromley",
+			"id": "bromley",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "the Bell at Bromley",
+			"id": "the-bell-at-bromley",
+			"type": "inn",
+			"aliases": ["the Bell"],
+			"notes": ""
+		},
+		{
+			"name": "Westerham",
+			"id": "westerham",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Eastbourne",
+			"id": "eastbourne",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Matlock",
+			"id": "matlock",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Bakewell",
+			"id": "bakewell",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Dovedale",
+			"id": "dovedale",
+			"type": "valley",
+			"aliases": ["Dove Dale"],
+			"notes": ""
+		},
+		{
+			"name": "the Peak",
+			"id": "the-peak",
+			"type": "region",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Chatsworth",
+			"id": "chatsworth",
+			"type": "estate",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Blenheim",
+			"id": "blenheim",
+			"type": "estate",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Oxford",
+			"id": "oxford",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Warwick",
+			"id": "warwick",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Kenilworth",
+			"id": "kenilworth",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Birmingham",
+			"id": "birmingham",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Liverpool",
+			"id": "liverpool",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Epsom",
+			"id": "epsom",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Barnet",
+			"id": "barnet",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Hatfield",
+			"id": "hatfield",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Scarborough",
+			"id": "scarborough",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Bath",
+			"id": "bath",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Cambridge",
+			"id": "cambridge",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "the Lakes",
+			"id": "the-lakes",
+			"type": "region",
+			"aliases": ["the Lake country"],
+			"notes": ""
+		},
+		{
+			"name": "Derbyshire",
+			"id": "derbyshire",
+			"type": "county",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Hertfordshire",
+			"id": "hertfordshire",
+			"type": "county",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Kent",
+			"id": "kent",
+			"type": "county",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Scotland",
+			"id": "scotland",
+			"type": "country",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "England",
+			"id": "england",
+			"type": "country",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "London",
+			"id": "london",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Hunsford Lane",
+			"id": "hunsford-lane",
+			"type": "lane",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"name": "Rosings Park lodge",
+			"id": "rosings-park-lodge",
+			"type": "lodge",
+			"aliases": [],
+			"notes": "A lodge belonging to Rosings Park; no individual proper name is supplied."
+		},
+		{
+			"name": "Pemberley House",
+			"id": "pemberley-house",
+			"type": "house",
+			"aliases": ["the house at Pemberley"],
+			"notes": "The principal house on the Pemberley estate; “Pemberley” is also used for the estate as a whole."
+		}
+	],
+	"chapters": [
+		{
+			"number": 1,
+			"id": "chapter-1",
+			"title": "Chapter 1",
+			"sentenceCount": 59,
+			"paragraphCount": 36
+		},
+		{
+			"number": 2,
+			"id": "chapter-2",
+			"title": "Chapter 2",
+			"sentenceCount": 53,
+			"paragraphCount": 28
+		},
+		{
+			"number": 3,
+			"id": "chapter-3",
+			"title": "Chapter 3",
+			"sentenceCount": 85,
+			"paragraphCount": 23
+		},
+		{
+			"number": 4,
+			"id": "chapter-4",
+			"title": "Chapter 4",
+			"sentenceCount": 52,
+			"paragraphCount": 16
+		},
+		{
+			"number": 5,
+			"id": "chapter-5",
+			"title": "Chapter 5",
+			"sentenceCount": 49,
+			"paragraphCount": 23
+		},
+		{
+			"number": 6,
+			"id": "chapter-6",
+			"title": "Chapter 6",
+			"sentenceCount": 114,
+			"paragraphCount": 55
+		},
+		{
+			"number": 7,
+			"id": "chapter-7",
+			"title": "Chapter 7",
+			"sentenceCount": 102,
+			"paragraphCount": 51
+		},
+		{
+			"number": 8,
+			"id": "chapter-8",
+			"title": "Chapter 8",
+			"sentenceCount": 106,
+			"paragraphCount": 60
+		},
+		{
+			"number": 9,
+			"id": "chapter-9",
+			"title": "Chapter 9",
+			"sentenceCount": 101,
+			"paragraphCount": 39
+		},
+		{
+			"number": 10,
+			"id": "chapter-10",
+			"title": "Chapter 10",
+			"sentenceCount": 124,
+			"paragraphCount": 68
+		},
+		{
+			"number": 11,
+			"id": "chapter-11",
+			"title": "Chapter 11",
+			"sentenceCount": 95,
+			"paragraphCount": 34
+		},
+		{
+			"number": 12,
+			"id": "chapter-12",
+			"title": "Chapter 12",
+			"sentenceCount": 22,
+			"paragraphCount": 7
+		},
+		{
+			"number": 13,
+			"id": "chapter-13",
+			"title": "Chapter 13",
+			"sentenceCount": 79,
+			"paragraphCount": 30
+		},
+		{
+			"number": 14,
+			"id": "chapter-14",
+			"title": "Chapter 14",
+			"sentenceCount": 51,
+			"paragraphCount": 19
+		},
+		{
+			"number": 15,
+			"id": "chapter-15",
+			"title": "Chapter 15",
+			"sentenceCount": 47,
+			"paragraphCount": 13
+		},
+		{
+			"number": 16,
+			"id": "chapter-16",
+			"title": "Chapter 16",
+			"sentenceCount": 151,
+			"paragraphCount": 62
+		},
+		{
+			"number": 17,
+			"id": "chapter-17",
+			"title": "Chapter 17",
+			"sentenceCount": 47,
+			"paragraphCount": 15
+		},
+		{
+			"number": 18,
+			"id": "chapter-18",
+			"title": "Chapter 18",
+			"sentenceCount": 212,
+			"paragraphCount": 79
+		},
+		{
+			"number": 19,
+			"id": "chapter-19",
+			"title": "Chapter 19",
+			"sentenceCount": 78,
+			"paragraphCount": 22
+		},
+		{
+			"number": 20,
+			"id": "chapter-20",
+			"title": "Chapter 20",
+			"sentenceCount": 88,
+			"paragraphCount": 36
+		},
+		{
+			"number": 21,
+			"id": "chapter-21",
+			"title": "Chapter 21",
+			"sentenceCount": 77,
+			"paragraphCount": 28
+		},
+		{
+			"number": 22,
+			"id": "chapter-22",
+			"title": "Chapter 22",
+			"sentenceCount": 65,
+			"paragraphCount": 22
+		},
+		{
+			"number": 23,
+			"id": "chapter-23",
+			"title": "Chapter 23",
+			"sentenceCount": 59,
+			"paragraphCount": 26
+		},
+		{
+			"number": 24,
+			"id": "chapter-24",
+			"title": "Chapter 24",
+			"sentenceCount": 102,
+			"paragraphCount": 31
+		},
+		{
+			"number": 25,
+			"id": "chapter-25",
+			"title": "Chapter 25",
+			"sentenceCount": 75,
+			"paragraphCount": 22
+		},
+		{
+			"number": 26,
+			"id": "chapter-26",
+			"title": "Chapter 26",
+			"sentenceCount": 116,
+			"paragraphCount": 31
+		},
+		{
+			"number": 27,
+			"id": "chapter-27",
+			"title": "Chapter 27",
+			"sentenceCount": 65,
+			"paragraphCount": 24
+		},
+		{
+			"number": 28,
+			"id": "chapter-28",
+			"title": "Chapter 28",
+			"sentenceCount": 67,
+			"paragraphCount": 23
+		},
+		{
+			"number": 29,
+			"id": "chapter-29",
+			"title": "Chapter 29",
+			"sentenceCount": 123,
+			"paragraphCount": 42
+		},
+		{
+			"number": 30,
+			"id": "chapter-30",
+			"title": "Chapter 30",
+			"sentenceCount": 38,
+			"paragraphCount": 16
+		},
+		{
+			"number": 31,
+			"id": "chapter-31",
+			"title": "Chapter 31",
+			"sentenceCount": 82,
+			"paragraphCount": 30
+		},
+		{
+			"number": 32,
+			"id": "chapter-32",
+			"title": "Chapter 32",
+			"sentenceCount": 66,
+			"paragraphCount": 31
+		},
+		{
+			"number": 33,
+			"id": "chapter-33",
+			"title": "Chapter 33",
+			"sentenceCount": 97,
+			"paragraphCount": 41
+		},
+		{
+			"number": 34,
+			"id": "chapter-34",
+			"title": "Chapter 34",
+			"sentenceCount": 98,
+			"paragraphCount": 32
+		},
+		{
+			"number": 35,
+			"id": "chapter-35",
+			"title": "Chapter 35",
+			"sentenceCount": 109,
+			"paragraphCount": 6
+		},
+		{
+			"number": 36,
+			"id": "chapter-36",
+			"title": "Chapter 36",
+			"sentenceCount": 73,
+			"paragraphCount": 16
+		},
+		{
+			"number": 37,
+			"id": "chapter-37",
+			"title": "Chapter 37",
+			"sentenceCount": 70,
+			"paragraphCount": 22
+		},
+		{
+			"number": 38,
+			"id": "chapter-38",
+			"title": "Chapter 38",
+			"sentenceCount": 44,
+			"paragraphCount": 19
+		},
+		{
+			"number": 39,
+			"id": "chapter-39",
+			"title": "Chapter 39",
+			"sentenceCount": 86,
+			"paragraphCount": 26
+		},
+		{
+			"number": 40,
+			"id": "chapter-40",
+			"title": "Chapter 40",
+			"sentenceCount": 103,
+			"paragraphCount": 37
+		},
+		{
+			"number": 41,
+			"id": "chapter-41",
+			"title": "Chapter 41",
+			"sentenceCount": 110,
+			"paragraphCount": 42
+		},
+		{
+			"number": 42,
+			"id": "chapter-42",
+			"title": "Chapter 42",
+			"sentenceCount": 64,
+			"paragraphCount": 19
+		},
+		{
+			"number": 43,
+			"id": "chapter-43",
+			"title": "Chapter 43",
+			"sentenceCount": 220,
+			"paragraphCount": 79
+		},
+		{
+			"number": 44,
+			"id": "chapter-44",
+			"title": "Chapter 44",
+			"sentenceCount": 73,
+			"paragraphCount": 20
+		},
+		{
+			"number": 45,
+			"id": "chapter-45",
+			"title": "Chapter 45",
+			"sentenceCount": 55,
+			"paragraphCount": 20
+		},
+		{
+			"number": 46,
+			"id": "chapter-46",
+			"title": "Chapter 46",
+			"sentenceCount": 149,
+			"paragraphCount": 34
+		},
+		{
+			"number": 47,
+			"id": "chapter-47",
+			"title": "Chapter 47",
+			"sentenceCount": 206,
+			"paragraphCount": 75
+		},
+		{
+			"number": 48,
+			"id": "chapter-48",
+			"title": "Chapter 48",
+			"sentenceCount": 96,
+			"paragraphCount": 36
+		},
+		{
+			"number": 49,
+			"id": "chapter-49",
+			"title": "Chapter 49",
+			"sentenceCount": 152,
+			"paragraphCount": 57
+		},
+		{
+			"number": 50,
+			"id": "chapter-50",
+			"title": "Chapter 50",
+			"sentenceCount": 88,
+			"paragraphCount": 24
+		},
+		{
+			"number": 51,
+			"id": "chapter-51",
+			"title": "Chapter 51",
+			"sentenceCount": 108,
+			"paragraphCount": 41
+		},
+		{
+			"number": 52,
+			"id": "chapter-52",
+			"title": "Chapter 52",
+			"sentenceCount": 168,
+			"paragraphCount": 40
+		},
+		{
+			"number": 53,
+			"id": "chapter-53",
+			"title": "Chapter 53",
+			"sentenceCount": 159,
+			"paragraphCount": 61
+		},
+		{
+			"number": 54,
+			"id": "chapter-54",
+			"title": "Chapter 54",
+			"sentenceCount": 94,
+			"paragraphCount": 37
+		},
+		{
+			"number": 55,
+			"id": "chapter-55",
+			"title": "Chapter 55",
+			"sentenceCount": 129,
+			"paragraphCount": 56
+		},
+		{
+			"number": 56,
+			"id": "chapter-56",
+			"title": "Chapter 56",
+			"sentenceCount": 194,
+			"paragraphCount": 78
+		},
+		{
+			"number": 57,
+			"id": "chapter-57",
+			"title": "Chapter 57",
+			"sentenceCount": 77,
+			"paragraphCount": 22
+		},
+		{
+			"number": 58,
+			"id": "chapter-58",
+			"title": "Chapter 58",
+			"sentenceCount": 136,
+			"paragraphCount": 47
+		},
+		{
+			"number": 59,
+			"id": "chapter-59",
+			"title": "Chapter 59",
+			"sentenceCount": 159,
+			"paragraphCount": 49
+		},
+		{
+			"number": 60,
+			"id": "chapter-60",
+			"title": "Chapter 60",
+			"sentenceCount": 88,
+			"paragraphCount": 29
+		},
+		{
+			"number": 61,
+			"id": "chapter-61",
+			"title": "Chapter 61",
+			"sentenceCount": 44,
+			"paragraphCount": 14
+		}
+	]
+}
