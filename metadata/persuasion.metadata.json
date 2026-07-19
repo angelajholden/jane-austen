@@ -1,0 +1,587 @@
+{
+	"id": "persuasion",
+	"title": "Persuasion",
+	"slug": "persuasion",
+	"author": "Jane Austen",
+	"gutenbergId": 105,
+	"sourceFile": "books/persuasion.txt",
+	"chapterCount": 24,
+	"sentenceCount": 3562,
+	"paragraphCount": 1010,
+	"characters": [
+		{
+			"id": "anne-elliot",
+			"name": "Anne Elliot",
+			"aliases": [
+				"Anne",
+				"Miss Anne Elliot"
+			]
+		},
+		{
+			"id": "frederick-wentworth",
+			"name": "Frederick Wentworth",
+			"aliases": [
+				"Captain Wentworth",
+				"Wentworth"
+			]
+		},
+		{
+			"id": "sir-walter-elliot",
+			"name": "Sir Walter Elliot",
+			"aliases": [
+				"Sir Walter"
+			]
+		},
+		{
+			"id": "elizabeth-elliot",
+			"name": "Elizabeth Elliot",
+			"aliases": [
+				"Elizabeth",
+				"Miss Elliot"
+			]
+		},
+		{
+			"id": "mary-musgrove",
+			"name": "Mary Musgrove",
+			"aliases": [
+				"Mary",
+				"Mrs. Charles Musgrove"
+			]
+		},
+		{
+			"id": "william-walter-elliot",
+			"name": "William Walter Elliot",
+			"aliases": [
+				"Mr. Elliot",
+				"William Elliot"
+			]
+		},
+		{
+			"id": "lady-russell",
+			"name": "Lady Russell",
+			"aliases": []
+		},
+		{
+			"id": "charles-musgrove",
+			"name": "Charles Musgrove",
+			"aliases": [
+				"Charles",
+				"Mr. Musgrove"
+			]
+		},
+		{
+			"id": "louisa-musgrove",
+			"name": "Louisa Musgrove",
+			"aliases": [
+				"Louisa",
+				"Miss Musgrove"
+			]
+		},
+		{
+			"id": "henrietta-musgrove",
+			"name": "Henrietta Musgrove",
+			"aliases": [
+				"Henrietta",
+				"Miss Musgrove"
+			]
+		},
+		{
+			"id": "mr-musgrove",
+			"name": "Mr. Musgrove",
+			"aliases": []
+		},
+		{
+			"id": "mrs-musgrove",
+			"name": "Mrs. Musgrove",
+			"aliases": []
+		},
+		{
+			"id": "admiral-croft",
+			"name": "Admiral Croft",
+			"aliases": []
+		},
+		{
+			"id": "sophia-croft",
+			"name": "Sophia Croft",
+			"aliases": [
+				"Mrs. Croft",
+				"Sophia"
+			]
+		},
+		{
+			"id": "captain-harville",
+			"name": "Captain Harville",
+			"aliases": []
+		},
+		{
+			"id": "mrs-harville",
+			"name": "Mrs. Harville",
+			"aliases": []
+		},
+		{
+			"id": "captain-benwick",
+			"name": "Captain Benwick",
+			"aliases": [
+				"Benwick"
+			]
+		},
+		{
+			"id": "charles-hayter",
+			"name": "Charles Hayter",
+			"aliases": [
+				"Mr. Hayter"
+			]
+		},
+		{
+			"id": "mary-smith",
+			"name": "Mary Smith",
+			"aliases": [
+				"Mrs. Smith",
+				"Miss Hamilton"
+			]
+		},
+		{
+			"id": "mrs-clay",
+			"name": "Mrs. Clay",
+			"aliases": [
+				"Penelope Clay",
+				"Miss Clay"
+			]
+		},
+		{
+			"id": "mr-shepherd",
+			"name": "Mr. Shepherd",
+			"aliases": []
+		},
+		{
+			"id": "mrs-rooke",
+			"name": "Mrs. Rooke",
+			"aliases": []
+		},
+		{
+			"id": "lady-dalrymple",
+			"name": "Lady Dalrymple",
+			"aliases": []
+		},
+		{
+			"id": "miss-carteret",
+			"name": "Miss Carteret",
+			"aliases": []
+		},
+		{
+			"id": "mrs-wallis",
+			"name": "Mrs. Wallis",
+			"aliases": []
+		},
+		{
+			"id": "mr-wallis",
+			"name": "Mr. Wallis",
+			"aliases": []
+		},
+		{
+			"id": "lady-elliot",
+			"name": "Lady Elliot",
+			"aliases": []
+		},
+		{
+			"id": "richard-musgrove",
+			"name": "Richard Musgrove",
+			"aliases": [
+				"Dick Musgrove"
+			]
+		},
+		{
+			"id": "james-stevenson",
+			"name": "James Stevenson",
+			"aliases": []
+		},
+		{
+			"id": "mr-wentworth",
+			"name": "Mr. Wentworth",
+			"aliases": []
+		}
+	],
+	"places": [
+		{
+			"id": "kellynch-hall",
+			"name": "Kellynch Hall",
+			"type": "estate",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "kellynch",
+			"name": "Kellynch",
+			"type": "village",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "uppercross-hall",
+			"name": "Uppercross Hall",
+			"type": "estate",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "uppercross-cottage",
+			"name": "Uppercross Cottage",
+			"type": "house",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "uppercross",
+			"name": "Uppercross",
+			"type": "village",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "bath",
+			"name": "Bath",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "lyme",
+			"name": "Lyme",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "camden-place",
+			"name": "Camden Place",
+			"type": "street",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "westgate-buildings",
+			"name": "Westgate Buildings",
+			"type": "street",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "milsom-street",
+			"name": "Milsom Street",
+			"type": "street",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "gay-street",
+			"name": "Gay Street",
+			"type": "street",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "union-street",
+			"name": "Union Street",
+			"type": "street",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "laura-place",
+			"name": "Laura Place",
+			"type": "street",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "pulteney-street",
+			"name": "Pulteney Street",
+			"type": "street",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "the-white-hart",
+			"name": "the White Hart",
+			"type": "inn",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "winthrop",
+			"name": "Winthrop",
+			"type": "farm",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "monkford",
+			"name": "Monkford",
+			"type": "parish",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "taunton",
+			"name": "Taunton",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "crewkherne",
+			"name": "Crewkherne",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "charmouth",
+			"name": "Charmouth",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "pinny",
+			"name": "Pinny",
+			"type": "coast",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "cobb",
+			"name": "Cobb",
+			"type": "harbour",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "somersetshire",
+			"name": "Somersetshire",
+			"type": "county",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "gloucester",
+			"name": "Gloucester",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "london",
+			"name": "London",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "gibraltar",
+			"name": "Gibraltar",
+			"type": "military location",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "east-indies",
+			"name": "East Indies",
+			"type": "region",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "west-indies",
+			"name": "West Indies",
+			"type": "region",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "ireland",
+			"name": "Ireland",
+			"type": "country",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "north-yarmouth",
+			"name": "North Yarmouth",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		}
+	],
+	"chapters": [
+		{
+			"id": "chapter-1",
+			"number": 1,
+			"title": "Chapter I",
+			"sentenceCount": 73,
+			"paragraphCount": 23
+		},
+		{
+			"id": "chapter-2",
+			"number": 2,
+			"title": "Chapter II",
+			"sentenceCount": 69,
+			"paragraphCount": 17
+		},
+		{
+			"id": "chapter-3",
+			"number": 3,
+			"title": "Chapter III",
+			"sentenceCount": 104,
+			"paragraphCount": 38
+		},
+		{
+			"id": "chapter-4",
+			"number": 4,
+			"title": "Chapter IV",
+			"sentenceCount": 54,
+			"paragraphCount": 12
+		},
+		{
+			"id": "chapter-5",
+			"number": 5,
+			"title": "Chapter V",
+			"sentenceCount": 134,
+			"paragraphCount": 46
+		},
+		{
+			"id": "chapter-6",
+			"number": 6,
+			"title": "Chapter VI",
+			"sentenceCount": 101,
+			"paragraphCount": 34
+		},
+		{
+			"id": "chapter-7",
+			"number": 7,
+			"title": "Chapter VII",
+			"sentenceCount": 149,
+			"paragraphCount": 41
+		},
+		{
+			"id": "chapter-8",
+			"number": 8,
+			"title": "Chapter VIII",
+			"sentenceCount": 159,
+			"paragraphCount": 59
+		},
+		{
+			"id": "chapter-9",
+			"number": 9,
+			"title": "Chapter IX",
+			"sentenceCount": 101,
+			"paragraphCount": 34
+		},
+		{
+			"id": "chapter-10",
+			"number": 10,
+			"title": "Chapter X",
+			"sentenceCount": 167,
+			"paragraphCount": 48
+		},
+		{
+			"id": "chapter-11",
+			"number": 11,
+			"title": "Chapter XI",
+			"sentenceCount": 66,
+			"paragraphCount": 26
+		},
+		{
+			"id": "chapter-12",
+			"number": 12,
+			"title": "Chapter XII",
+			"sentenceCount": 236,
+			"paragraphCount": 77
+		},
+		{
+			"id": "chapter-13",
+			"number": 13,
+			"title": "Chapter XIII",
+			"sentenceCount": 115,
+			"paragraphCount": 32
+		},
+		{
+			"id": "chapter-14",
+			"number": 14,
+			"title": "Chapter XIV",
+			"sentenceCount": 109,
+			"paragraphCount": 37
+		},
+		{
+			"id": "chapter-15",
+			"number": 15,
+			"title": "Chapter XV",
+			"sentenceCount": 124,
+			"paragraphCount": 24
+		},
+		{
+			"id": "chapter-16",
+			"number": 16,
+			"title": "Chapter XVI",
+			"sentenceCount": 97,
+			"paragraphCount": 22
+		},
+		{
+			"id": "chapter-17",
+			"number": 17,
+			"title": "Chapter XVII",
+			"sentenceCount": 138,
+			"paragraphCount": 30
+		},
+		{
+			"id": "chapter-18",
+			"number": 18,
+			"title": "Chapter XVIII",
+			"sentenceCount": 245,
+			"paragraphCount": 54
+		},
+		{
+			"id": "chapter-19",
+			"number": 19,
+			"title": "Chapter XIX",
+			"sentenceCount": 107,
+			"paragraphCount": 36
+		},
+		{
+			"id": "chapter-20",
+			"number": 20,
+			"title": "Chapter XX",
+			"sentenceCount": 184,
+			"paragraphCount": 51
+		},
+		{
+			"id": "chapter-21",
+			"number": 21,
+			"title": "Chapter XXI",
+			"sentenceCount": 373,
+			"paragraphCount": 104
+		},
+		{
+			"id": "chapter-22",
+			"number": 22,
+			"title": "Chapter XXII",
+			"sentenceCount": 276,
+			"paragraphCount": 70
+		},
+		{
+			"id": "chapter-23",
+			"number": 23,
+			"title": "Chapter XXIII",
+			"sentenceCount": 335,
+			"paragraphCount": 83
+		},
+		{
+			"id": "chapter-24",
+			"number": 24,
+			"title": "Chapter XXIV",
+			"sentenceCount": 46,
+			"paragraphCount": 12
+		}
+	]
+}
+

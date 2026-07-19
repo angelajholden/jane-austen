@@ -1,0 +1,511 @@
+{
+	"id": "northanger-abbey",
+	"title": "Northanger Abbey",
+	"slug": "northanger-abbey",
+	"author": "Jane Austen",
+	"gutenbergId": 121,
+	"sourceFile": "books/northanger-abbey.txt",
+	"chapterCount": 31,
+	"sentenceCount": 3220,
+	"paragraphCount": 1021,
+	"characters": [
+		{
+			"id": "catherine-morland",
+			"name": "Catherine Morland",
+			"aliases": [
+				"Catherine",
+				"Miss Morland"
+			]
+		},
+		{
+			"id": "henry-tilney",
+			"name": "Henry Tilney",
+			"aliases": [
+				"Henry",
+				"Mr. Tilney"
+			]
+		},
+		{
+			"id": "eleanor-tilney",
+			"name": "Eleanor Tilney",
+			"aliases": [
+				"Eleanor",
+				"Miss Tilney"
+			]
+		},
+		{
+			"id": "general-tilney",
+			"name": "General Tilney",
+			"aliases": [
+				"the General"
+			]
+		},
+		{
+			"id": "frederick-tilney",
+			"name": "Frederick Tilney",
+			"aliases": [
+				"Captain Tilney"
+			]
+		},
+		{
+			"id": "isabella-thorpe",
+			"name": "Isabella Thorpe",
+			"aliases": [
+				"Isabella",
+				"Miss Thorpe"
+			]
+		},
+		{
+			"id": "john-thorpe",
+			"name": "John Thorpe",
+			"aliases": [
+				"John",
+				"Mr. Thorpe"
+			]
+		},
+		{
+			"id": "james-morland",
+			"name": "James Morland",
+			"aliases": [
+				"James"
+			]
+		},
+		{
+			"id": "richard-morland",
+			"name": "Richard Morland",
+			"aliases": [
+				"Mr. Morland"
+			]
+		},
+		{
+			"id": "mrs-morland",
+			"name": "Mrs. Morland",
+			"aliases": []
+		},
+		{
+			"id": "mrs-allen",
+			"name": "Mrs. Allen",
+			"aliases": []
+		},
+		{
+			"id": "mr-allen",
+			"name": "Mr. Allen",
+			"aliases": []
+		},
+		{
+			"id": "mrs-thorpe",
+			"name": "Mrs. Thorpe",
+			"aliases": []
+		},
+		{
+			"id": "william-morland",
+			"name": "William Morland",
+			"aliases": [
+				"William"
+			]
+		},
+		{
+			"id": "george-morland",
+			"name": "George Morland",
+			"aliases": [
+				"George"
+			]
+		},
+		{
+			"id": "harriet-morland",
+			"name": "Harriet Morland",
+			"aliases": [
+				"Harriet"
+			]
+		},
+		{
+			"id": "sally-morland",
+			"name": "Sally Morland",
+			"aliases": [
+				"Sally"
+			]
+		},
+		{
+			"id": "miss-andrews",
+			"name": "Miss Andrews",
+			"aliases": []
+		},
+		{
+			"id": "mr-king",
+			"name": "Mr. King",
+			"aliases": []
+		},
+		{
+			"id": "mr-morris",
+			"name": "Mr. Morris",
+			"aliases": []
+		},
+		{
+			"id": "mr-richardson",
+			"name": "Mr. Richardson",
+			"aliases": []
+		}
+	],
+	"places": [
+		{
+			"id": "fullerton",
+			"name": "Fullerton",
+			"type": "village",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "bath",
+			"name": "Bath",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "northanger-abbey",
+			"name": "Northanger Abbey",
+			"type": "estate",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "pulteney-street",
+			"name": "Pulteney Street",
+			"type": "street",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "milsom-street",
+			"name": "Milsom Street",
+			"type": "street",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "edgars-buildings",
+			"name": "Edgar’s Buildings",
+			"type": "street",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "the-lower-rooms",
+			"name": "the Lower Rooms",
+			"type": "assembly rooms",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "the-upper-rooms",
+			"name": "the Upper Rooms",
+			"type": "assembly rooms",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "the-pump-room",
+			"name": "the Pump-room",
+			"type": "building",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "beechen-cliff",
+			"name": "Beechen Cliff",
+			"type": "hill",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "clifton",
+			"name": "Clifton",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "blaize-castle",
+			"name": "Blaize Castle",
+			"type": "castle",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "keynsham",
+			"name": "Keynsham",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "salisbury",
+			"name": "Salisbury",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "tetbury",
+			"name": "Tetbury",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "woodston",
+			"name": "Woodston",
+			"type": "parsonage",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "london",
+			"name": "London",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "gloucestershire",
+			"name": "Gloucestershire",
+			"type": "county",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "wiltshire",
+			"name": "Wiltshire",
+			"type": "county",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "oxford",
+			"name": "Oxford",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		}
+	],
+	"chapters": [
+		{
+			"id": "chapter-1",
+			"number": 1,
+			"title": "Chapter 1",
+			"sentenceCount": 51,
+			"paragraphCount": 18
+		},
+		{
+			"id": "chapter-2",
+			"number": 2,
+			"title": "Chapter 2",
+			"sentenceCount": 86,
+			"paragraphCount": 28
+		},
+		{
+			"id": "chapter-3",
+			"number": 3,
+			"title": "Chapter 3",
+			"sentenceCount": 89,
+			"paragraphCount": 52
+		},
+		{
+			"id": "chapter-4",
+			"number": 4,
+			"title": "Chapter 4",
+			"sentenceCount": 26,
+			"paragraphCount": 9
+		},
+		{
+			"id": "chapter-5",
+			"number": 5,
+			"title": "Chapter 5",
+			"sentenceCount": 34,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-6",
+			"number": 6,
+			"title": "Chapter 6",
+			"sentenceCount": 114,
+			"paragraphCount": 44
+		},
+		{
+			"id": "chapter-7",
+			"number": 7,
+			"title": "Chapter 7",
+			"sentenceCount": 100,
+			"paragraphCount": 54
+		},
+		{
+			"id": "chapter-8",
+			"number": 8,
+			"title": "Chapter 8",
+			"sentenceCount": 108,
+			"paragraphCount": 38
+		},
+		{
+			"id": "chapter-9",
+			"number": 9,
+			"title": "Chapter 9",
+			"sentenceCount": 133,
+			"paragraphCount": 51
+		},
+		{
+			"id": "chapter-10",
+			"number": 10,
+			"title": "Chapter 10",
+			"sentenceCount": 189,
+			"paragraphCount": 64
+		},
+		{
+			"id": "chapter-11",
+			"number": 11,
+			"title": "Chapter 11",
+			"sentenceCount": 172,
+			"paragraphCount": 65
+		},
+		{
+			"id": "chapter-12",
+			"number": 12,
+			"title": "Chapter 12",
+			"sentenceCount": 79,
+			"paragraphCount": 24
+		},
+		{
+			"id": "chapter-13",
+			"number": 13,
+			"title": "Chapter 13",
+			"sentenceCount": 151,
+			"paragraphCount": 41
+		},
+		{
+			"id": "chapter-14",
+			"number": 14,
+			"title": "Chapter 14",
+			"sentenceCount": 154,
+			"paragraphCount": 55
+		},
+		{
+			"id": "chapter-15",
+			"number": 15,
+			"title": "Chapter 15",
+			"sentenceCount": 161,
+			"paragraphCount": 48
+		},
+		{
+			"id": "chapter-16",
+			"number": 16,
+			"title": "Chapter 16",
+			"sentenceCount": 126,
+			"paragraphCount": 51
+		},
+		{
+			"id": "chapter-17",
+			"number": 17,
+			"title": "Chapter 17",
+			"sentenceCount": 53,
+			"paragraphCount": 13
+		},
+		{
+			"id": "chapter-18",
+			"number": 18,
+			"title": "Chapter 18",
+			"sentenceCount": 107,
+			"paragraphCount": 30
+		},
+		{
+			"id": "chapter-19",
+			"number": 19,
+			"title": "Chapter 19",
+			"sentenceCount": 89,
+			"paragraphCount": 32
+		},
+		{
+			"id": "chapter-20",
+			"number": 20,
+			"title": "Chapter 20",
+			"sentenceCount": 91,
+			"paragraphCount": 28
+		},
+		{
+			"id": "chapter-21",
+			"number": 21,
+			"title": "Chapter 21",
+			"sentenceCount": 101,
+			"paragraphCount": 12
+		},
+		{
+			"id": "chapter-22",
+			"number": 22,
+			"title": "Chapter 22",
+			"sentenceCount": 162,
+			"paragraphCount": 41
+		},
+		{
+			"id": "chapter-23",
+			"number": 23,
+			"title": "Chapter 23",
+			"sentenceCount": 73,
+			"paragraphCount": 19
+		},
+		{
+			"id": "chapter-24",
+			"number": 24,
+			"title": "Chapter 24",
+			"sentenceCount": 129,
+			"paragraphCount": 30
+		},
+		{
+			"id": "chapter-25",
+			"number": 25,
+			"title": "Chapter 25",
+			"sentenceCount": 139,
+			"paragraphCount": 42
+		},
+		{
+			"id": "chapter-26",
+			"number": 26,
+			"title": "Chapter 26",
+			"sentenceCount": 94,
+			"paragraphCount": 28
+		},
+		{
+			"id": "chapter-27",
+			"number": 27,
+			"title": "Chapter 27",
+			"sentenceCount": 66,
+			"paragraphCount": 18
+		},
+		{
+			"id": "chapter-28",
+			"number": 28,
+			"title": "Chapter 28",
+			"sentenceCount": 137,
+			"paragraphCount": 31
+		},
+		{
+			"id": "chapter-29",
+			"number": 29,
+			"title": "Chapter 29",
+			"sentenceCount": 97,
+			"paragraphCount": 28
+		},
+		{
+			"id": "chapter-30",
+			"number": 30,
+			"title": "Chapter 30",
+			"sentenceCount": 77,
+			"paragraphCount": 16
+		},
+		{
+			"id": "chapter-31",
+			"number": 31,
+			"title": "Chapter 31",
+			"sentenceCount": 32,
+			"paragraphCount": 7
+		}
+	]
+}
+

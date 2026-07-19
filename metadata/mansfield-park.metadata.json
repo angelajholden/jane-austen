@@ -1,0 +1,689 @@
+{
+	"id": "mansfield-park",
+	"title": "Mansfield Park",
+	"slug": "mansfield-park",
+	"author": "Jane Austen",
+	"gutenbergId": 141,
+	"sourceFile": "books/mansfield-park.txt",
+	"chapterCount": 48,
+	"sentenceCount": 6665,
+	"paragraphCount": 1792,
+	"characters": [
+		{
+			"id": "fanny-price",
+			"name": "Fanny Price",
+			"aliases": [
+				"Fanny",
+				"Miss Price"
+			]
+		},
+		{
+			"id": "edmund-bertram",
+			"name": "Edmund Bertram",
+			"aliases": [
+				"Edmund",
+				"Mr. Bertram"
+			]
+		},
+		{
+			"id": "sir-thomas-bertram",
+			"name": "Sir Thomas Bertram",
+			"aliases": [
+				"Sir Thomas"
+			]
+		},
+		{
+			"id": "lady-bertram",
+			"name": "Lady Bertram",
+			"aliases": []
+		},
+		{
+			"id": "tom-bertram",
+			"name": "Tom Bertram",
+			"aliases": [
+				"Tom",
+				"Mr. Bertram"
+			]
+		},
+		{
+			"id": "maria-bertram",
+			"name": "Maria Bertram",
+			"aliases": [
+				"Maria",
+				"Miss Bertram",
+				"Mrs. Rushworth"
+			]
+		},
+		{
+			"id": "julia-bertram",
+			"name": "Julia Bertram",
+			"aliases": [
+				"Julia",
+				"Miss Julia",
+				"Miss Bertram"
+			]
+		},
+		{
+			"id": "mrs-norris",
+			"name": "Mrs. Norris",
+			"aliases": [
+				"Aunt Norris"
+			]
+		},
+		{
+			"id": "mr-norris",
+			"name": "Mr. Norris",
+			"aliases": []
+		},
+		{
+			"id": "william-price",
+			"name": "William Price",
+			"aliases": [
+				"William"
+			]
+		},
+		{
+			"id": "susan-price",
+			"name": "Susan Price",
+			"aliases": [
+				"Susan"
+			]
+		},
+		{
+			"id": "mrs-price",
+			"name": "Mrs. Price",
+			"aliases": [
+				"Fanny Price"
+			]
+		},
+		{
+			"id": "mr-price",
+			"name": "Mr. Price",
+			"aliases": []
+		},
+		{
+			"id": "henry-crawford",
+			"name": "Henry Crawford",
+			"aliases": [
+				"Henry",
+				"Mr. Crawford"
+			]
+		},
+		{
+			"id": "mary-crawford",
+			"name": "Mary Crawford",
+			"aliases": [
+				"Mary",
+				"Miss Crawford"
+			]
+		},
+		{
+			"id": "mr-rushworth",
+			"name": "Mr. Rushworth",
+			"aliases": [
+				"James Rushworth"
+			]
+		},
+		{
+			"id": "mrs-rushworth",
+			"name": "Mrs. Rushworth",
+			"aliases": []
+		},
+		{
+			"id": "dr-grant",
+			"name": "Dr. Grant",
+			"aliases": []
+		},
+		{
+			"id": "mrs-grant",
+			"name": "Mrs. Grant",
+			"aliases": []
+		},
+		{
+			"id": "mr-yates",
+			"name": "Mr. Yates",
+			"aliases": [
+				"Yates"
+			]
+		},
+		{
+			"id": "john-proctor",
+			"name": "John Proctor",
+			"aliases": []
+		},
+		{
+			"id": "baddeley",
+			"name": "Baddeley",
+			"aliases": []
+		},
+		{
+			"id": "rebecca",
+			"name": "Rebecca",
+			"aliases": []
+		},
+		{
+			"id": "betsey-price",
+			"name": "Betsey Price",
+			"aliases": [
+				"Betsey"
+			]
+		},
+		{
+			"id": "sam-price",
+			"name": "Sam Price",
+			"aliases": [
+				"Sam"
+			]
+		},
+		{
+			"id": "tom-price",
+			"name": "Tom Price",
+			"aliases": [
+				"Tom"
+			]
+		},
+		{
+			"id": "charles-price",
+			"name": "Charles Price",
+			"aliases": [
+				"Charles"
+			]
+		},
+		{
+			"id": "mr-harding",
+			"name": "Mr. Harding",
+			"aliases": []
+		},
+		{
+			"id": "lord-ravenshaw",
+			"name": "Lord Ravenshaw",
+			"aliases": []
+		},
+		{
+			"id": "mr-owen",
+			"name": "Mr. Owen",
+			"aliases": []
+		}
+	],
+	"places": [
+		{
+			"id": "mansfield-park",
+			"name": "Mansfield Park",
+			"type": "estate",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "mansfield",
+			"name": "Mansfield",
+			"type": "parish",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "mansfield-parsonage",
+			"name": "Mansfield Parsonage",
+			"type": "parsonage",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "thornton-lacey",
+			"name": "Thornton Lacey",
+			"type": "parsonage",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "sotherton-court",
+			"name": "Sotherton Court",
+			"type": "estate",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "portsmouth",
+			"name": "Portsmouth",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "huntingdon",
+			"name": "Huntingdon",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "northampton",
+			"name": "Northampton",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "northamptonshire",
+			"name": "Northamptonshire",
+			"type": "county",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "london",
+			"name": "London",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "antigua",
+			"name": "Antigua",
+			"type": "island",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "everingham",
+			"name": "Everingham",
+			"type": "estate",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "easton",
+			"name": "Easton",
+			"type": "village",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "stoke",
+			"name": "Stoke",
+			"type": "place",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "newcastle",
+			"name": "Newcastle",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "oxford",
+			"name": "Oxford",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "westminster",
+			"name": "Westminster",
+			"type": "district",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "the-crown",
+			"name": "the Crown",
+			"type": "inn",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "the-portsmouth-theatre",
+			"name": "the Portsmouth theatre",
+			"type": "theatre",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "the-east-room",
+			"name": "the East room",
+			"type": "room",
+			"aliases": [],
+			"notes": ""
+		}
+	],
+	"chapters": [
+		{
+			"id": "chapter-1",
+			"number": 1,
+			"title": "Chapter I",
+			"sentenceCount": 94,
+			"paragraphCount": 20
+		},
+		{
+			"id": "chapter-2",
+			"number": 2,
+			"title": "Chapter II",
+			"sentenceCount": 114,
+			"paragraphCount": 35
+		},
+		{
+			"id": "chapter-3",
+			"number": 3,
+			"title": "Chapter III",
+			"sentenceCount": 170,
+			"paragraphCount": 64
+		},
+		{
+			"id": "chapter-4",
+			"number": 4,
+			"title": "Chapter IV",
+			"sentenceCount": 95,
+			"paragraphCount": 27
+		},
+		{
+			"id": "chapter-5",
+			"number": 5,
+			"title": "Chapter V",
+			"sentenceCount": 164,
+			"paragraphCount": 43
+		},
+		{
+			"id": "chapter-6",
+			"number": 6,
+			"title": "Chapter VI",
+			"sentenceCount": 175,
+			"paragraphCount": 61
+		},
+		{
+			"id": "chapter-7",
+			"number": 7,
+			"title": "Chapter VII",
+			"sentenceCount": 177,
+			"paragraphCount": 59
+		},
+		{
+			"id": "chapter-8",
+			"number": 8,
+			"title": "Chapter VIII",
+			"sentenceCount": 115,
+			"paragraphCount": 37
+		},
+		{
+			"id": "chapter-9",
+			"number": 9,
+			"title": "Chapter IX",
+			"sentenceCount": 209,
+			"paragraphCount": 76
+		},
+		{
+			"id": "chapter-10",
+			"number": 10,
+			"title": "Chapter X",
+			"sentenceCount": 162,
+			"paragraphCount": 57
+		},
+		{
+			"id": "chapter-11",
+			"number": 11,
+			"title": "Chapter XI",
+			"sentenceCount": 110,
+			"paragraphCount": 43
+		},
+		{
+			"id": "chapter-12",
+			"number": 12,
+			"title": "Chapter XII",
+			"sentenceCount": 88,
+			"paragraphCount": 27
+		},
+		{
+			"id": "chapter-13",
+			"number": 13,
+			"title": "Chapter XIII",
+			"sentenceCount": 124,
+			"paragraphCount": 40
+		},
+		{
+			"id": "chapter-14",
+			"number": 14,
+			"title": "Chapter XIV",
+			"sentenceCount": 138,
+			"paragraphCount": 24
+		},
+		{
+			"id": "chapter-15",
+			"number": 15,
+			"title": "Chapter XV",
+			"sentenceCount": 165,
+			"paragraphCount": 62
+		},
+		{
+			"id": "chapter-16",
+			"number": 16,
+			"title": "Chapter XVI",
+			"sentenceCount": 115,
+			"paragraphCount": 28
+		},
+		{
+			"id": "chapter-17",
+			"number": 17,
+			"title": "Chapter XVII",
+			"sentenceCount": 77,
+			"paragraphCount": 25
+		},
+		{
+			"id": "chapter-18",
+			"number": 18,
+			"title": "Chapter XVIII",
+			"sentenceCount": 127,
+			"paragraphCount": 33
+		},
+		{
+			"id": "chapter-19",
+			"number": 19,
+			"title": "Chapter XIX",
+			"sentenceCount": 144,
+			"paragraphCount": 35
+		},
+		{
+			"id": "chapter-20",
+			"number": 20,
+			"title": "Chapter XX",
+			"sentenceCount": 105,
+			"paragraphCount": 22
+		},
+		{
+			"id": "chapter-21",
+			"number": 21,
+			"title": "Chapter XXI",
+			"sentenceCount": 136,
+			"paragraphCount": 34
+		},
+		{
+			"id": "chapter-22",
+			"number": 22,
+			"title": "Chapter XXII",
+			"sentenceCount": 152,
+			"paragraphCount": 51
+		},
+		{
+			"id": "chapter-23",
+			"number": 23,
+			"title": "Chapter XXIII",
+			"sentenceCount": 195,
+			"paragraphCount": 69
+		},
+		{
+			"id": "chapter-24",
+			"number": 24,
+			"title": "Chapter XXIV",
+			"sentenceCount": 100,
+			"paragraphCount": 23
+		},
+		{
+			"id": "chapter-25",
+			"number": 25,
+			"title": "Chapter XXV",
+			"sentenceCount": 191,
+			"paragraphCount": 66
+		},
+		{
+			"id": "chapter-26",
+			"number": 26,
+			"title": "Chapter XXVI",
+			"sentenceCount": 112,
+			"paragraphCount": 24
+		},
+		{
+			"id": "chapter-27",
+			"number": 27,
+			"title": "Chapter XXVII",
+			"sentenceCount": 170,
+			"paragraphCount": 41
+		},
+		{
+			"id": "chapter-28",
+			"number": 28,
+			"title": "Chapter XXVIII",
+			"sentenceCount": 134,
+			"paragraphCount": 34
+		},
+		{
+			"id": "chapter-29",
+			"number": 29,
+			"title": "Chapter XXIX",
+			"sentenceCount": 154,
+			"paragraphCount": 39
+		},
+		{
+			"id": "chapter-30",
+			"number": 30,
+			"title": "Chapter XXX",
+			"sentenceCount": 129,
+			"paragraphCount": 35
+		},
+		{
+			"id": "chapter-31",
+			"number": 31,
+			"title": "Chapter XXXI",
+			"sentenceCount": 151,
+			"paragraphCount": 38
+		},
+		{
+			"id": "chapter-32",
+			"number": 32,
+			"title": "Chapter XXXII",
+			"sentenceCount": 230,
+			"paragraphCount": 62
+		},
+		{
+			"id": "chapter-33",
+			"number": 33,
+			"title": "Chapter XXXIII",
+			"sentenceCount": 119,
+			"paragraphCount": 28
+		},
+		{
+			"id": "chapter-34",
+			"number": 34,
+			"title": "Chapter XXXIV",
+			"sentenceCount": 175,
+			"paragraphCount": 44
+		},
+		{
+			"id": "chapter-35",
+			"number": 35,
+			"title": "Chapter XXXV",
+			"sentenceCount": 217,
+			"paragraphCount": 55
+		},
+		{
+			"id": "chapter-36",
+			"number": 36,
+			"title": "Chapter XXXVI",
+			"sentenceCount": 183,
+			"paragraphCount": 37
+		},
+		{
+			"id": "chapter-37",
+			"number": 37,
+			"title": "Chapter XXXVII",
+			"sentenceCount": 100,
+			"paragraphCount": 29
+		},
+		{
+			"id": "chapter-38",
+			"number": 38,
+			"title": "Chapter XXXVIII",
+			"sentenceCount": 184,
+			"paragraphCount": 46
+		},
+		{
+			"id": "chapter-39",
+			"number": 39,
+			"title": "Chapter XXXIX",
+			"sentenceCount": 55,
+			"paragraphCount": 12
+		},
+		{
+			"id": "chapter-40",
+			"number": 40,
+			"title": "Chapter XL",
+			"sentenceCount": 72,
+			"paragraphCount": 10
+		},
+		{
+			"id": "chapter-41",
+			"number": 41,
+			"title": "Chapter XLI",
+			"sentenceCount": 82,
+			"paragraphCount": 23
+		},
+		{
+			"id": "chapter-42",
+			"number": 42,
+			"title": "Chapter XLII",
+			"sentenceCount": 97,
+			"paragraphCount": 32
+		},
+		{
+			"id": "chapter-43",
+			"number": 43,
+			"title": "Chapter XLIII",
+			"sentenceCount": 70,
+			"paragraphCount": 10
+		},
+		{
+			"id": "chapter-44",
+			"number": 44,
+			"title": "Chapter XLIV",
+			"sentenceCount": 164,
+			"paragraphCount": 15
+		},
+		{
+			"id": "chapter-45",
+			"number": 45,
+			"title": "Chapter XLV",
+			"sentenceCount": 118,
+			"paragraphCount": 16
+		},
+		{
+			"id": "chapter-46",
+			"number": 46,
+			"title": "Chapter XLVI",
+			"sentenceCount": 171,
+			"paragraphCount": 37
+		},
+		{
+			"id": "chapter-47",
+			"number": 47,
+			"title": "Chapter XLVII",
+			"sentenceCount": 207,
+			"paragraphCount": 31
+		},
+		{
+			"id": "chapter-48",
+			"number": 48,
+			"title": "Chapter XLVIII",
+			"sentenceCount": 129,
+			"paragraphCount": 33
+		}
+	]
+}
+

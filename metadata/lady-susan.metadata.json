@@ -1,0 +1,499 @@
+{
+	"id": "lady-susan",
+	"title": "Lady Susan",
+	"slug": "lady-susan",
+	"author": "Jane Austen",
+	"gutenbergId": 946,
+	"sourceFile": "books/lady-susan.txt",
+	"chapterCount": 42,
+	"sentenceCount": 975,
+	"paragraphCount": 183,
+	"characters": [
+		{
+			"id": "lady-susan-vernon",
+			"name": "Lady Susan Vernon",
+			"aliases": [
+				"Lady Susan",
+				"S. Vernon"
+			]
+		},
+		{
+			"id": "frederica-vernon",
+			"name": "Frederica Vernon",
+			"aliases": [
+				"Frederica",
+				"Miss Vernon"
+			]
+		},
+		{
+			"id": "charles-vernon",
+			"name": "Charles Vernon",
+			"aliases": [
+				"Mr. Vernon",
+				"Charles"
+			]
+		},
+		{
+			"id": "catherine-vernon",
+			"name": "Catherine Vernon",
+			"aliases": [
+				"Mrs. Vernon",
+				"Catherine"
+			]
+		},
+		{
+			"id": "reginald-de-courcy",
+			"name": "Reginald De Courcy",
+			"aliases": [
+				"Reginald",
+				"Mr. De Courcy"
+			]
+		},
+		{
+			"id": "sir-reginald-de-courcy",
+			"name": "Sir Reginald De Courcy",
+			"aliases": [
+				"Sir Reginald"
+			]
+		},
+		{
+			"id": "lady-de-courcy",
+			"name": "Lady De Courcy",
+			"aliases": []
+		},
+		{
+			"id": "alicia-johnson",
+			"name": "Alicia Johnson",
+			"aliases": [
+				"Mrs. Johnson",
+				"Alicia"
+			]
+		},
+		{
+			"id": "mr-johnson",
+			"name": "Mr. Johnson",
+			"aliases": []
+		},
+		{
+			"id": "sir-james-martin",
+			"name": "Sir James Martin",
+			"aliases": [
+				"Sir James"
+			]
+		},
+		{
+			"id": "mr-manwaring",
+			"name": "Mr. Manwaring",
+			"aliases": []
+		},
+		{
+			"id": "mrs-manwaring",
+			"name": "Mrs. Manwaring",
+			"aliases": []
+		},
+		{
+			"id": "miss-maria-manwaring",
+			"name": "Miss Maria Manwaring",
+			"aliases": [
+				"Miss Manwaring",
+				"Maria"
+			]
+		},
+		{
+			"id": "mr-smith",
+			"name": "Mr. Smith",
+			"aliases": []
+		},
+		{
+			"id": "miss-summers",
+			"name": "Miss Summers",
+			"aliases": []
+		},
+		{
+			"id": "wilson",
+			"name": "Wilson",
+			"aliases": []
+		},
+		{
+			"id": "mainwaring",
+			"name": "Mainwaring",
+			"aliases": []
+		}
+	],
+	"places": [
+		{
+			"id": "churchhill",
+			"name": "Churchhill",
+			"type": "estate",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "langford",
+			"name": "Langford",
+			"type": "estate",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "london",
+			"name": "London",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "parklands",
+			"name": "Parklands",
+			"type": "estate",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "edward-street",
+			"name": "Edward Street",
+			"type": "street",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "portman-square",
+			"name": "Portman Square",
+			"type": "square",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "vernon-castle",
+			"name": "Vernon Castle",
+			"type": "estate",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "staffordshire",
+			"name": "Staffordshire",
+			"type": "county",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "cumberland",
+			"name": "Cumberland",
+			"type": "county",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "the-upper-seymour-street-school",
+			"name": "the Upper Seymour Street school",
+			"type": "school",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "bath",
+			"name": "Bath",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		}
+	],
+	"chapters": [
+		{
+			"id": "chapter-1",
+			"number": 1,
+			"title": "Letter I",
+			"sentenceCount": 11,
+			"paragraphCount": 5
+		},
+		{
+			"id": "chapter-2",
+			"number": 2,
+			"title": "Letter II",
+			"sentenceCount": 26,
+			"paragraphCount": 7
+		},
+		{
+			"id": "chapter-3",
+			"number": 3,
+			"title": "Letter III",
+			"sentenceCount": 16,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-4",
+			"number": 4,
+			"title": "Letter IV",
+			"sentenceCount": 13,
+			"paragraphCount": 6
+		},
+		{
+			"id": "chapter-5",
+			"number": 5,
+			"title": "Letter V",
+			"sentenceCount": 24,
+			"paragraphCount": 6
+		},
+		{
+			"id": "chapter-6",
+			"number": 6,
+			"title": "Letter VI",
+			"sentenceCount": 21,
+			"paragraphCount": 5
+		},
+		{
+			"id": "chapter-7",
+			"number": 7,
+			"title": "Letter VII",
+			"sentenceCount": 26,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-8",
+			"number": 8,
+			"title": "Letter VIII",
+			"sentenceCount": 17,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-9",
+			"number": 9,
+			"title": "Letter IX",
+			"sentenceCount": 13,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-10",
+			"number": 10,
+			"title": "Letter X",
+			"sentenceCount": 21,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-11",
+			"number": 11,
+			"title": "Letter XI",
+			"sentenceCount": 15,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-12",
+			"number": 12,
+			"title": "Letter XII",
+			"sentenceCount": 21,
+			"paragraphCount": 7
+		},
+		{
+			"id": "chapter-13",
+			"number": 13,
+			"title": "Letter XIII",
+			"sentenceCount": 14,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-14",
+			"number": 14,
+			"title": "Letter XIV",
+			"sentenceCount": 26,
+			"paragraphCount": 5
+		},
+		{
+			"id": "chapter-15",
+			"number": 15,
+			"title": "Letter XV",
+			"sentenceCount": 28,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-16",
+			"number": 16,
+			"title": "Letter XVI",
+			"sentenceCount": 24,
+			"paragraphCount": 5
+		},
+		{
+			"id": "chapter-17",
+			"number": 17,
+			"title": "Letter XVII",
+			"sentenceCount": 38,
+			"paragraphCount": 5
+		},
+		{
+			"id": "chapter-18",
+			"number": 18,
+			"title": "Letter XVIII",
+			"sentenceCount": 15,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-19",
+			"number": 19,
+			"title": "Letter XIX",
+			"sentenceCount": 24,
+			"paragraphCount": 5
+		},
+		{
+			"id": "chapter-20",
+			"number": 20,
+			"title": "Letter XX",
+			"sentenceCount": 47,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-21",
+			"number": 21,
+			"title": "Letter XXI",
+			"sentenceCount": 11,
+			"paragraphCount": 3
+		},
+		{
+			"id": "chapter-22",
+			"number": 22,
+			"title": "Letter XXII",
+			"sentenceCount": 45,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-23",
+			"number": 23,
+			"title": "Letter XXIII",
+			"sentenceCount": 39,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-24",
+			"number": 24,
+			"title": "Letter XXIV",
+			"sentenceCount": 126,
+			"paragraphCount": 6
+		},
+		{
+			"id": "chapter-25",
+			"number": 25,
+			"title": "Letter XXV",
+			"sentenceCount": 40,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-26",
+			"number": 26,
+			"title": "Letter XXVI",
+			"sentenceCount": 22,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-27",
+			"number": 27,
+			"title": "Letter XXVII",
+			"sentenceCount": 18,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-28",
+			"number": 28,
+			"title": "Letter XXVIII",
+			"sentenceCount": 13,
+			"paragraphCount": 5
+		},
+		{
+			"id": "chapter-29",
+			"number": 29,
+			"title": "Letter XXIX",
+			"sentenceCount": 14,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-30",
+			"number": 30,
+			"title": "Letter XXX",
+			"sentenceCount": 24,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-31",
+			"number": 31,
+			"title": "Letter XXXI",
+			"sentenceCount": 15,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-32",
+			"number": 32,
+			"title": "Letter XXXII",
+			"sentenceCount": 18,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-33",
+			"number": 33,
+			"title": "Letter XXXIII",
+			"sentenceCount": 13,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-34",
+			"number": 34,
+			"title": "Letter XXXIV",
+			"sentenceCount": 11,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-35",
+			"number": 35,
+			"title": "Letter XXXV",
+			"sentenceCount": 13,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-36",
+			"number": 36,
+			"title": "Letter XXXVI",
+			"sentenceCount": 14,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-37",
+			"number": 37,
+			"title": "Letter XXXVII",
+			"sentenceCount": 6,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-38",
+			"number": 38,
+			"title": "Letter XXXVIII",
+			"sentenceCount": 15,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-39",
+			"number": 39,
+			"title": "Letter XXXIX",
+			"sentenceCount": 19,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-40",
+			"number": 40,
+			"title": "Letter XL",
+			"sentenceCount": 11,
+			"paragraphCount": 3
+		},
+		{
+			"id": "chapter-41",
+			"number": 41,
+			"title": "Letter XLI",
+			"sentenceCount": 23,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-42",
+			"number": 42,
+			"title": "Conclusion",
+			"sentenceCount": 25,
+			"paragraphCount": 2
+		}
+	]
+}
+

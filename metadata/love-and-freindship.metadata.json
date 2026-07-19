@@ -1,0 +1,593 @@
+{
+	"id": "love-and-freindship",
+	"title": "Love and Freindship [sic]",
+	"slug": "love-and-freindship",
+	"author": "Jane Austen",
+	"gutenbergId": 1212,
+	"sourceFile": "books/love-and-freindship.txt",
+	"chapterCount": 36,
+	"sentenceCount": 1338,
+	"paragraphCount": 444,
+	"characters": [
+		{
+			"id": "laura",
+			"name": "Laura",
+			"aliases": []
+		},
+		{
+			"id": "isabel",
+			"name": "Isabel",
+			"aliases": []
+		},
+		{
+			"id": "marianne",
+			"name": "Marianne",
+			"aliases": []
+		},
+		{
+			"id": "edward",
+			"name": "Edward",
+			"aliases": []
+		},
+		{
+			"id": "augustus",
+			"name": "Augustus",
+			"aliases": []
+		},
+		{
+			"id": "sophia",
+			"name": "Sophia",
+			"aliases": []
+		},
+		{
+			"id": "sir-edward",
+			"name": "Sir Edward",
+			"aliases": []
+		},
+		{
+			"id": "lady-dorothea",
+			"name": "Lady Dorothea",
+			"aliases": []
+		},
+		{
+			"id": "philander",
+			"name": "Philander",
+			"aliases": []
+		},
+		{
+			"id": "gustavus",
+			"name": "Gustavus",
+			"aliases": []
+		},
+		{
+			"id": "janetta",
+			"name": "Janetta",
+			"aliases": []
+		},
+		{
+			"id": "macdonald",
+			"name": "Macdonald",
+			"aliases": []
+		},
+		{
+			"id": "lady-macdonald",
+			"name": "Lady Macdonald",
+			"aliases": []
+		},
+		{
+			"id": "sir-charles",
+			"name": "Sir Charles",
+			"aliases": []
+		},
+		{
+			"id": "lady-bridget",
+			"name": "Lady Bridget",
+			"aliases": []
+		},
+		{
+			"id": "miss-margaret-lesley",
+			"name": "Miss Margaret Lesley",
+			"aliases": [
+				"Margaret Lesley",
+				"Margaret"
+			]
+		},
+		{
+			"id": "charlotte-lutterell",
+			"name": "Charlotte Lutterell",
+			"aliases": [
+				"Miss Lutterell",
+				"Charlotte"
+			]
+		},
+		{
+			"id": "lady-lesley",
+			"name": "Lady Lesley",
+			"aliases": []
+		},
+		{
+			"id": "sir-george-lesley",
+			"name": "Sir George Lesley",
+			"aliases": [
+				"Sir George"
+			]
+		},
+		{
+			"id": "louisa-burton",
+			"name": "Louisa Burton",
+			"aliases": [
+				"Louisa"
+			]
+		},
+		{
+			"id": "henry-lesley",
+			"name": "Henry Lesley",
+			"aliases": [
+				"Henry"
+			]
+		},
+		{
+			"id": "eloisa-lesley",
+			"name": "Eloisa Lesley",
+			"aliases": [
+				"Eloisa"
+			]
+		},
+		{
+			"id": "mrs-marlowe",
+			"name": "Mrs. Marlowe",
+			"aliases": []
+		},
+		{
+			"id": "cecilia",
+			"name": "Cecilia",
+			"aliases": []
+		},
+		{
+			"id": "wilhelminus",
+			"name": "Wilhelminus",
+			"aliases": []
+		},
+		{
+			"id": "robertus",
+			"name": "Robertus",
+			"aliases": []
+		},
+		{
+			"id": "arabella",
+			"name": "Arabella",
+			"aliases": []
+		},
+		{
+			"id": "marina",
+			"name": "Marina",
+			"aliases": []
+		},
+		{
+			"id": "anna-parker",
+			"name": "Anna Parker",
+			"aliases": [
+				"Anna"
+			]
+		},
+		{
+			"id": "elizabeth-johnson",
+			"name": "Elizabeth Johnson",
+			"aliases": []
+		},
+		{
+			"id": "fanny",
+			"name": "Fanny",
+			"aliases": []
+		},
+		{
+			"id": "clara",
+			"name": "Clara",
+			"aliases": []
+		}
+	],
+	"places": [
+		{
+			"id": "scotland",
+			"name": "Scotland",
+			"type": "country",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "london",
+			"name": "London",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "wales",
+			"name": "Wales",
+			"type": "country",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "england",
+			"name": "England",
+			"type": "country",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "middlesex",
+			"name": "Middlesex",
+			"type": "county",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "surrey",
+			"name": "Surrey",
+			"type": "county",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "edinburgh",
+			"name": "Edinburgh",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "sterling",
+			"name": "Sterling",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "bedfordshire",
+			"name": "Bedfordshire",
+			"type": "county",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "dover",
+			"name": "Dover",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "calais",
+			"name": "Calais",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "lesley-castle",
+			"name": "Lesley Castle",
+			"type": "castle",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "bristol",
+			"name": "Bristol",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "bristol-downs",
+			"name": "Bristol Downs",
+			"type": "park",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "carmarthen",
+			"name": "Carmarthen",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "hereford",
+			"name": "Hereford",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "pembrokeshire",
+			"name": "Pembrokeshire",
+			"type": "county",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "the-forest",
+			"name": "The Forest",
+			"type": "forest",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "the-cottage",
+			"name": "the Cottage",
+			"type": "house",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "france",
+			"name": "France",
+			"type": "country",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "america",
+			"name": "America",
+			"type": "country",
+			"aliases": [],
+			"notes": ""
+		}
+	],
+	"chapters": [
+		{
+			"id": "chapter-1",
+			"number": 1,
+			"title": "LETTER the FIRST",
+			"sentenceCount": 6,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-2",
+			"number": 2,
+			"title": "LETTER 2nd",
+			"sentenceCount": 3,
+			"paragraphCount": 3
+		},
+		{
+			"id": "chapter-3",
+			"number": 3,
+			"title": "LETTER 3rd",
+			"sentenceCount": 16,
+			"paragraphCount": 7
+		},
+		{
+			"id": "chapter-4",
+			"number": 4,
+			"title": "LETTER 4th",
+			"sentenceCount": 15,
+			"paragraphCount": 6
+		},
+		{
+			"id": "chapter-5",
+			"number": 5,
+			"title": "LETTER 5th",
+			"sentenceCount": 19,
+			"paragraphCount": 12
+		},
+		{
+			"id": "chapter-6",
+			"number": 6,
+			"title": "LETTER 6th",
+			"sentenceCount": 26,
+			"paragraphCount": 8
+		},
+		{
+			"id": "chapter-7",
+			"number": 7,
+			"title": "LETTER 7th",
+			"sentenceCount": 37,
+			"paragraphCount": 18
+		},
+		{
+			"id": "chapter-8",
+			"number": 8,
+			"title": "LETTER 8th",
+			"sentenceCount": 21,
+			"paragraphCount": 9
+		},
+		{
+			"id": "chapter-9",
+			"number": 9,
+			"title": "LETTER the 9th",
+			"sentenceCount": 23,
+			"paragraphCount": 9
+		},
+		{
+			"id": "chapter-10",
+			"number": 10,
+			"title": "LETTER 10th",
+			"sentenceCount": 24,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-11",
+			"number": 11,
+			"title": "LETTER 11th",
+			"sentenceCount": 27,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-12",
+			"number": 12,
+			"title": "LETTER the 12th",
+			"sentenceCount": 37,
+			"paragraphCount": 7
+		},
+		{
+			"id": "chapter-13",
+			"number": 13,
+			"title": "LETTER the 13th",
+			"sentenceCount": 75,
+			"paragraphCount": 20
+		},
+		{
+			"id": "chapter-14",
+			"number": 14,
+			"title": "LETTER the 14th",
+			"sentenceCount": 61,
+			"paragraphCount": 13
+		},
+		{
+			"id": "chapter-15",
+			"number": 15,
+			"title": "LETTER the 15th",
+			"sentenceCount": 52,
+			"paragraphCount": 22
+		},
+		{
+			"id": "chapter-16",
+			"number": 16,
+			"title": "LETTER the FIRST is from",
+			"sentenceCount": 33,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-17",
+			"number": 17,
+			"title": "LETTER the SECOND",
+			"sentenceCount": 36,
+			"paragraphCount": 9
+		},
+		{
+			"id": "chapter-18",
+			"number": 18,
+			"title": "LETTER the THIRD",
+			"sentenceCount": 33,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-19",
+			"number": 19,
+			"title": "LETTER the FOURTH",
+			"sentenceCount": 32,
+			"paragraphCount": 8
+		},
+		{
+			"id": "chapter-20",
+			"number": 20,
+			"title": "LETTER the FIFTH",
+			"sentenceCount": 13,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-21",
+			"number": 21,
+			"title": "LETTER the SIXTH",
+			"sentenceCount": 71,
+			"paragraphCount": 34
+		},
+		{
+			"id": "chapter-22",
+			"number": 22,
+			"title": "LETTER the SEVENTH",
+			"sentenceCount": 39,
+			"paragraphCount": 6
+		},
+		{
+			"id": "chapter-23",
+			"number": 23,
+			"title": "LETTER the EIGHTH",
+			"sentenceCount": 11,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-24",
+			"number": 24,
+			"title": "LETTER the NINTH",
+			"sentenceCount": 20,
+			"paragraphCount": 7
+		},
+		{
+			"id": "chapter-25",
+			"number": 25,
+			"title": "LETTER the TENTH",
+			"sentenceCount": 52,
+			"paragraphCount": 12
+		},
+		{
+			"id": "chapter-26",
+			"number": 26,
+			"title": "The History of England",
+			"sentenceCount": 110,
+			"paragraphCount": 39
+		},
+		{
+			"id": "chapter-27",
+			"number": 27,
+			"title": "LETTER the FIRST",
+			"sentenceCount": 28,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-28",
+			"number": 28,
+			"title": "LETTER the SECOND",
+			"sentenceCount": 63,
+			"paragraphCount": 17
+		},
+		{
+			"id": "chapter-29",
+			"number": 29,
+			"title": "LETTER the THIRD",
+			"sentenceCount": 60,
+			"paragraphCount": 16
+		},
+		{
+			"id": "chapter-30",
+			"number": 30,
+			"title": "LETTER the FOURTH",
+			"sentenceCount": 43,
+			"paragraphCount": 17
+		},
+		{
+			"id": "chapter-31",
+			"number": 31,
+			"title": "LETTER the FIFTH",
+			"sentenceCount": 141,
+			"paragraphCount": 60
+		},
+		{
+			"id": "chapter-32",
+			"number": 32,
+			"title": "The Female Philosopher",
+			"sentenceCount": 18,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-33",
+			"number": 33,
+			"title": "The First Act of a Comedy",
+			"sentenceCount": 49,
+			"paragraphCount": 38
+		},
+		{
+			"id": "chapter-34",
+			"number": 34,
+			"title": "A Letter from a Young Lady",
+			"sentenceCount": 17,
+			"paragraphCount": 3
+		},
+		{
+			"id": "chapter-35",
+			"number": 35,
+			"title": "A Tour Through Wales",
+			"sentenceCount": 12,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-36",
+			"number": 36,
+			"title": "A Tale",
+			"sentenceCount": 15,
+			"paragraphCount": 4
+		}
+	]
+}
+

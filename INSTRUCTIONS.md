@@ -2,13 +2,15 @@
 
 ## Metadata
 
-Read README.md first.
+Read METADATA-JOB.md first.
 
 Then read jobs/metadata.md.
 
 Read both files. Do not rely on your memory.
 
-Process: `books/pride-and-prejudice.txt`
+Process all books EXCEPT `books/pride-and-prejudice.txt`:
+
+`books/*.txt`
 
 Save the output as JSON in the output folder: `metadata/`
 

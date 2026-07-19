@@ -1,0 +1,721 @@
+{
+	"id": "emma",
+	"title": "Emma",
+	"slug": "emma",
+	"author": "Jane Austen",
+	"gutenbergId": 158,
+	"sourceFile": "books/emma.txt",
+	"chapterCount": 55,
+	"sentenceCount": 7121,
+	"paragraphCount": 2319,
+	"characters": [
+		{
+			"id": "emma-woodhouse",
+			"name": "Emma Woodhouse",
+			"aliases": ["Emma", "Miss Woodhouse"]
+		},
+		{
+			"id": "george-knightley",
+			"name": "George Knightley",
+			"aliases": ["Mr. Knightley", "Knightley"]
+		},
+		{
+			"id": "mr-woodhouse",
+			"name": "Mr. Woodhouse",
+			"aliases": []
+		},
+		{
+			"id": "harriet-smith",
+			"name": "Harriet Smith",
+			"aliases": ["Harriet", "Miss Smith"]
+		},
+		{
+			"id": "anne-weston",
+			"name": "Anne Weston",
+			"aliases": ["Miss Taylor", "Mrs. Weston"]
+		},
+		{
+			"id": "mr-weston",
+			"name": "Mr. Weston",
+			"aliases": []
+		},
+		{
+			"id": "frank-churchill",
+			"name": "Frank Churchill",
+			"aliases": ["Frank", "Mr. Frank Churchill", "Mr. Churchill"]
+		},
+		{
+			"id": "jane-fairfax",
+			"name": "Jane Fairfax",
+			"aliases": ["Jane", "Miss Fairfax"]
+		},
+		{
+			"id": "augusta-elton",
+			"name": "Augusta Elton",
+			"aliases": ["Miss Hawkins", "Mrs. Elton"]
+		},
+		{
+			"id": "philip-elton",
+			"name": "Philip Elton",
+			"aliases": ["Mr. Elton"]
+		},
+		{
+			"id": "isabella-knightley",
+			"name": "Isabella Knightley",
+			"aliases": ["Isabella", "Mrs. John Knightley"]
+		},
+		{
+			"id": "john-knightley",
+			"name": "John Knightley",
+			"aliases": ["Mr. John Knightley"]
+		},
+		{
+			"id": "miss-bates",
+			"name": "Miss Bates",
+			"aliases": []
+		},
+		{
+			"id": "mrs-bates",
+			"name": "Mrs. Bates",
+			"aliases": []
+		},
+		{
+			"id": "robert-martin",
+			"name": "Robert Martin",
+			"aliases": ["Mr. Martin"]
+		},
+		{
+			"id": "elizabeth-martin",
+			"name": "Elizabeth Martin",
+			"aliases": ["Miss Martin"]
+		},
+		{
+			"id": "mrs-martin",
+			"name": "Mrs. Martin",
+			"aliases": []
+		},
+		{
+			"id": "mr-perry",
+			"name": "Mr. Perry",
+			"aliases": ["Perry"]
+		},
+		{
+			"id": "mrs-goddard",
+			"name": "Mrs. Goddard",
+			"aliases": []
+		},
+		{
+			"id": "mrs-cole",
+			"name": "Mrs. Cole",
+			"aliases": []
+		},
+		{
+			"id": "mr-cole",
+			"name": "Mr. Cole",
+			"aliases": []
+		},
+		{
+			"id": "mr-churchill",
+			"name": "Mr. Churchill",
+			"aliases": []
+		},
+		{
+			"id": "mrs-churchill",
+			"name": "Mrs. Churchill",
+			"aliases": []
+		},
+		{
+			"id": "colonel-campbell",
+			"name": "Colonel Campbell",
+			"aliases": []
+		},
+		{
+			"id": "mrs-campbell",
+			"name": "Mrs. Campbell",
+			"aliases": []
+		},
+		{
+			"id": "mr-dixon",
+			"name": "Mr. Dixon",
+			"aliases": []
+		},
+		{
+			"id": "mrs-dixon",
+			"name": "Mrs. Dixon",
+			"aliases": ["Miss Campbell"]
+		},
+		{
+			"id": "william-larkins",
+			"name": "William Larkins",
+			"aliases": ["Mr. Larkins"]
+		},
+		{
+			"id": "miss-nash",
+			"name": "Miss Nash",
+			"aliases": []
+		},
+		{
+			"id": "selina-suckling",
+			"name": "Selina Suckling",
+			"aliases": ["Selina"]
+		},
+		{
+			"id": "mr-suckling",
+			"name": "Mr. Suckling",
+			"aliases": []
+		},
+		{
+			"id": "mr-john-cox",
+			"name": "Mr. John Cox",
+			"aliases": ["John Cox"]
+		},
+		{
+			"id": "mr-richard",
+			"name": "Mr. Richard",
+			"aliases": []
+		}
+	],
+	"places": [
+		{
+			"id": "highbury",
+			"name": "Highbury",
+			"type": "village",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "hartfield",
+			"name": "Hartfield",
+			"type": "estate",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "donwell-abbey",
+			"name": "Donwell Abbey",
+			"type": "estate",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "randalls",
+			"name": "Randalls",
+			"type": "estate",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "box-hill",
+			"name": "Box Hill",
+			"type": "hill",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "enscombe",
+			"name": "Enscombe",
+			"type": "estate",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "abbey-mill-farm",
+			"name": "Abbey-Mill Farm",
+			"type": "farm",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "the-crown",
+			"name": "the Crown",
+			"type": "inn",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "fords",
+			"name": "Ford’s",
+			"type": "shop",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "the-vicarage",
+			"name": "the Vicarage",
+			"type": "house",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "maple-grove",
+			"name": "Maple Grove",
+			"type": "estate",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "brunswick-square",
+			"name": "Brunswick Square",
+			"type": "square",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "london",
+			"name": "London",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "weymouth",
+			"name": "Weymouth",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "bath",
+			"name": "Bath",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "richmond",
+			"name": "Richmond",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "kingston",
+			"name": "Kingston",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "cobham",
+			"name": "Cobham",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "yorkshire",
+			"name": "Yorkshire",
+			"type": "county",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "ireland",
+			"name": "Ireland",
+			"type": "country",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "bristol",
+			"name": "Bristol",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "cromer",
+			"name": "Cromer",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		}
+	],
+	"chapters": [
+		{
+			"id": "chapter-1",
+			"number": 1,
+			"title": "Volume I, Chapter I",
+			"sentenceCount": 158,
+			"paragraphCount": 47
+		},
+		{
+			"id": "chapter-2",
+			"number": 2,
+			"title": "Volume I, Chapter II",
+			"sentenceCount": 52,
+			"paragraphCount": 14
+		},
+		{
+			"id": "chapter-3",
+			"number": 3,
+			"title": "Volume I, Chapter III",
+			"sentenceCount": 60,
+			"paragraphCount": 15
+		},
+		{
+			"id": "chapter-4",
+			"number": 4,
+			"title": "Volume I, Chapter IV",
+			"sentenceCount": 179,
+			"paragraphCount": 45
+		},
+		{
+			"id": "chapter-5",
+			"number": 5,
+			"title": "Volume I, Chapter V",
+			"sentenceCount": 108,
+			"paragraphCount": 31
+		},
+		{
+			"id": "chapter-6",
+			"number": 6,
+			"title": "Volume I, Chapter VI",
+			"sentenceCount": 146,
+			"paragraphCount": 44
+		},
+		{
+			"id": "chapter-7",
+			"number": 7,
+			"title": "Volume I, Chapter VII",
+			"sentenceCount": 138,
+			"paragraphCount": 47
+		},
+		{
+			"id": "chapter-8",
+			"number": 8,
+			"title": "Volume I, Chapter VIII",
+			"sentenceCount": 199,
+			"paragraphCount": 58
+		},
+		{
+			"id": "chapter-9",
+			"number": 9,
+			"title": "Volume I, Chapter IX",
+			"sentenceCount": 289,
+			"paragraphCount": 112
+		},
+		{
+			"id": "chapter-10",
+			"number": 10,
+			"title": "Volume I, Chapter X",
+			"sentenceCount": 106,
+			"paragraphCount": 41
+		},
+		{
+			"id": "chapter-11",
+			"number": 11,
+			"title": "Volume I, Chapter XI",
+			"sentenceCount": 86,
+			"paragraphCount": 28
+		},
+		{
+			"id": "chapter-12",
+			"number": 12,
+			"title": "Volume I, Chapter XII",
+			"sentenceCount": 144,
+			"paragraphCount": 62
+		},
+		{
+			"id": "chapter-13",
+			"number": 13,
+			"title": "Volume I, Chapter XIII",
+			"sentenceCount": 105,
+			"paragraphCount": 46
+		},
+		{
+			"id": "chapter-14",
+			"number": 14,
+			"title": "Volume I, Chapter XIV",
+			"sentenceCount": 83,
+			"paragraphCount": 27
+		},
+		{
+			"id": "chapter-15",
+			"number": 15,
+			"title": "Volume I, Chapter XV",
+			"sentenceCount": 123,
+			"paragraphCount": 39
+		},
+		{
+			"id": "chapter-16",
+			"number": 16,
+			"title": "Volume I, Chapter XVI",
+			"sentenceCount": 59,
+			"paragraphCount": 20
+		},
+		{
+			"id": "chapter-17",
+			"number": 17,
+			"title": "Volume I, Chapter XVII",
+			"sentenceCount": 30,
+			"paragraphCount": 15
+		},
+		{
+			"id": "chapter-18",
+			"number": 18,
+			"title": "Volume I, Chapter XVIII",
+			"sentenceCount": 112,
+			"paragraphCount": 38
+		},
+		{
+			"id": "chapter-19",
+			"number": 19,
+			"title": "Volume II, Chapter I",
+			"sentenceCount": 116,
+			"paragraphCount": 33
+		},
+		{
+			"id": "chapter-20",
+			"number": 20,
+			"title": "Volume II, Chapter II",
+			"sentenceCount": 77,
+			"paragraphCount": 17
+		},
+		{
+			"id": "chapter-21",
+			"number": 21,
+			"title": "Volume II, Chapter III",
+			"sentenceCount": 191,
+			"paragraphCount": 58
+		},
+		{
+			"id": "chapter-22",
+			"number": 22,
+			"title": "Volume II, Chapter IV",
+			"sentenceCount": 51,
+			"paragraphCount": 14
+		},
+		{
+			"id": "chapter-23",
+			"number": 23,
+			"title": "Volume II, Chapter V",
+			"sentenceCount": 118,
+			"paragraphCount": 49
+		},
+		{
+			"id": "chapter-24",
+			"number": 24,
+			"title": "Volume II, Chapter VI",
+			"sentenceCount": 134,
+			"paragraphCount": 43
+		},
+		{
+			"id": "chapter-25",
+			"number": 25,
+			"title": "Volume II, Chapter VII",
+			"sentenceCount": 98,
+			"paragraphCount": 22
+		},
+		{
+			"id": "chapter-26",
+			"number": 26,
+			"title": "Volume II, Chapter VIII",
+			"sentenceCount": 296,
+			"paragraphCount": 102
+		},
+		{
+			"id": "chapter-27",
+			"number": 27,
+			"title": "Volume II, Chapter IX",
+			"sentenceCount": 171,
+			"paragraphCount": 53
+		},
+		{
+			"id": "chapter-28",
+			"number": 28,
+			"title": "Volume II, Chapter X",
+			"sentenceCount": 135,
+			"paragraphCount": 55
+		},
+		{
+			"id": "chapter-29",
+			"number": 29,
+			"title": "Volume II, Chapter XI",
+			"sentenceCount": 206,
+			"paragraphCount": 60
+		},
+		{
+			"id": "chapter-30",
+			"number": 30,
+			"title": "Volume II, Chapter XII",
+			"sentenceCount": 115,
+			"paragraphCount": 42
+		},
+		{
+			"id": "chapter-31",
+			"number": 31,
+			"title": "Volume II, Chapter XIII",
+			"sentenceCount": 73,
+			"paragraphCount": 16
+		},
+		{
+			"id": "chapter-32",
+			"number": 32,
+			"title": "Volume II, Chapter XIV",
+			"sentenceCount": 211,
+			"paragraphCount": 61
+		},
+		{
+			"id": "chapter-33",
+			"number": 33,
+			"title": "Volume II, Chapter XV",
+			"sentenceCount": 138,
+			"paragraphCount": 44
+		},
+		{
+			"id": "chapter-34",
+			"number": 34,
+			"title": "Volume II, Chapter XVI",
+			"sentenceCount": 161,
+			"paragraphCount": 59
+		},
+		{
+			"id": "chapter-35",
+			"number": 35,
+			"title": "Volume II, Chapter XVII",
+			"sentenceCount": 88,
+			"paragraphCount": 30
+		},
+		{
+			"id": "chapter-36",
+			"number": 36,
+			"title": "Volume II, Chapter XVIII",
+			"sentenceCount": 156,
+			"paragraphCount": 52
+		},
+		{
+			"id": "chapter-37",
+			"number": 37,
+			"title": "Volume III, Chapter I",
+			"sentenceCount": 63,
+			"paragraphCount": 12
+		},
+		{
+			"id": "chapter-38",
+			"number": 38,
+			"title": "Volume III, Chapter II",
+			"sentenceCount": 217,
+			"paragraphCount": 60
+		},
+		{
+			"id": "chapter-39",
+			"number": 39,
+			"title": "Volume III, Chapter III",
+			"sentenceCount": 50,
+			"paragraphCount": 13
+		},
+		{
+			"id": "chapter-40",
+			"number": 40,
+			"title": "Volume III, Chapter IV",
+			"sentenceCount": 97,
+			"paragraphCount": 40
+		},
+		{
+			"id": "chapter-41",
+			"number": 41,
+			"title": "Volume III, Chapter V",
+			"sentenceCount": 143,
+			"paragraphCount": 40
+		},
+		{
+			"id": "chapter-42",
+			"number": 42,
+			"title": "Volume III, Chapter VI",
+			"sentenceCount": 242,
+			"paragraphCount": 76
+		},
+		{
+			"id": "chapter-43",
+			"number": 43,
+			"title": "Volume III, Chapter VII",
+			"sentenceCount": 220,
+			"paragraphCount": 63
+		},
+		{
+			"id": "chapter-44",
+			"number": 44,
+			"title": "Volume III, Chapter VIII",
+			"sentenceCount": 122,
+			"paragraphCount": 34
+		},
+		{
+			"id": "chapter-45",
+			"number": 45,
+			"title": "Volume III, Chapter IX",
+			"sentenceCount": 86,
+			"paragraphCount": 21
+		},
+		{
+			"id": "chapter-46",
+			"number": 46,
+			"title": "Volume III, Chapter X",
+			"sentenceCount": 171,
+			"paragraphCount": 69
+		},
+		{
+			"id": "chapter-47",
+			"number": 47,
+			"title": "Volume III, Chapter XI",
+			"sentenceCount": 152,
+			"paragraphCount": 50
+		},
+		{
+			"id": "chapter-48",
+			"number": 48,
+			"title": "Volume III, Chapter XII",
+			"sentenceCount": 92,
+			"paragraphCount": 21
+		},
+		{
+			"id": "chapter-49",
+			"number": 49,
+			"title": "Volume III, Chapter XIII",
+			"sentenceCount": 112,
+			"paragraphCount": 42
+		},
+		{
+			"id": "chapter-50",
+			"number": 50,
+			"title": "Volume III, Chapter XIV",
+			"sentenceCount": 86,
+			"paragraphCount": 14
+		},
+		{
+			"id": "chapter-51",
+			"number": 51,
+			"title": "Volume III, Chapter XV",
+			"sentenceCount": 107,
+			"paragraphCount": 38
+		},
+		{
+			"id": "chapter-52",
+			"number": 52,
+			"title": "Volume III, Chapter XVI",
+			"sentenceCount": 126,
+			"paragraphCount": 59
+		},
+		{
+			"id": "chapter-53",
+			"number": 53,
+			"title": "Volume III, Chapter XVII",
+			"sentenceCount": 109,
+			"paragraphCount": 36
+		},
+		{
+			"id": "chapter-54",
+			"number": 54,
+			"title": "Volume III, Chapter XVIII",
+			"sentenceCount": 188,
+			"paragraphCount": 80
+		},
+		{
+			"id": "chapter-55",
+			"number": 55,
+			"title": "Volume III, Chapter XIX",
+			"sentenceCount": 26,
+			"paragraphCount": 12
+		}
+	]
+}

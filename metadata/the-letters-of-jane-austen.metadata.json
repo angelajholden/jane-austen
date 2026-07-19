@@ -1,0 +1,1086 @@
+{
+	"id": "the-letters-of-jane-austen",
+	"title": "The Letters of Jane Austen",
+	"slug": "the-letters-of-jane-austen",
+	"author": "Jane Austen",
+	"gutenbergId": 42078,
+	"sourceFile": "books/the-letters-of-jane-austen.txt",
+	"chapterCount": 78,
+	"sentenceCount": 3954,
+	"paragraphCount": 1320,
+	"characters": [
+		{
+			"id": "jane-austen",
+			"name": "Jane Austen",
+			"aliases": [
+				"Jane",
+				"Miss Austen"
+			]
+		},
+		{
+			"id": "cassandra-austen",
+			"name": "Cassandra Austen",
+			"aliases": [
+				"Cassandra",
+				"Miss Cassandra Austen"
+			]
+		},
+		{
+			"id": "cassandra-elizabeth-austen",
+			"name": "Cassandra Elizabeth Austen",
+			"aliases": [
+				"Mrs. Austen"
+			]
+		},
+		{
+			"id": "george-austen",
+			"name": "George Austen",
+			"aliases": [
+				"Mr. Austen"
+			]
+		},
+		{
+			"id": "henry-thomas-austen",
+			"name": "Henry Thomas Austen",
+			"aliases": [
+				"Henry",
+				"Henry Austen"
+			]
+		},
+		{
+			"id": "eliza-de-feuillide",
+			"name": "Eliza de Feuillide",
+			"aliases": [
+				"Eliza",
+				"Mrs. Henry Austen"
+			]
+		},
+		{
+			"id": "edward-austen-knight",
+			"name": "Edward Austen Knight",
+			"aliases": [
+				"Edward",
+				"Edward Austen"
+			]
+		},
+		{
+			"id": "elizabeth-bridges-austen",
+			"name": "Elizabeth Bridges Austen",
+			"aliases": [
+				"Elizabeth"
+			]
+		},
+		{
+			"id": "francis-austen",
+			"name": "Francis Austen",
+			"aliases": [
+				"Frank",
+				"Captain Austen"
+			]
+		},
+		{
+			"id": "charles-austen",
+			"name": "Charles Austen",
+			"aliases": [
+				"Charles",
+				"Captain Austen"
+			]
+		},
+		{
+			"id": "james-austen",
+			"name": "James Austen",
+			"aliases": [
+				"James"
+			]
+		},
+		{
+			"id": "mary-lloyd-austen",
+			"name": "Mary Lloyd Austen",
+			"aliases": [
+				"Mary"
+			]
+		},
+		{
+			"id": "anna-austen",
+			"name": "Anna Austen",
+			"aliases": [
+				"Anna"
+			]
+		},
+		{
+			"id": "fanny-knight",
+			"name": "Fanny Knight",
+			"aliases": [
+				"Fanny",
+				"Miss Knight"
+			]
+		},
+		{
+			"id": "caroline-austen",
+			"name": "Caroline Austen",
+			"aliases": [
+				"Caroline"
+			]
+		},
+		{
+			"id": "martha-lloyd",
+			"name": "Martha Lloyd",
+			"aliases": [
+				"Martha"
+			]
+		},
+		{
+			"id": "mary-lloyd",
+			"name": "Mary Lloyd",
+			"aliases": [
+				"Mary Lloyd"
+			]
+		},
+		{
+			"id": "anne-lefroy",
+			"name": "Anne Lefroy",
+			"aliases": [
+				"Mrs. Lefroy"
+			]
+		},
+		{
+			"id": "james-edward-austen",
+			"name": "James Edward Austen",
+			"aliases": [
+				"Edward"
+			]
+		},
+		{
+			"id": "catherine-bigg",
+			"name": "Catherine Bigg",
+			"aliases": [
+				"Catherine"
+			]
+		},
+		{
+			"id": "alethea-bigg",
+			"name": "Alethea Bigg",
+			"aliases": [
+				"Alethea"
+			]
+		},
+		{
+			"id": "elizabeth-bigg",
+			"name": "Elizabeth Bigg",
+			"aliases": [
+				"Elizabeth"
+			]
+		},
+		{
+			"id": "harriet-bridges",
+			"name": "Harriet Bridges",
+			"aliases": [
+				"Harriet"
+			]
+		},
+		{
+			"id": "louisa-bridges",
+			"name": "Louisa Bridges",
+			"aliases": [
+				"Louisa"
+			]
+		},
+		{
+			"id": "edward-bridges",
+			"name": "Edward Bridges",
+			"aliases": [
+				"Edward Bridges"
+			]
+		},
+		{
+			"id": "madame-bigeon",
+			"name": "Madame Bigeon",
+			"aliases": []
+		},
+		{
+			"id": "miss-sharp",
+			"name": "Miss Sharp",
+			"aliases": []
+		},
+		{
+			"id": "miss-papillon",
+			"name": "Miss Papillon",
+			"aliases": []
+		},
+		{
+			"id": "mrs-knight",
+			"name": "Mrs. Knight",
+			"aliases": []
+		},
+		{
+			"id": "mr-knight",
+			"name": "Mr. Knight",
+			"aliases": []
+		},
+		{
+			"id": "mr-digweed",
+			"name": "Mr. Digweed",
+			"aliases": []
+		},
+		{
+			"id": "mrs-cooke",
+			"name": "Mrs. Cooke",
+			"aliases": []
+		},
+		{
+			"id": "mrs-tilson",
+			"name": "Mrs. Tilson",
+			"aliases": []
+		},
+		{
+			"id": "mr-tilson",
+			"name": "Mr. Tilson",
+			"aliases": []
+		},
+		{
+			"id": "lord-brabourne",
+			"name": "Lord Brabourne",
+			"aliases": [
+				"Edward, Lord Brabourne"
+			]
+		},
+		{
+			"id": "sarah-chauncey-woolsey",
+			"name": "Sarah Chauncey Woolsey",
+			"aliases": [
+				"Susan Coolidge"
+			]
+		}
+	],
+	"places": [
+		{
+			"id": "steventon",
+			"name": "Steventon",
+			"type": "village",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "chawton",
+			"name": "Chawton",
+			"type": "village",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "chawton-cottage",
+			"name": "Chawton Cottage",
+			"type": "house",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "bath",
+			"name": "Bath",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "london",
+			"name": "London",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "southampton",
+			"name": "Southampton",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "godmersham-park",
+			"name": "Godmersham Park",
+			"type": "estate",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "goodnestone-park",
+			"name": "Goodnestone Park",
+			"type": "estate",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "deane",
+			"name": "Deane",
+			"type": "village",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "manydown",
+			"name": "Manydown",
+			"type": "estate",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "kintbury",
+			"name": "Kintbury",
+			"type": "village",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "lyme",
+			"name": "Lyme",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "winchester",
+			"name": "Winchester",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "canterbury",
+			"name": "Canterbury",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "portsmouth",
+			"name": "Portsmouth",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "ramsgate",
+			"name": "Ramsgate",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "worthing",
+			"name": "Worthing",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "brighton",
+			"name": "Brighton",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "oxford",
+			"name": "Oxford",
+			"type": "city",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "reading",
+			"name": "Reading",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "basingstoke",
+			"name": "Basingstoke",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "alton",
+			"name": "Alton",
+			"type": "town",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "hampshire",
+			"name": "Hampshire",
+			"type": "county",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "kent",
+			"name": "Kent",
+			"type": "county",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "dorsetshire",
+			"name": "Dorsetshire",
+			"type": "county",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "devonshire",
+			"name": "Devonshire",
+			"type": "county",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "somersetshire",
+			"name": "Somersetshire",
+			"type": "county",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "england",
+			"name": "England",
+			"type": "country",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "france",
+			"name": "France",
+			"type": "country",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "ireland",
+			"name": "Ireland",
+			"type": "country",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "scotland",
+			"name": "Scotland",
+			"type": "country",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "east-indies",
+			"name": "East Indies",
+			"type": "region",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "west-indies",
+			"name": "West Indies",
+			"type": "region",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "henrietta-street",
+			"name": "Henrietta Street",
+			"type": "street",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "hans-place",
+			"name": "Hans Place",
+			"type": "street",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "sloane-street",
+			"name": "Sloane Street",
+			"type": "street",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "st-jamess-street",
+			"name": "St. James’s Street",
+			"type": "street",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "covent-garden",
+			"name": "Covent Garden",
+			"type": "district",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "drury-lane",
+			"name": "Drury Lane",
+			"type": "street",
+			"aliases": [],
+			"notes": ""
+		},
+		{
+			"id": "kings-theatre",
+			"name": "King’s Theatre",
+			"type": "theatre",
+			"aliases": [],
+			"notes": ""
+		}
+	],
+	"chapters": [
+		{
+			"id": "chapter-1",
+			"number": 1,
+			"title": "Letter I",
+			"sentenceCount": 38,
+			"paragraphCount": 12
+		},
+		{
+			"id": "chapter-2",
+			"number": 2,
+			"title": "Letter II",
+			"sentenceCount": 19,
+			"paragraphCount": 9
+		},
+		{
+			"id": "chapter-3",
+			"number": 3,
+			"title": "Letter III",
+			"sentenceCount": 30,
+			"paragraphCount": 10
+		},
+		{
+			"id": "chapter-4",
+			"number": 4,
+			"title": "Letter IV",
+			"sentenceCount": 43,
+			"paragraphCount": 13
+		},
+		{
+			"id": "chapter-5",
+			"number": 5,
+			"title": "Letter V",
+			"sentenceCount": 30,
+			"paragraphCount": 11
+		},
+		{
+			"id": "chapter-6",
+			"number": 6,
+			"title": "Letter VI",
+			"sentenceCount": 28,
+			"paragraphCount": 10
+		},
+		{
+			"id": "chapter-7",
+			"number": 7,
+			"title": "Letter VII",
+			"sentenceCount": 67,
+			"paragraphCount": 22
+		},
+		{
+			"id": "chapter-8",
+			"number": 8,
+			"title": "Letter VIII",
+			"sentenceCount": 51,
+			"paragraphCount": 18
+		},
+		{
+			"id": "chapter-9",
+			"number": 9,
+			"title": "Letter IX",
+			"sentenceCount": 24,
+			"paragraphCount": 10
+		},
+		{
+			"id": "chapter-10",
+			"number": 10,
+			"title": "Letter X",
+			"sentenceCount": 42,
+			"paragraphCount": 15
+		},
+		{
+			"id": "chapter-11",
+			"number": 11,
+			"title": "Letter XI",
+			"sentenceCount": 13,
+			"paragraphCount": 8
+		},
+		{
+			"id": "chapter-12",
+			"number": 12,
+			"title": "Letter XII",
+			"sentenceCount": 67,
+			"paragraphCount": 26
+		},
+		{
+			"id": "chapter-13",
+			"number": 13,
+			"title": "Letter XIII",
+			"sentenceCount": 71,
+			"paragraphCount": 23
+		},
+		{
+			"id": "chapter-14",
+			"number": 14,
+			"title": "Letter XIV",
+			"sentenceCount": 33,
+			"paragraphCount": 17
+		},
+		{
+			"id": "chapter-15",
+			"number": 15,
+			"title": "Letter XV",
+			"sentenceCount": 44,
+			"paragraphCount": 15
+		},
+		{
+			"id": "chapter-16",
+			"number": 16,
+			"title": "Letter XVI",
+			"sentenceCount": 52,
+			"paragraphCount": 20
+		},
+		{
+			"id": "chapter-17",
+			"number": 17,
+			"title": "Letter XVII",
+			"sentenceCount": 47,
+			"paragraphCount": 13
+		},
+		{
+			"id": "chapter-18",
+			"number": 18,
+			"title": "Letter XVIII",
+			"sentenceCount": 49,
+			"paragraphCount": 19
+		},
+		{
+			"id": "chapter-19",
+			"number": 19,
+			"title": "Letter XIX",
+			"sentenceCount": 24,
+			"paragraphCount": 12
+		},
+		{
+			"id": "chapter-20",
+			"number": 20,
+			"title": "Letter XX",
+			"sentenceCount": 23,
+			"paragraphCount": 9
+		},
+		{
+			"id": "chapter-21",
+			"number": 21,
+			"title": "Letter XXI",
+			"sentenceCount": 18,
+			"paragraphCount": 10
+		},
+		{
+			"id": "chapter-22",
+			"number": 22,
+			"title": "Letter XXII",
+			"sentenceCount": 62,
+			"paragraphCount": 28
+		},
+		{
+			"id": "chapter-23",
+			"number": 23,
+			"title": "Letter XXIII",
+			"sentenceCount": 52,
+			"paragraphCount": 18
+		},
+		{
+			"id": "chapter-24",
+			"number": 24,
+			"title": "Letter XXIV",
+			"sentenceCount": 45,
+			"paragraphCount": 16
+		},
+		{
+			"id": "chapter-25",
+			"number": 25,
+			"title": "Letter XXV",
+			"sentenceCount": 30,
+			"paragraphCount": 16
+		},
+		{
+			"id": "chapter-26",
+			"number": 26,
+			"title": "Letter XXVI",
+			"sentenceCount": 52,
+			"paragraphCount": 22
+		},
+		{
+			"id": "chapter-27",
+			"number": 27,
+			"title": "Letter XXVII",
+			"sentenceCount": 53,
+			"paragraphCount": 27
+		},
+		{
+			"id": "chapter-28",
+			"number": 28,
+			"title": "Letter XXVIII",
+			"sentenceCount": 53,
+			"paragraphCount": 21
+		},
+		{
+			"id": "chapter-29",
+			"number": 29,
+			"title": "Letter XXIX",
+			"sentenceCount": 70,
+			"paragraphCount": 25
+		},
+		{
+			"id": "chapter-30",
+			"number": 30,
+			"title": "Letter XXX",
+			"sentenceCount": 64,
+			"paragraphCount": 28
+		},
+		{
+			"id": "chapter-31",
+			"number": 31,
+			"title": "Letter XXXI",
+			"sentenceCount": 54,
+			"paragraphCount": 23
+		},
+		{
+			"id": "chapter-32",
+			"number": 32,
+			"title": "Letter XXXII",
+			"sentenceCount": 70,
+			"paragraphCount": 28
+		},
+		{
+			"id": "chapter-33",
+			"number": 33,
+			"title": "Letter XXXIII",
+			"sentenceCount": 68,
+			"paragraphCount": 26
+		},
+		{
+			"id": "chapter-34",
+			"number": 34,
+			"title": "Letter XXXIV",
+			"sentenceCount": 57,
+			"paragraphCount": 22
+		},
+		{
+			"id": "chapter-35",
+			"number": 35,
+			"title": "Letter XXXV",
+			"sentenceCount": 69,
+			"paragraphCount": 25
+		},
+		{
+			"id": "chapter-36",
+			"number": 36,
+			"title": "Letter XXXVI",
+			"sentenceCount": 82,
+			"paragraphCount": 31
+		},
+		{
+			"id": "chapter-37",
+			"number": 37,
+			"title": "Letter XXXVII",
+			"sentenceCount": 37,
+			"paragraphCount": 21
+		},
+		{
+			"id": "chapter-38",
+			"number": 38,
+			"title": "Letter XXXVIII",
+			"sentenceCount": 58,
+			"paragraphCount": 21
+		},
+		{
+			"id": "chapter-39",
+			"number": 39,
+			"title": "Letter XXXIX",
+			"sentenceCount": 54,
+			"paragraphCount": 25
+		},
+		{
+			"id": "chapter-40",
+			"number": 40,
+			"title": "Letter XL",
+			"sentenceCount": 18,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-41",
+			"number": 41,
+			"title": "Letter XLI",
+			"sentenceCount": 8,
+			"paragraphCount": 2
+		},
+		{
+			"id": "chapter-42",
+			"number": 42,
+			"title": "Letter XLII",
+			"sentenceCount": 33,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-43",
+			"number": 43,
+			"title": "Letter XLIII",
+			"sentenceCount": 31,
+			"paragraphCount": 5
+		},
+		{
+			"id": "chapter-44",
+			"number": 44,
+			"title": "Letter XLIV",
+			"sentenceCount": 75,
+			"paragraphCount": 28
+		},
+		{
+			"id": "chapter-45",
+			"number": 45,
+			"title": "Letter XLV",
+			"sentenceCount": 148,
+			"paragraphCount": 36
+		},
+		{
+			"id": "chapter-46",
+			"number": 46,
+			"title": "Letter XLVI",
+			"sentenceCount": 58,
+			"paragraphCount": 20
+		},
+		{
+			"id": "chapter-47",
+			"number": 47,
+			"title": "Letter XLVII",
+			"sentenceCount": 31,
+			"paragraphCount": 11
+		},
+		{
+			"id": "chapter-48",
+			"number": 48,
+			"title": "Letter XLVIII",
+			"sentenceCount": 112,
+			"paragraphCount": 37
+		},
+		{
+			"id": "chapter-49",
+			"number": 49,
+			"title": "Letter XLIX",
+			"sentenceCount": 153,
+			"paragraphCount": 34
+		},
+		{
+			"id": "chapter-50",
+			"number": 50,
+			"title": "Letter L",
+			"sentenceCount": 66,
+			"paragraphCount": 20
+		},
+		{
+			"id": "chapter-51",
+			"number": 51,
+			"title": "Letter LI",
+			"sentenceCount": 97,
+			"paragraphCount": 29
+		},
+		{
+			"id": "chapter-52",
+			"number": 52,
+			"title": "Letter LII",
+			"sentenceCount": 117,
+			"paragraphCount": 30
+		},
+		{
+			"id": "chapter-53",
+			"number": 53,
+			"title": "Letter LIII",
+			"sentenceCount": 48,
+			"paragraphCount": 6
+		},
+		{
+			"id": "chapter-54",
+			"number": 54,
+			"title": "Letter LIV",
+			"sentenceCount": 44,
+			"paragraphCount": 19
+		},
+		{
+			"id": "chapter-55",
+			"number": 55,
+			"title": "Letter LV",
+			"sentenceCount": 34,
+			"paragraphCount": 13
+		},
+		{
+			"id": "chapter-56",
+			"number": 56,
+			"title": "Letter LVI",
+			"sentenceCount": 56,
+			"paragraphCount": 20
+		},
+		{
+			"id": "chapter-57",
+			"number": 57,
+			"title": "Letter LVII",
+			"sentenceCount": 68,
+			"paragraphCount": 20
+		},
+		{
+			"id": "chapter-58",
+			"number": 58,
+			"title": "Letter LVIII",
+			"sentenceCount": 16,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-59",
+			"number": 59,
+			"title": "Letter LIX",
+			"sentenceCount": 56,
+			"paragraphCount": 8
+		},
+		{
+			"id": "chapter-60",
+			"number": 60,
+			"title": "Letter LX",
+			"sentenceCount": 57,
+			"paragraphCount": 11
+		},
+		{
+			"id": "chapter-61",
+			"number": 61,
+			"title": "Letter LXI",
+			"sentenceCount": 52,
+			"paragraphCount": 12
+		},
+		{
+			"id": "chapter-62",
+			"number": 62,
+			"title": "Letter LXII",
+			"sentenceCount": 75,
+			"paragraphCount": 21
+		},
+		{
+			"id": "chapter-63",
+			"number": 63,
+			"title": "Letter LXIII",
+			"sentenceCount": 11,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-64",
+			"number": 64,
+			"title": "Letter LXIV",
+			"sentenceCount": 14,
+			"paragraphCount": 5
+		},
+		{
+			"id": "chapter-65",
+			"number": 65,
+			"title": "Letter LXV",
+			"sentenceCount": 26,
+			"paragraphCount": 4
+		},
+		{
+			"id": "chapter-66",
+			"number": 66,
+			"title": "Letter LXVI",
+			"sentenceCount": 60,
+			"paragraphCount": 17
+		},
+		{
+			"id": "chapter-67",
+			"number": 67,
+			"title": "Letter LXVII",
+			"sentenceCount": 20,
+			"paragraphCount": 5
+		},
+		{
+			"id": "chapter-68",
+			"number": 68,
+			"title": "Letter LXVIII",
+			"sentenceCount": 12,
+			"paragraphCount": 5
+		},
+		{
+			"id": "chapter-69",
+			"number": 69,
+			"title": "Letter LXIX",
+			"sentenceCount": 55,
+			"paragraphCount": 17
+		},
+		{
+			"id": "chapter-70",
+			"number": 70,
+			"title": "Letter LXX",
+			"sentenceCount": 64,
+			"paragraphCount": 21
+		},
+		{
+			"id": "chapter-71",
+			"number": 71,
+			"title": "Letter LXXI",
+			"sentenceCount": 42,
+			"paragraphCount": 17
+		},
+		{
+			"id": "chapter-72",
+			"number": 72,
+			"title": "Letter LXXII",
+			"sentenceCount": 69,
+			"paragraphCount": 17
+		},
+		{
+			"id": "chapter-73",
+			"number": 73,
+			"title": "Letter LXXIII",
+			"sentenceCount": 44,
+			"paragraphCount": 13
+		},
+		{
+			"id": "chapter-74",
+			"number": 74,
+			"title": "Letter LXXIV",
+			"sentenceCount": 54,
+			"paragraphCount": 14
+		},
+		{
+			"id": "chapter-75",
+			"number": 75,
+			"title": "Letter LXXV",
+			"sentenceCount": 84,
+			"paragraphCount": 25
+		},
+		{
+			"id": "chapter-76",
+			"number": 76,
+			"title": "Letter LXXVI",
+			"sentenceCount": 30,
+			"paragraphCount": 10
+		},
+		{
+			"id": "chapter-77",
+			"number": 77,
+			"title": "Letter LXXVII",
+			"sentenceCount": 45,
+			"paragraphCount": 18
+		},
+		{
+			"id": "chapter-78",
+			"number": 78,
+			"title": "Letter LXXVIII",
+			"sentenceCount": 28,
+			"paragraphCount": 9
+		}
+	]
+}
+
