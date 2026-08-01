@@ -4,7 +4,7 @@
 	"slug": "emma",
 	"author": "Jane Austen",
 	"gutenbergId": 158,
-	"sourceFile": "books/emma.txt",
+	"sourceFile": "metadata/emma/emma.txt",
 	"chapterCount": 55,
 	"sentenceCount": 7121,
 	"paragraphCount": 2319,
@@ -175,7 +175,7 @@
 			"aliases": []
 		}
 	],
-	"places": [
+	"locations": [
 		{
 			"id": "highbury",
 			"name": "Highbury",

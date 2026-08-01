@@ -80,7 +80,7 @@ CONTENTS
  CONCLUSION
 
 
-
+[[BOOK_START]]
 
 I
 
@@ -2568,7 +2568,7 @@ and putting herself to an expense in clothes which impoverished her for
 two years, on purpose to secure him, was defrauded of her due by a
 woman ten years older than herself.
 
-
+[[BOOK_END]]
 
 
 *** END OF THE PROJECT GUTENBERG EBOOK LADY SUSAN ***

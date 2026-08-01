@@ -4,7 +4,7 @@
 	"slug": "love-and-freindship",
 	"author": "Jane Austen",
 	"gutenbergId": 1212,
-	"sourceFile": "books/love-and-freindship.txt",
+	"sourceFile": "metadata/love-and-freindship/love-and-freindship.txt",
 	"chapterCount": 36,
 	"sentenceCount": 1338,
 	"paragraphCount": 444,
@@ -87,18 +87,12 @@
 		{
 			"id": "miss-margaret-lesley",
 			"name": "Miss Margaret Lesley",
-			"aliases": [
-				"Margaret Lesley",
-				"Margaret"
-			]
+			"aliases": ["Margaret Lesley", "Margaret"]
 		},
 		{
 			"id": "charlotte-lutterell",
 			"name": "Charlotte Lutterell",
-			"aliases": [
-				"Miss Lutterell",
-				"Charlotte"
-			]
+			"aliases": ["Miss Lutterell", "Charlotte"]
 		},
 		{
 			"id": "lady-lesley",
@@ -108,30 +102,22 @@
 		{
 			"id": "sir-george-lesley",
 			"name": "Sir George Lesley",
-			"aliases": [
-				"Sir George"
-			]
+			"aliases": ["Sir George"]
 		},
 		{
 			"id": "louisa-burton",
 			"name": "Louisa Burton",
-			"aliases": [
-				"Louisa"
-			]
+			"aliases": ["Louisa"]
 		},
 		{
 			"id": "henry-lesley",
 			"name": "Henry Lesley",
-			"aliases": [
-				"Henry"
-			]
+			"aliases": ["Henry"]
 		},
 		{
 			"id": "eloisa-lesley",
 			"name": "Eloisa Lesley",
-			"aliases": [
-				"Eloisa"
-			]
+			"aliases": ["Eloisa"]
 		},
 		{
 			"id": "mrs-marlowe",
@@ -166,9 +152,7 @@
 		{
 			"id": "anna-parker",
 			"name": "Anna Parker",
-			"aliases": [
-				"Anna"
-			]
+			"aliases": ["Anna"]
 		},
 		{
 			"id": "elizabeth-johnson",
@@ -186,7 +170,7 @@
 			"aliases": []
 		}
 	],
-	"places": [
+	"locations": [
 		{
 			"id": "scotland",
 			"name": "Scotland",
@@ -590,4 +574,3 @@
 		}
 	]
 }
-

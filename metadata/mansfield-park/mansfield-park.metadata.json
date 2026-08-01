@@ -4,7 +4,7 @@
 	"slug": "mansfield-park",
 	"author": "Jane Austen",
 	"gutenbergId": 141,
-	"sourceFile": "books/mansfield-park.txt",
+	"sourceFile": "metadata/mansfield-park/mansfield-park.txt",
 	"chapterCount": 48,
 	"sentenceCount": 6665,
 	"paragraphCount": 1792,
@@ -12,25 +12,17 @@
 		{
 			"id": "fanny-price",
 			"name": "Fanny Price",
-			"aliases": [
-				"Fanny",
-				"Miss Price"
-			]
+			"aliases": ["Fanny", "Miss Price"]
 		},
 		{
 			"id": "edmund-bertram",
 			"name": "Edmund Bertram",
-			"aliases": [
-				"Edmund",
-				"Mr. Bertram"
-			]
+			"aliases": ["Edmund", "Mr. Bertram"]
 		},
 		{
 			"id": "sir-thomas-bertram",
 			"name": "Sir Thomas Bertram",
-			"aliases": [
-				"Sir Thomas"
-			]
+			"aliases": ["Sir Thomas"]
 		},
 		{
 			"id": "lady-bertram",
@@ -40,35 +32,22 @@
 		{
 			"id": "tom-bertram",
 			"name": "Tom Bertram",
-			"aliases": [
-				"Tom",
-				"Mr. Bertram"
-			]
+			"aliases": ["Tom", "Mr. Bertram"]
 		},
 		{
 			"id": "maria-bertram",
 			"name": "Maria Bertram",
-			"aliases": [
-				"Maria",
-				"Miss Bertram",
-				"Mrs. Rushworth"
-			]
+			"aliases": ["Maria", "Miss Bertram", "Mrs. Rushworth"]
 		},
 		{
 			"id": "julia-bertram",
 			"name": "Julia Bertram",
-			"aliases": [
-				"Julia",
-				"Miss Julia",
-				"Miss Bertram"
-			]
+			"aliases": ["Julia", "Miss Julia", "Miss Bertram"]
 		},
 		{
 			"id": "mrs-norris",
 			"name": "Mrs. Norris",
-			"aliases": [
-				"Aunt Norris"
-			]
+			"aliases": ["Aunt Norris"]
 		},
 		{
 			"id": "mr-norris",
@@ -78,23 +57,17 @@
 		{
 			"id": "william-price",
 			"name": "William Price",
-			"aliases": [
-				"William"
-			]
+			"aliases": ["William"]
 		},
 		{
 			"id": "susan-price",
 			"name": "Susan Price",
-			"aliases": [
-				"Susan"
-			]
+			"aliases": ["Susan"]
 		},
 		{
 			"id": "mrs-price",
 			"name": "Mrs. Price",
-			"aliases": [
-				"Fanny Price"
-			]
+			"aliases": ["Fanny Price"]
 		},
 		{
 			"id": "mr-price",
@@ -104,25 +77,17 @@
 		{
 			"id": "henry-crawford",
 			"name": "Henry Crawford",
-			"aliases": [
-				"Henry",
-				"Mr. Crawford"
-			]
+			"aliases": ["Henry", "Mr. Crawford"]
 		},
 		{
 			"id": "mary-crawford",
 			"name": "Mary Crawford",
-			"aliases": [
-				"Mary",
-				"Miss Crawford"
-			]
+			"aliases": ["Mary", "Miss Crawford"]
 		},
 		{
 			"id": "mr-rushworth",
 			"name": "Mr. Rushworth",
-			"aliases": [
-				"James Rushworth"
-			]
+			"aliases": ["James Rushworth"]
 		},
 		{
 			"id": "mrs-rushworth",
@@ -142,9 +107,7 @@
 		{
 			"id": "mr-yates",
 			"name": "Mr. Yates",
-			"aliases": [
-				"Yates"
-			]
+			"aliases": ["Yates"]
 		},
 		{
 			"id": "john-proctor",
@@ -164,30 +127,22 @@
 		{
 			"id": "betsey-price",
 			"name": "Betsey Price",
-			"aliases": [
-				"Betsey"
-			]
+			"aliases": ["Betsey"]
 		},
 		{
 			"id": "sam-price",
 			"name": "Sam Price",
-			"aliases": [
-				"Sam"
-			]
+			"aliases": ["Sam"]
 		},
 		{
 			"id": "tom-price",
 			"name": "Tom Price",
-			"aliases": [
-				"Tom"
-			]
+			"aliases": ["Tom"]
 		},
 		{
 			"id": "charles-price",
 			"name": "Charles Price",
-			"aliases": [
-				"Charles"
-			]
+			"aliases": ["Charles"]
 		},
 		{
 			"id": "mr-harding",
@@ -205,7 +160,7 @@
 			"aliases": []
 		}
 	],
-	"places": [
+	"locations": [
 		{
 			"id": "mansfield-park",
 			"name": "Mansfield Park",
@@ -686,4 +641,3 @@
 		}
 	]
 }
-

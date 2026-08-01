@@ -4,7 +4,7 @@
 	"slug": "pride-and-prejudice",
 	"author": "Jane Austen",
 	"gutenbergId": 1342,
-	"sourceFile": "books/pride-and-prejudice.txt",
+	"sourceFile": "metadata/pride-and-prejudice/pride-and-prejudice.txt",
 	"chapterCount": 61,
 	"sentenceCount": 5899,
 	"paragraphCount": 2121,
@@ -265,7 +265,7 @@
 			"aliases": []
 		}
 	],
-	"places": [
+	"locations": [
 		{
 			"name": "Longbourn",
 			"id": "longbourn",

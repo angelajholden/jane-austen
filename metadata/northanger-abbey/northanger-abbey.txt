@@ -94,7 +94,7 @@ have passed since it was finished, many more since it was begun, and
 that during that period, places, manners, books, and opinions have
 undergone considerable changes.
 
-
+[[BOOK_START]]
 
 
 CHAPTER 1
@@ -8009,7 +8009,7 @@ to their attachment, I leave it to be settled, by whomsoever it may
 concern, whether the tendency of this work be altogether to recommend
 parental tyranny, or reward filial disobedience.
 
-
+[[BOOK_END]]
 
 
  A NOTE ON THE TEXT

@@ -4,7 +4,7 @@
 	"slug": "sense-and-sensibility",
 	"author": "Jane Austen",
 	"gutenbergId": 21839,
-	"sourceFile": "books/sense-and-sensibility.txt",
+	"sourceFile": "metadata/sense-and-sensibility/sense-and-sensibility.txt",
 	"chapterCount": 50,
 	"sentenceCount": 4898,
 	"paragraphCount": 1809,
@@ -12,26 +12,17 @@
 		{
 			"id": "elinor-dashwood",
 			"name": "Elinor Dashwood",
-			"aliases": [
-				"Elinor",
-				"Miss Dashwood"
-			]
+			"aliases": ["Elinor", "Miss Dashwood"]
 		},
 		{
 			"id": "marianne-dashwood",
 			"name": "Marianne Dashwood",
-			"aliases": [
-				"Marianne",
-				"Miss Marianne",
-				"Mrs. Brandon"
-			]
+			"aliases": ["Marianne", "Miss Marianne", "Mrs. Brandon"]
 		},
 		{
 			"id": "margaret-dashwood",
 			"name": "Margaret Dashwood",
-			"aliases": [
-				"Margaret"
-			]
+			"aliases": ["Margaret"]
 		},
 		{
 			"id": "mrs-dashwood",
@@ -41,58 +32,37 @@
 		{
 			"id": "john-dashwood",
 			"name": "John Dashwood",
-			"aliases": [
-				"Mr. John Dashwood",
-				"Mr. Dashwood"
-			]
+			"aliases": ["Mr. John Dashwood", "Mr. Dashwood"]
 		},
 		{
 			"id": "fanny-dashwood",
 			"name": "Fanny Dashwood",
-			"aliases": [
-				"Fanny",
-				"Mrs. John Dashwood"
-			]
+			"aliases": ["Fanny", "Mrs. John Dashwood"]
 		},
 		{
 			"id": "edward-ferrars",
 			"name": "Edward Ferrars",
-			"aliases": [
-				"Edward",
-				"Mr. Ferrars"
-			]
+			"aliases": ["Edward", "Mr. Ferrars"]
 		},
 		{
 			"id": "colonel-brandon",
 			"name": "Colonel Brandon",
-			"aliases": [
-				"Brandon"
-			]
+			"aliases": ["Brandon"]
 		},
 		{
 			"id": "john-willoughby",
 			"name": "John Willoughby",
-			"aliases": [
-				"Willoughby",
-				"Mr. Willoughby"
-			]
+			"aliases": ["Willoughby", "Mr. Willoughby"]
 		},
 		{
 			"id": "lucy-steele",
 			"name": "Lucy Steele",
-			"aliases": [
-				"Lucy",
-				"Miss Steele",
-				"Mrs. Ferrars"
-			]
+			"aliases": ["Lucy", "Miss Steele", "Mrs. Ferrars"]
 		},
 		{
 			"id": "anne-steele",
 			"name": "Anne Steele",
-			"aliases": [
-				"Nancy",
-				"Miss Steele"
-			]
+			"aliases": ["Nancy", "Miss Steele"]
 		},
 		{
 			"id": "mrs-jennings",
@@ -102,9 +72,7 @@
 		{
 			"id": "sir-john-middleton",
 			"name": "Sir John Middleton",
-			"aliases": [
-				"Sir John"
-			]
+			"aliases": ["Sir John"]
 		},
 		{
 			"id": "lady-middleton",
@@ -114,25 +82,17 @@
 		{
 			"id": "charlotte-palmer",
 			"name": "Charlotte Palmer",
-			"aliases": [
-				"Mrs. Palmer",
-				"Charlotte"
-			]
+			"aliases": ["Mrs. Palmer", "Charlotte"]
 		},
 		{
 			"id": "thomas-palmer",
 			"name": "Thomas Palmer",
-			"aliases": [
-				"Mr. Palmer"
-			]
+			"aliases": ["Mr. Palmer"]
 		},
 		{
 			"id": "robert-ferrars",
 			"name": "Robert Ferrars",
-			"aliases": [
-				"Robert",
-				"Mr. Robert Ferrars"
-			]
+			"aliases": ["Robert", "Mr. Robert Ferrars"]
 		},
 		{
 			"id": "mrs-ferrars",
@@ -147,17 +107,12 @@
 		{
 			"id": "miss-sophia-grey",
 			"name": "Miss Sophia Grey",
-			"aliases": [
-				"Miss Grey"
-			]
+			"aliases": ["Miss Grey"]
 		},
 		{
 			"id": "eliza-williams",
 			"name": "Eliza Williams",
-			"aliases": [
-				"Eliza",
-				"Miss Williams"
-			]
+			"aliases": ["Eliza", "Miss Williams"]
 		},
 		{
 			"id": "beth",
@@ -205,7 +160,7 @@
 			"aliases": []
 		}
 	],
-	"places": [
+	"locations": [
 		{
 			"id": "norland-park",
 			"name": "Norland Park",
@@ -756,4 +711,3 @@
 		}
 	]
 }
-

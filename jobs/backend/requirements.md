@@ -2,8 +2,6 @@
 
 ## Goal
 
-## Goal
-
 Build a structured, searchable Jane Austen database with an Express.js API.
 
 The database must support two primary application functions:

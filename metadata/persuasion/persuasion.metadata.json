@@ -4,7 +4,7 @@
 	"slug": "persuasion",
 	"author": "Jane Austen",
 	"gutenbergId": 105,
-	"sourceFile": "books/persuasion.txt",
+	"sourceFile": "metadata/persuasion/persuasion.txt",
 	"chapterCount": 24,
 	"sentenceCount": 3562,
 	"paragraphCount": 1010,
@@ -12,49 +12,32 @@
 		{
 			"id": "anne-elliot",
 			"name": "Anne Elliot",
-			"aliases": [
-				"Anne",
-				"Miss Anne Elliot"
-			]
+			"aliases": ["Anne", "Miss Anne Elliot"]
 		},
 		{
 			"id": "frederick-wentworth",
 			"name": "Frederick Wentworth",
-			"aliases": [
-				"Captain Wentworth",
-				"Wentworth"
-			]
+			"aliases": ["Captain Wentworth", "Wentworth"]
 		},
 		{
 			"id": "sir-walter-elliot",
 			"name": "Sir Walter Elliot",
-			"aliases": [
-				"Sir Walter"
-			]
+			"aliases": ["Sir Walter"]
 		},
 		{
 			"id": "elizabeth-elliot",
 			"name": "Elizabeth Elliot",
-			"aliases": [
-				"Elizabeth",
-				"Miss Elliot"
-			]
+			"aliases": ["Elizabeth", "Miss Elliot"]
 		},
 		{
 			"id": "mary-musgrove",
 			"name": "Mary Musgrove",
-			"aliases": [
-				"Mary",
-				"Mrs. Charles Musgrove"
-			]
+			"aliases": ["Mary", "Mrs. Charles Musgrove"]
 		},
 		{
 			"id": "william-walter-elliot",
 			"name": "William Walter Elliot",
-			"aliases": [
-				"Mr. Elliot",
-				"William Elliot"
-			]
+			"aliases": ["Mr. Elliot", "William Elliot"]
 		},
 		{
 			"id": "lady-russell",
@@ -64,26 +47,17 @@
 		{
 			"id": "charles-musgrove",
 			"name": "Charles Musgrove",
-			"aliases": [
-				"Charles",
-				"Mr. Musgrove"
-			]
+			"aliases": ["Charles", "Mr. Musgrove"]
 		},
 		{
 			"id": "louisa-musgrove",
 			"name": "Louisa Musgrove",
-			"aliases": [
-				"Louisa",
-				"Miss Musgrove"
-			]
+			"aliases": ["Louisa", "Miss Musgrove"]
 		},
 		{
 			"id": "henrietta-musgrove",
 			"name": "Henrietta Musgrove",
-			"aliases": [
-				"Henrietta",
-				"Miss Musgrove"
-			]
+			"aliases": ["Henrietta", "Miss Musgrove"]
 		},
 		{
 			"id": "mr-musgrove",
@@ -103,10 +77,7 @@
 		{
 			"id": "sophia-croft",
 			"name": "Sophia Croft",
-			"aliases": [
-				"Mrs. Croft",
-				"Sophia"
-			]
+			"aliases": ["Mrs. Croft", "Sophia"]
 		},
 		{
 			"id": "captain-harville",
@@ -121,32 +92,22 @@
 		{
 			"id": "captain-benwick",
 			"name": "Captain Benwick",
-			"aliases": [
-				"Benwick"
-			]
+			"aliases": ["Benwick"]
 		},
 		{
 			"id": "charles-hayter",
 			"name": "Charles Hayter",
-			"aliases": [
-				"Mr. Hayter"
-			]
+			"aliases": ["Mr. Hayter"]
 		},
 		{
 			"id": "mary-smith",
 			"name": "Mary Smith",
-			"aliases": [
-				"Mrs. Smith",
-				"Miss Hamilton"
-			]
+			"aliases": ["Mrs. Smith", "Miss Hamilton"]
 		},
 		{
 			"id": "mrs-clay",
 			"name": "Mrs. Clay",
-			"aliases": [
-				"Penelope Clay",
-				"Miss Clay"
-			]
+			"aliases": ["Penelope Clay", "Miss Clay"]
 		},
 		{
 			"id": "mr-shepherd",
@@ -186,9 +147,7 @@
 		{
 			"id": "richard-musgrove",
 			"name": "Richard Musgrove",
-			"aliases": [
-				"Dick Musgrove"
-			]
+			"aliases": ["Dick Musgrove"]
 		},
 		{
 			"id": "james-stevenson",
@@ -201,7 +160,7 @@
 			"aliases": []
 		}
 	],
-	"places": [
+	"locations": [
 		{
 			"id": "kellynch-hall",
 			"name": "Kellynch Hall",
@@ -584,4 +543,3 @@
 		}
 	]
 }
-

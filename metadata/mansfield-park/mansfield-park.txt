@@ -85,7 +85,7 @@ Contents
    CHAPTER XLVIII
 
 
-
+[[BOOK_START]]
 
 CHAPTER I
 
@@ -15706,7 +15706,7 @@ long been.
 
 FINIS.
 
-
+[[BOOK_END]]
 
 *** END OF THE PROJECT GUTENBERG EBOOK MANSFIELD PARK ***
 

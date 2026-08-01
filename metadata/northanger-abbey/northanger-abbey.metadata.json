@@ -4,7 +4,7 @@
 	"slug": "northanger-abbey",
 	"author": "Jane Austen",
 	"gutenbergId": 121,
-	"sourceFile": "books/northanger-abbey.txt",
+	"sourceFile": "metadata/northanger-abbey/northanger-abbey.txt",
 	"chapterCount": 31,
 	"sentenceCount": 3220,
 	"paragraphCount": 1021,
@@ -12,70 +12,47 @@
 		{
 			"id": "catherine-morland",
 			"name": "Catherine Morland",
-			"aliases": [
-				"Catherine",
-				"Miss Morland"
-			]
+			"aliases": ["Catherine", "Miss Morland"]
 		},
 		{
 			"id": "henry-tilney",
 			"name": "Henry Tilney",
-			"aliases": [
-				"Henry",
-				"Mr. Tilney"
-			]
+			"aliases": ["Henry", "Mr. Tilney"]
 		},
 		{
 			"id": "eleanor-tilney",
 			"name": "Eleanor Tilney",
-			"aliases": [
-				"Eleanor",
-				"Miss Tilney"
-			]
+			"aliases": ["Eleanor", "Miss Tilney"]
 		},
 		{
 			"id": "general-tilney",
 			"name": "General Tilney",
-			"aliases": [
-				"the General"
-			]
+			"aliases": ["the General"]
 		},
 		{
 			"id": "frederick-tilney",
 			"name": "Frederick Tilney",
-			"aliases": [
-				"Captain Tilney"
-			]
+			"aliases": ["Captain Tilney"]
 		},
 		{
 			"id": "isabella-thorpe",
 			"name": "Isabella Thorpe",
-			"aliases": [
-				"Isabella",
-				"Miss Thorpe"
-			]
+			"aliases": ["Isabella", "Miss Thorpe"]
 		},
 		{
 			"id": "john-thorpe",
 			"name": "John Thorpe",
-			"aliases": [
-				"John",
-				"Mr. Thorpe"
-			]
+			"aliases": ["John", "Mr. Thorpe"]
 		},
 		{
 			"id": "james-morland",
 			"name": "James Morland",
-			"aliases": [
-				"James"
-			]
+			"aliases": ["James"]
 		},
 		{
 			"id": "richard-morland",
 			"name": "Richard Morland",
-			"aliases": [
-				"Mr. Morland"
-			]
+			"aliases": ["Mr. Morland"]
 		},
 		{
 			"id": "mrs-morland",
@@ -100,30 +77,22 @@
 		{
 			"id": "william-morland",
 			"name": "William Morland",
-			"aliases": [
-				"William"
-			]
+			"aliases": ["William"]
 		},
 		{
 			"id": "george-morland",
 			"name": "George Morland",
-			"aliases": [
-				"George"
-			]
+			"aliases": ["George"]
 		},
 		{
 			"id": "harriet-morland",
 			"name": "Harriet Morland",
-			"aliases": [
-				"Harriet"
-			]
+			"aliases": ["Harriet"]
 		},
 		{
 			"id": "sally-morland",
 			"name": "Sally Morland",
-			"aliases": [
-				"Sally"
-			]
+			"aliases": ["Sally"]
 		},
 		{
 			"id": "miss-andrews",
@@ -146,7 +115,7 @@
 			"aliases": []
 		}
 	],
-	"places": [
+	"locations": [
 		{
 			"id": "fullerton",
 			"name": "Fullerton",
@@ -508,4 +477,3 @@
 		}
 	]
 }
-

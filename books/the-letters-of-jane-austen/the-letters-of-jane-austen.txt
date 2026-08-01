@@ -273,7 +273,7 @@ verisimilitude go farther or mean more?
 
 LETTERS OF JANE AUSTEN.
 
-
+[[BOOK_START]]
 
 
 I.
@@ -8569,6 +8569,8 @@ Fanny.
 
 
 THE END.
+
+[[BOOK_END]]
 
        *       *       *       *       *
 

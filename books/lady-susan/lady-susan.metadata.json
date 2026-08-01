@@ -4,7 +4,7 @@
 	"slug": "lady-susan",
 	"author": "Jane Austen",
 	"gutenbergId": 946,
-	"sourceFile": "books/lady-susan.txt",
+	"sourceFile": "metadata/lady-susan/lady-susan.txt",
 	"chapterCount": 42,
 	"sentenceCount": 975,
 	"paragraphCount": 183,
@@ -12,49 +12,32 @@
 		{
 			"id": "lady-susan-vernon",
 			"name": "Lady Susan Vernon",
-			"aliases": [
-				"Lady Susan",
-				"S. Vernon"
-			]
+			"aliases": ["Lady Susan", "S. Vernon"]
 		},
 		{
 			"id": "frederica-vernon",
 			"name": "Frederica Vernon",
-			"aliases": [
-				"Frederica",
-				"Miss Vernon"
-			]
+			"aliases": ["Frederica", "Miss Vernon"]
 		},
 		{
 			"id": "charles-vernon",
 			"name": "Charles Vernon",
-			"aliases": [
-				"Mr. Vernon",
-				"Charles"
-			]
+			"aliases": ["Mr. Vernon", "Charles"]
 		},
 		{
 			"id": "catherine-vernon",
 			"name": "Catherine Vernon",
-			"aliases": [
-				"Mrs. Vernon",
-				"Catherine"
-			]
+			"aliases": ["Mrs. Vernon", "Catherine"]
 		},
 		{
 			"id": "reginald-de-courcy",
 			"name": "Reginald De Courcy",
-			"aliases": [
-				"Reginald",
-				"Mr. De Courcy"
-			]
+			"aliases": ["Reginald", "Mr. De Courcy"]
 		},
 		{
 			"id": "sir-reginald-de-courcy",
 			"name": "Sir Reginald De Courcy",
-			"aliases": [
-				"Sir Reginald"
-			]
+			"aliases": ["Sir Reginald"]
 		},
 		{
 			"id": "lady-de-courcy",
@@ -64,10 +47,7 @@
 		{
 			"id": "alicia-johnson",
 			"name": "Alicia Johnson",
-			"aliases": [
-				"Mrs. Johnson",
-				"Alicia"
-			]
+			"aliases": ["Mrs. Johnson", "Alicia"]
 		},
 		{
 			"id": "mr-johnson",
@@ -77,9 +57,7 @@
 		{
 			"id": "sir-james-martin",
 			"name": "Sir James Martin",
-			"aliases": [
-				"Sir James"
-			]
+			"aliases": ["Sir James"]
 		},
 		{
 			"id": "mr-manwaring",
@@ -94,10 +72,7 @@
 		{
 			"id": "miss-maria-manwaring",
 			"name": "Miss Maria Manwaring",
-			"aliases": [
-				"Miss Manwaring",
-				"Maria"
-			]
+			"aliases": ["Miss Manwaring", "Maria"]
 		},
 		{
 			"id": "mr-smith",
@@ -120,7 +95,7 @@
 			"aliases": []
 		}
 	],
-	"places": [
+	"locations": [
 		{
 			"id": "churchhill",
 			"name": "Churchhill",
@@ -496,4 +471,3 @@
 		}
 	]
 }
-

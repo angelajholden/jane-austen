@@ -4,7 +4,7 @@
 	"slug": "the-letters-of-jane-austen",
 	"author": "Jane Austen",
 	"gutenbergId": 42078,
-	"sourceFile": "books/the-letters-of-jane-austen.txt",
+	"sourceFile": "metadata/the-letters-of-jane-austen/the-letters-of-jane-austen.txt",
 	"chapterCount": 78,
 	"sentenceCount": 3954,
 	"paragraphCount": 1320,
@@ -12,185 +12,127 @@
 		{
 			"id": "jane-austen",
 			"name": "Jane Austen",
-			"aliases": [
-				"Jane",
-				"Miss Austen"
-			]
+			"aliases": ["Jane", "Miss Austen"]
 		},
 		{
 			"id": "cassandra-austen",
 			"name": "Cassandra Austen",
-			"aliases": [
-				"Cassandra",
-				"Miss Cassandra Austen"
-			]
+			"aliases": ["Cassandra", "Miss Cassandra Austen"]
 		},
 		{
 			"id": "cassandra-elizabeth-austen",
 			"name": "Cassandra Elizabeth Austen",
-			"aliases": [
-				"Mrs. Austen"
-			]
+			"aliases": ["Mrs. Austen"]
 		},
 		{
 			"id": "george-austen",
 			"name": "George Austen",
-			"aliases": [
-				"Mr. Austen"
-			]
+			"aliases": ["Mr. Austen"]
 		},
 		{
 			"id": "henry-thomas-austen",
 			"name": "Henry Thomas Austen",
-			"aliases": [
-				"Henry",
-				"Henry Austen"
-			]
+			"aliases": ["Henry", "Henry Austen"]
 		},
 		{
 			"id": "eliza-de-feuillide",
 			"name": "Eliza de Feuillide",
-			"aliases": [
-				"Eliza",
-				"Mrs. Henry Austen"
-			]
+			"aliases": ["Eliza", "Mrs. Henry Austen"]
 		},
 		{
 			"id": "edward-austen-knight",
 			"name": "Edward Austen Knight",
-			"aliases": [
-				"Edward",
-				"Edward Austen"
-			]
+			"aliases": ["Edward", "Edward Austen"]
 		},
 		{
 			"id": "elizabeth-bridges-austen",
 			"name": "Elizabeth Bridges Austen",
-			"aliases": [
-				"Elizabeth"
-			]
+			"aliases": ["Elizabeth"]
 		},
 		{
 			"id": "francis-austen",
 			"name": "Francis Austen",
-			"aliases": [
-				"Frank",
-				"Captain Austen"
-			]
+			"aliases": ["Frank", "Captain Austen"]
 		},
 		{
 			"id": "charles-austen",
 			"name": "Charles Austen",
-			"aliases": [
-				"Charles",
-				"Captain Austen"
-			]
+			"aliases": ["Charles", "Captain Austen"]
 		},
 		{
 			"id": "james-austen",
 			"name": "James Austen",
-			"aliases": [
-				"James"
-			]
+			"aliases": ["James"]
 		},
 		{
 			"id": "mary-lloyd-austen",
 			"name": "Mary Lloyd Austen",
-			"aliases": [
-				"Mary"
-			]
+			"aliases": ["Mary"]
 		},
 		{
 			"id": "anna-austen",
 			"name": "Anna Austen",
-			"aliases": [
-				"Anna"
-			]
+			"aliases": ["Anna"]
 		},
 		{
 			"id": "fanny-knight",
 			"name": "Fanny Knight",
-			"aliases": [
-				"Fanny",
-				"Miss Knight"
-			]
+			"aliases": ["Fanny", "Miss Knight"]
 		},
 		{
 			"id": "caroline-austen",
 			"name": "Caroline Austen",
-			"aliases": [
-				"Caroline"
-			]
+			"aliases": ["Caroline"]
 		},
 		{
 			"id": "martha-lloyd",
 			"name": "Martha Lloyd",
-			"aliases": [
-				"Martha"
-			]
+			"aliases": ["Martha"]
 		},
 		{
 			"id": "mary-lloyd",
 			"name": "Mary Lloyd",
-			"aliases": [
-				"Mary Lloyd"
-			]
+			"aliases": ["Mary Lloyd"]
 		},
 		{
 			"id": "anne-lefroy",
 			"name": "Anne Lefroy",
-			"aliases": [
-				"Mrs. Lefroy"
-			]
+			"aliases": ["Mrs. Lefroy"]
 		},
 		{
 			"id": "james-edward-austen",
 			"name": "James Edward Austen",
-			"aliases": [
-				"Edward"
-			]
+			"aliases": ["Edward"]
 		},
 		{
 			"id": "catherine-bigg",
 			"name": "Catherine Bigg",
-			"aliases": [
-				"Catherine"
-			]
+			"aliases": ["Catherine"]
 		},
 		{
 			"id": "alethea-bigg",
 			"name": "Alethea Bigg",
-			"aliases": [
-				"Alethea"
-			]
+			"aliases": ["Alethea"]
 		},
 		{
 			"id": "elizabeth-bigg",
 			"name": "Elizabeth Bigg",
-			"aliases": [
-				"Elizabeth"
-			]
+			"aliases": ["Elizabeth"]
 		},
 		{
 			"id": "harriet-bridges",
 			"name": "Harriet Bridges",
-			"aliases": [
-				"Harriet"
-			]
+			"aliases": ["Harriet"]
 		},
 		{
 			"id": "louisa-bridges",
 			"name": "Louisa Bridges",
-			"aliases": [
-				"Louisa"
-			]
+			"aliases": ["Louisa"]
 		},
 		{
 			"id": "edward-bridges",
 			"name": "Edward Bridges",
-			"aliases": [
-				"Edward Bridges"
-			]
+			"aliases": ["Edward Bridges"]
 		},
 		{
 			"id": "madame-bigeon",
@@ -240,19 +182,15 @@
 		{
 			"id": "lord-brabourne",
 			"name": "Lord Brabourne",
-			"aliases": [
-				"Edward, Lord Brabourne"
-			]
+			"aliases": ["Edward, Lord Brabourne"]
 		},
 		{
 			"id": "sarah-chauncey-woolsey",
 			"name": "Sarah Chauncey Woolsey",
-			"aliases": [
-				"Susan Coolidge"
-			]
+			"aliases": ["Susan Coolidge"]
 		}
 	],
-	"places": [
+	"locations": [
 		{
 			"id": "steventon",
 			"name": "Steventon",
@@ -1083,4 +1021,3 @@
 		}
 	]
 }
-

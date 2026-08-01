@@ -88,6 +88,7 @@ CONTENTS
 
 LOVE AND FREINDSHIP
 
+[[BOOK_START]]
 
 TO MADAME LA COMTESSE DE FEUILLIDE THIS NOVEL IS INSCRIBED BY HER
 OBLIGED HUMBLE SERVANT THE AUTHOR.
@@ -3737,6 +3738,8 @@ both simple and elegant—A couple of old blankets, each supported by
 four sticks, gave a striking proof of that taste for architecture and
 that happy ease in overcoming difficulties which were some of
 Wilhelminus’s most striking Virtues.
+
+[[BOOK_END]]
 
 
 *** END OF THE PROJECT GUTENBERG EBOOK LOVE AND FREINDSHIP [SIC] ***

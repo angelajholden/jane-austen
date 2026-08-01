@@ -690,16 +690,11 @@ Heading to Chapter LXI.                                              472
 
 The End                                                              476
 
+[Illustration: ·PRIDE AND PREJUDICE·]
 
+[[BOOK_START]]
 
-
-[Illustration: ·PRIDE AND PREJUDICE·
-
-
-
-
-Chapter I.]
-
+Chapter I.
 
 It is a truth universally acknowledged, that a single man in possession
 of a good fortune must be in want of a wife.
@@ -14552,6 +14547,8 @@ her into Derbyshire, had been the means of uniting them.
                                   THE
                                   END
                                    ]
+
+[[BOOK_END]]
 
 
 

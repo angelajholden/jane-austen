@@ -455,7 +455,7 @@ It _was_ Edward
        *       *       *       *       *
 
 
-
+[[BOOK_START]]
 
 CHAPTER I
 
@@ -13277,7 +13277,7 @@ between themselves, or producing coolness between their husbands.
 
 THE END
 
-
+[[BOOK_END]]
 
 
 *** END OF THE PROJECT GUTENBERG EBOOK SENSE AND SENSIBILITY ***
