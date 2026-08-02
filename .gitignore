@@ -1,0 +1,22 @@
+node_modules/
+
+# Generated SQLite databases and temporary files
+data/*.sqlite
+data/*.sqlite-*
+data/*.sqlite.*
+data/*.db
+data/*.db-*
+data/*.db.*
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs and test output
+*.log
+coverage/
+
+# OS and editor files
+.DS_Store
+*.swp

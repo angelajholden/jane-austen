@@ -24,7 +24,7 @@ Design only. Do not create or populate the database.
 ## Read
 
 - `requirements.md`
-- `docs/book-format-analysis.md`
+- `docs/output/book-format-analysis.md`
 - `docs/audit/chapter-headings/chapter-audit-summary.md`
 - the six approved book metadata JSON files
 

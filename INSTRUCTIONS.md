@@ -32,7 +32,7 @@ Save and replace the output as JSON in the output folder: `metadata/`
 
 Read `jobs/backend/requirements.md` first.
 
-Then read `jobs/backend/01_analyze_book_source.md`.
+Read `jobs/backend/03_scaffold_project.md` and follow its instructions.
 
 Read both files. Do not rely on your memory.
 
