@@ -3,6 +3,7 @@
 	"title": "Pride and Prejudice",
 	"slug": "pride-and-prejudice",
 	"author": "Jane Austen",
+	"publicationYear": 1813,
 	"gutenbergId": 1342,
 	"sourceFile": "metadata/pride-and-prejudice/pride-and-prejudice.txt",
 	"chapterCount": 61,

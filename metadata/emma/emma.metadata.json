@@ -3,6 +3,7 @@
 	"title": "Emma",
 	"slug": "emma",
 	"author": "Jane Austen",
+	"publicationYear": 1815,
 	"gutenbergId": 158,
 	"sourceFile": "metadata/emma/emma.txt",
 	"chapterCount": 55,

@@ -3,6 +3,7 @@
 	"title": "Persuasion",
 	"slug": "persuasion",
 	"author": "Jane Austen",
+	"publicationYear": 1817,
 	"gutenbergId": 105,
 	"sourceFile": "metadata/persuasion/persuasion.txt",
 	"chapterCount": 24,

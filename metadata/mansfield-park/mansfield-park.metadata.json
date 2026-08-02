@@ -3,6 +3,7 @@
 	"title": "Mansfield Park",
 	"slug": "mansfield-park",
 	"author": "Jane Austen",
+	"publicationYear": 1814,
 	"gutenbergId": 141,
 	"sourceFile": "metadata/mansfield-park/mansfield-park.txt",
 	"chapterCount": 48,

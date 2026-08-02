@@ -3,6 +3,7 @@
 	"title": "Northanger Abbey",
 	"slug": "northanger-abbey",
 	"author": "Jane Austen",
+	"publicationYear": 1817,
 	"gutenbergId": 121,
 	"sourceFile": "metadata/northanger-abbey/northanger-abbey.txt",
 	"chapterCount": 31,
