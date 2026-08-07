@@ -44,14 +44,11 @@ Specifically:
 
 metadata/
 emma/
-lady-susan/
-love-and-freindship/
 mansfield-park/
 northanger-abbey/
 persuasion/
 pride-and-prejudice/
 sense-and-sensibility/
-the-letters-of-jane-austen/
 
 ```
 
@@ -68,7 +65,7 @@ The importer reads an explicit list of approved book directories.
 Example:
 
 ```js
-export const bookDirectories = ["emma", "lady-susan", "love-and-freindship"];
+export const bookDirectories = ["emma", "mansfield-park", "northanger-abbey"];
 ```
 
 ---
