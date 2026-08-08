@@ -2,215 +2,178 @@
 
 ## Architecture
 
-The v1 importer is a deterministic staged rebuild implemented in Node.js:
+The v1 importer is a deterministic, paragraph-based staged rebuild implemented in Node.js.
+
+```text
+Book
+  └── Chapter
+        └── Paragraph
+              └── paragraphs_fts
+```
+
+A retained logical prose paragraph is the canonical reader unit, relational content row, searchable chunk, FTS document, and future search-result target. Sentence boundaries are not parsed or stored in the v1 content model. Canonical book and chapter `sentenceCount` values remain stored only as source metadata for provenance; they are not import gates.
 
 | Module | Responsibility |
 |---|---|
 | `config/books.js` | Authoritative ordered list of the six approved v1 directory slugs |
-| `scripts/lib/chapter-parser.js` | Line-ending normalization, book-boundary extraction, audited chapter detection, and sequential chapter mapping |
-| `scripts/lib/book-parser.js` | Canonical path and metadata validation, paragraph normalization, sentence tokenization, ordinals, stable IDs, and count diagnostics |
-| `scripts/lib/database-import.js` | Relational inserts, alias mapping, FTS population through approved triggers, and staged-database validation |
+| `scripts/lib/chapter-parser.js` | Line-ending normalization, body-boundary extraction, audited chapter detection, and sequential chapter mapping |
+| `scripts/lib/book-parser.js` | Canonical path and metadata validation, structural paragraph parsing, illustration exclusion, ordinals, stable IDs, and paragraph-count diagnostics |
+| `scripts/lib/database-import.js` | Paragraph and metadata inserts, alias mapping, paragraph FTS validation, and staged-database validation |
 | `scripts/import-books.js` | CLI orchestration, progress output, report generation, cleanup, and atomic publication |
-| `scripts/audit-chapter-headings.js` | Chapter audit using the same shared detector as the importer |
-| `scripts/audit-chapter-headings.py` | Compatibility wrapper for the pre-existing Python audit command |
+| `scripts/audit-chapter-headings.js` | Chapter audit using the same detector as the importer |
 
-The importer does not implement API routes, search endpoints, sentence-level entity tagging, frontend behavior, or eReader behavior.
+The importer does not implement API routes, search endpoints, entity tagging, frontend behavior, or eReader behavior.
 
 ## Canonical inputs
 
-Only the slugs exported by `config/books.js` are processed. For each configured `<slug>`, the importer derives and reads:
+Only slugs exported by `config/books.js` are processed. For each configured `<slug>`, the importer derives and reads:
 
 ```text
 metadata/<slug>/<slug>.txt
 metadata/<slug>/<slug>.metadata.json
 ```
 
-The configured slug and derived filesystem paths are authoritative. Resolved directories and files must remain under the approved `metadata/` root. Metadata `id`, `slug`, and `sourceFile` are validation inputs and cannot redirect file access.
+Configured slugs and derived paths are authoritative. Resolved directories and files must remain under the approved `metadata/` root. Metadata `id`, `slug`, and `sourceFile` values are validated but cannot redirect filesystem access.
 
-Text is decoded as strict UTF-8. Invalid byte sequences and NUL characters fail validation. Canonical text and metadata files are read-only importer inputs.
+Text is decoded as strict UTF-8. Invalid byte sequences and NUL characters fail validation. Canonical text and metadata files are read-only inputs.
 
-## Parsing stages
+## Parsing pipeline
 
-For every book, parsing occurs in this fixed order:
+For every book, parsing occurs in this order:
 
 1. Resolve and validate canonical paths.
 2. Decode text and parse JSON metadata.
-3. Validate metadata structure, types, IDs, aliases, counts, and internal totals.
-4. Normalize CRLF or bare CR line endings to LF in memory.
-5. Extract content strictly between the unique `[[BOOK_START]]` and `[[BOOK_END]]` lines.
+3. Validate metadata structure, types, IDs, aliases, counts, and internal metadata totals.
+4. Normalize CRLF and bare CR line endings to LF in memory.
+5. Extract content strictly between the unique `[[BOOK_START]]` and `[[BOOK_END]]` marker lines.
 6. Detect and sequentially map audited chapter headings.
-7. Convert retained physical-line blocks into normalized logical paragraphs.
-8. Tokenize every paragraph independently into sentence chunks.
-9. Assign one-based ordinals and deterministic stable IDs.
-10. Compare every parsed chapter and book total with metadata reference counts.
+7. Convert retained physical source lines into logical prose paragraphs.
+8. Assign one-based paragraph ordinals and deterministic stable IDs.
+9. Compare every chapter and book paragraph total with metadata.
 
-No database staging begins when source validation or parsed reference counts fail.
+Database staging begins only after every source validates and all parsed paragraph counts agree.
 
-## Body-boundary rules
+## Body boundaries and chapter headings
 
-After line-ending normalization, a marker is recognized only when the trimmed physical line exactly equals `[[BOOK_START]]` or `[[BOOK_END]]`.
+A body marker is recognized only when its trimmed physical line exactly equals `[[BOOK_START]]` or `[[BOOK_END]]`. Exactly one marker of each kind is required, the start must precede the end, and marker lines and all outside text are excluded from content parsing.
 
-- Exactly one marker of each kind is required.
-- The start marker must precede the end marker.
-- Marker lines are excluded.
-- Text outside the markers is never parsed into chapters, paragraphs, or sentences.
-- No Unicode normalization, ASCII folding, case conversion, or spelling correction is performed.
-
-The raw canonical file text is retained unchanged in `books.source_text`; normalized body text supplies reader/search rows.
-
-## Chapter detection
-
-The shared detector recognizes a physical line matching this case-insensitive structure:
-
-```text
-optional whitespace + CHAPTER + whitespace + Roman or Arabic numeral + optional period/whitespace
-```
-
-Equivalent regular expression:
+The shared chapter detector recognizes a line matching this case-insensitive shape:
 
 ```regex
 ^\s*CHAPTER\s+(?:[IVXLCDM]+|\d+)[.\s]*$
 ```
 
-Only matches inside the approved body markers are considered. Detected headings are mapped in source order to metadata `chapters` records. Counts must agree exactly. Heading lines are structural metadata and are excluded from paragraph and sentence content. Metadata titles remain the display titles.
-
-The existing chapter audit and importer both call `scripts/lib/chapter-parser.js`, preventing detector drift. The former Python command delegates to the shared Node audit entry point.
+Detected headings are mapped in physical source order to metadata chapter records. Counts must agree exactly. Heading lines remain structural metadata and do not create paragraph rows. The chapter audit and importer both use `scripts/lib/chapter-parser.js` so their behavior cannot drift.
 
 ## Paragraph normalization
 
-Within a detected chapter:
+Paragraph parsing is structural, not linguistic:
 
-1. One or more empty or whitespace-only physical lines end a logical block.
-2. Leading and trailing whitespace is removed from every retained physical line.
-3. Wrapped physical lines in one block are joined with one ASCII space.
-4. Repeated layout whitespace is collapsed to one ASCII space.
-5. Project Gutenberg production wrappers `/*`, optional `NIND`/`RIGHT`, and terminal `*/` are removed while retaining their enclosed textual content.
-6. Empty normalized blocks are discarded.
-7. Structural blocks beginning with `[Illustration` or `[_Copyright`/`[Copyright`, plus standalone `FINIS`, `FINIS.`, or `THE END`, are excluded as non-reader matter.
+- one or more blank or whitespace-only lines separate logical blocks;
+- leading and trailing whitespace is removed from each retained physical line;
+- hard-wrapped physical lines in one prose block are joined with one ASCII space;
+- repeated layout whitespace is collapsed to one ASCII space;
+- Project Gutenberg production wrappers `/*`, optional `NIND` or `RIGHT`, and terminal `*/` are removed while retaining their enclosed prose;
+- original Unicode punctuation, capitalization, spelling, apostrophes, dashes, quotation marks, and italics markers are otherwise preserved;
+- punctuation never splits a paragraph.
 
-These structural exclusions reproduce the approved paragraph totals for all six current v1 sources. Meaningful punctuation, quotation marks, apostrophes, dashes, capitalization, spelling, italic underscores, and other textual characters are otherwise preserved.
+Every retained non-empty logical prose block becomes exactly one `paragraphs` row with canonical normalized `text`.
 
-## Sentence tokenizer, version 1
+## Illustration and decorative exclusion
 
-The tokenizer scans one normalized paragraph from left to right. It never carries state across paragraph boundaries.
-
-### Candidate terminal punctuation
-
-A run containing `.`, `?`, or `!` is a boundary candidate. Adjacent terminal characters are consumed as one run. Immediately following closing characters are included in the candidate sentence:
+Standalone and multiline bracketed illustration blocks are structural separators. The parser starts an exclusion at `[Illustration` and tracks nested square brackets across physical lines and blank lines until the matching close. This handles caption and copyright material contained in forms such as:
 
 ```text
-"  '  ”  ’  )  ]  }
+[Illustration:
+
+caption text
+
+[Copyright ...]]
 ```
 
-A candidate can close a sentence only when it reaches the paragraph end or is followed by whitespace. Punctuation followed immediately by an em dash, comma, colon, or other non-closing/non-whitespace character is not a boundary at that position.
+Standalone copyright blocks and terminal `FINIS`, `FINIS.`, or `THE END` blocks are also excluded. Excluded blocks:
 
-### Protected periods
+- do not create paragraph rows;
+- do not enter `paragraphs.text`;
+- do not enter `paragraphs_fts`;
+- force a structural boundary, including when no blank line surrounds them.
 
-A period is not a boundary when it is:
+The parser records the exact source-line range and normalized text of excluded blocks for mismatch diagnostics. The Pride and Prejudice Chapter XXVIII regression verifies that prose on either side of an illustration remains two distinct paragraphs. Chapter LXI verifies that its final illustrated `THE END` block creates no paragraph.
 
-- between two digits, as in a decimal;
-- after a single uppercase initial;
-- the final period of `e.g.`, `i.e.`, `a.m.`, or `p.m.`;
-- after one of these case-insensitive protected abbreviations:
+## Stable identifiers and reading order
 
-```text
-capt. chap. chaps. col. dr. esq. etc. gen. hon. jr. lt. maj.
-messrs. mlle. mme. mmes. mr. mrs. ms. mt. no. nos. p. pp.
-prof. rev. sgt. sr. st. viz. vol. vols. vs.
-```
+All ordinals are one-based:
 
-### Dialogue and lowercase continuation
+- chapters within a book;
+- paragraphs within a chapter;
+- paragraphs within a book.
 
-After consuming closing punctuation and whitespace, a candidate is not a boundary when the next content character is lowercase ASCII. This keeps lowercase dialogue attribution or continuation with its quoted speech, for example:
-
-```text
-“Are you well?” she asked.
-```
-
-Uppercase text, an opening quotation mark, an italic marker, a digit, or paragraph end may begin the next sentence.
-
-### Ellipses
-
-A run of two or more periods is treated as a non-terminal ellipsis when more paragraph text follows. An ellipsis at paragraph end remains part of the paragraph's final sentence.
-
-### Output preservation
-
-When a boundary is accepted, text from the current sentence start through the terminal run and its closing characters is trimmed only at its outer edges and emitted unchanged. At paragraph end, any non-empty remainder is emitted as the final sentence. A non-empty paragraph therefore always produces at least one sentence.
-
-The tokenizer does not lowercase, stem, ASCII-fold, Unicode-normalize, or rewrite punctuation. The exact implementation and protected list are exported from `scripts/lib/book-parser.js` and covered by controlled tests.
-
-## Stable identifiers and ordinals
-
-All content ordinals are one-based:
-
-- chapters: within book;
-- paragraphs: within chapter and book;
-- sentences: within paragraph, chapter, and book.
-
-Stable IDs follow the approved design:
+Stable identifiers follow the approved design:
 
 ```text
 chapter:   <book-id>:chapter:<metadata-chapter-id>
 paragraph: <book-id>:paragraph:<ordinal-in-book>
-sentence:  <book-id>:sentence:<ordinal-in-book>
 ```
 
-Internal SQLite integer primary keys are never used as public stable identifiers or reading order.
+Internal SQLite integer keys are not reading-order or public identifiers.
 
-## Metadata mapping
+## Metadata and aliases
 
-Factual book metadata comes directly from validated JSON, including publication year and Gutenberg ID. Book and chapter reference counts are stored only after parsed counts agree.
+Factual book metadata comes from validated JSON, including publication year, Gutenberg ID, and canonical reference counts. Book and chapter sentence counts are stored as reference metadata only; the importer performs no sentence segmentation or sentence-count comparison.
 
-Characters, approved aliases, optional notes, and explicit `ambiguousAliases` are imported without inference or merging. Ambiguous aliases use `is_ambiguous = 1`.
+Characters, aliases, optional notes, and explicit `ambiguousAliases` are imported without inference or merging. Explicitly ambiguous aliases use `is_ambiguous = 1`.
 
-Application and database terminology is `locations`. Canonical metadata may supply `locations` or the legacy input field `places`, but not both. Either supported input is normalized in memory and inserted into `locations` and `location_aliases`. Source JSON is not rewritten.
+Application and database terminology is `locations`. Canonical metadata may supply `locations` or the legacy field `places`, but not both. Either supported input maps to `locations` and `location_aliases` without rewriting source JSON.
 
-No sentence-character or sentence-location links are created.
+## Database and paragraph FTS
 
-## Database and FTS population
+After parsing succeeds, the importer initializes a separate staging database from `sql/schema.sql` and inserts all six books inside a transaction. `paragraphs.text` is authoritative. The external-content `paragraphs_fts` table indexes that column with:
 
-After every source and reference count passes, the importer initializes a separate staging database from `sql/schema.sql` and inserts all six books in configured order inside a transaction. Approved `sentences` triggers populate the external-content `sentences_fts` index.
+```sql
+tokenize = 'unicode61 remove_diacritics 0'
+```
+
+Insert, delete, and text-update triggers synchronize FTS for ordinary relational changes.
 
 Before publication, validation checks:
 
-- configured book IDs and all expected table totals;
-- one-based contiguous ordinals at every stored scope;
-- paragraph and sentence hierarchy;
-- empty sentences and orphan rows;
-- SQLite foreign-key integrity;
-- SQLite `integrity_check`;
-- FTS5 `integrity-check`;
+- configured book IDs and all expected relational totals;
+- stored and actual chapter/book paragraph counts;
+- contiguous one-based chapter and paragraph ordinals;
+- unique stable paragraph IDs;
+- non-empty paragraph text and valid book/chapter hierarchy;
+- character, location, and alias population;
+- absence of excluded illustration/decorative markers from paragraph rows;
+- absence of `sentences` and `sentences_fts` schema objects;
+- SQLite foreign keys and `integrity_check`;
+- FTS5 integrity and one indexed document per paragraph;
+- no orphan FTS document IDs;
 - representative FTS lookup;
-- update-trigger synchronization inside a rolled-back savepoint;
-- FTS and canonical sentence row totals.
-
-Canonical sentence text remains in `sentences`; FTS is only its search index.
+- insert, delete, and update trigger synchronization.
 
 ## Atomic rebuild behavior
 
-The published database is never opened for writes during parsing or staging. The importer:
+The published database is not opened for writes while parsing or staging. The importer:
 
 1. parses and validates all configured books;
 2. creates a uniquely named staging database beside the target;
 3. applies the approved schema;
 4. populates and validates the complete stage;
 5. closes the stage;
-6. atomically renames it over the generated target database.
+6. atomically renames it over the generated target only after every check passes.
 
-On any error, the staging database and SQLite sidecar files are removed. The previously published database remains untouched. The generated Markdown report is still updated with the failure and diagnostics.
+On error, the staging database and SQLite sidecars are removed. The previously published database remains untouched. The Markdown report is still replaced with failure details.
 
-## CLI usage
+## CLI and report
 
-Run the complete rebuild with:
+Run the full rebuild with:
 
 ```sh
 npm run import
 ```
 
-The command owns staging initialization; `npm run db:init` is not required first. It exits zero only after successful validation and publication. Validation failures and parser count discrepancies exit non-zero.
+The command exits zero only after successful validation and publication. Source, parser, database, or publication failures exit non-zero.
 
-## Failure and reporting behavior
+Every run replaces `docs/import-report.md`. It records execution and publication status, per-book chapter and paragraph expected/parsed totals, entity and alias counts, paragraph FTS validation when staging runs, warnings, and chapter-level paragraph discrepancies. Mismatch entries include sampled retained source blocks and every excluded block in the affected chapter with exact source line ranges.
 
-Every run writes `docs/import-report.md`. The report contains execution status, processed books, expected/parsed totals, metadata entity counts, chapter-level discrepancies, representative normalized context, FTS results, integrity results, and warnings.
-
-If source validation fails, the report identifies the book, file, or field. If reference counts disagree, status is `PARSER AUDIT REQUIRED`, every mismatched chapter is listed, no database is published, and no tokenizer or metadata exception is introduced automatically.
+If paragraph counts disagree, status is `PARSER AUDIT REQUIRED`, staging is not published, and neither metadata nor canonical source files are changed automatically.

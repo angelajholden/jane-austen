@@ -5,6 +5,7 @@ import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 
+import { projectRoot } from "../config/database.js";
 import { initializeDatabase } from "../scripts/init-db.js";
 import {
   ImportCountMismatchError,
@@ -18,10 +19,10 @@ import {
 import {
   loadCanonicalBook,
   normalizeParagraphLines,
+  parseParagraphBlocks,
   parseParagraphs,
   parseValidatedBook,
   resolveCanonicalPaths,
-  tokenizeParagraph,
   validateMetadata,
 } from "../scripts/lib/book-parser.js";
 import { openDatabase } from "../server/db.js";
@@ -36,8 +37,8 @@ function fixtureMetadata({
   slug = "fixture",
   sourceFile = `metadata/${slug}/${slug}.txt`,
   paragraphCount = 2,
-  sentenceCount = 3,
-  locationField = "places",
+  sentenceCount = 99,
+  locationField = "locations",
 } = {}) {
   return {
     id: slug,
@@ -89,6 +90,11 @@ function fixtureText(lineEnding = "\n") {
     "",
     "Mr. Bennet spoke. “Indeed?” she asked.",
     "",
+    "[Illustration:",
+    "unfindablecaptiontoken",
+    "",
+    "[Copyright Fixture Press.]]",
+    "",
     "A wrapped physical",
     "line ends!",
     "[[BOOK_END]]",
@@ -111,6 +117,27 @@ function writeFixture(root, options = {}) {
   return { slug, directory, metadata };
 }
 
+function prideAndPrejudiceSection(ordinal) {
+  const sourcePath = path.join(
+    projectRoot,
+    "metadata",
+    "pride-and-prejudice",
+    "pride-and-prejudice.txt",
+  );
+  const metadataPath = path.join(
+    projectRoot,
+    "metadata",
+    "pride-and-prejudice",
+    "pride-and-prejudice.metadata.json",
+  );
+  const extracted = extractBookBody(fs.readFileSync(sourcePath, "utf8"), sourcePath);
+  const metadata = JSON.parse(fs.readFileSync(metadataPath, "utf8"));
+  return {
+    metadata: metadata.chapters[ordinal - 1],
+    section: mapChapterSections(extracted, metadata.chapters, sourcePath)[ordinal - 1],
+  };
+}
+
 test("body extraction validates markers and normalizes line endings", () => {
   const crlf = fixtureText("\r\n");
   assert.equal(normalizeLineEndings(crlf).includes("\r"), false);
@@ -124,25 +151,61 @@ test("body extraction validates markers and normalizes line endings", () => {
   );
 });
 
-test("paragraph parsing joins wrapped lines and removes structural blocks", () => {
+test("paragraph parsing uses blank lines and joins hard-wrapped lines", () => {
   assert.equal(
     normalizeParagraphLines(["  A wrapped ", " physical line.  "]),
     "A wrapped physical line.",
   );
-
   assert.deepEqual(
-    parseParagraphs([
-      "First wrapped",
-      "line.",
-      "   ",
-      "[Illustration: a caption]",
-      "",
-      "Second paragraph.",
-      "",
-      "FINIS",
-    ]),
+    parseParagraphs(["First wrapped", "line.", "   ", "Second paragraph."]),
     ["First wrapped line.", "Second paragraph."],
   );
+});
+
+test("standalone and multiline illustrations are excluded structural separators", () => {
+  const parsed = parseParagraphBlocks([
+    "Before prose.",
+    "[Illustration:",
+    "unfindablecaptiontoken",
+    "",
+    "[Copyright Fixture Press.]]",
+    "After prose.",
+    "",
+    "[Illustration]",
+    "",
+    "THE END",
+  ]);
+
+  assert.deepEqual(parsed.paragraphs.map(({ text }) => text), [
+    "Before prose.",
+    "After prose.",
+  ]);
+  assert.equal(parsed.excludedBlocks.length, 3);
+  assert.equal(parsed.excludedBlocks[0].text.includes("unfindablecaptiontoken"), true);
+});
+
+test("Pride and Prejudice Chapter XXVIII excludes its illustration without merging prose", () => {
+  const { section } = prideAndPrejudiceSection(28);
+  const parsed = parseParagraphBlocks(section.contentLines, {
+    firstLineNumber: section.lineNumber + 1,
+  });
+  const texts = parsed.paragraphs.map(({ text }) => text);
+  const before = texts.findIndex((text) => text.endsWith("cried out,--"));
+  const after = texts.findIndex((text) => text.startsWith("“Oh, my dear Eliza!"));
+
+  assert.ok(before >= 0);
+  assert.equal(after, before + 1);
+  assert.equal(texts.some((text) => /Illustration|Copyright|In Conversation/.test(text)), false);
+});
+
+test("Pride and Prejudice Chapter LXI excludes the terminal THE END illustration", () => {
+  const { metadata, section } = prideAndPrejudiceSection(61);
+  const parsed = parseParagraphBlocks(section.contentLines, {
+    firstLineNumber: section.lineNumber + 1,
+  });
+
+  assert.equal(parsed.paragraphs.length, metadata.paragraphCount);
+  assert.equal(parsed.paragraphs.some(({ text }) => /THE END|Illustration/.test(text)), false);
 });
 
 test("shared chapter detection maps headings sequentially", () => {
@@ -176,27 +239,9 @@ test("shared chapter detection maps headings sequentially", () => {
   );
 });
 
-test("sentence tokenization protects abbreviations and dialogue attribution", () => {
-  assert.deepEqual(
-    tokenizeParagraph("Dr. J. Smith arrived. He left."),
-    ["Dr. J. Smith arrived.", "He left."],
-  );
-  assert.deepEqual(
-    tokenizeParagraph("Mr. Bennet paused. “Are you well?” she asked. He nodded."),
-    ["Mr. Bennet paused.", "“Are you well?” she asked.", "He nodded."],
-  );
-  assert.deepEqual(tokenizeParagraph("He waited... Then left."), [
-    "He waited... Then left.",
-  ]);
-  assert.deepEqual(tokenizeParagraph("It ended (truly!). Then silence."), [
-    "It ended (truly!).",
-    "Then silence.",
-  ]);
-});
-
-test("parsed ordinals and stable identifiers are one-based", () => {
+test("paragraph ordinals and stable identifiers are deterministic and one-based", () => {
   const metadata = validateMetadata(
-    fixtureMetadata({ locationField: "locations" }),
+    fixtureMetadata(),
     "fixture",
     "metadata/fixture/fixture.txt",
   );
@@ -209,22 +254,18 @@ test("parsed ordinals and stable identifiers are one-based", () => {
 
   assert.equal(book.discrepancies.length, 0);
   assert.equal(book.chapters[0].stableId, "fixture:chapter:chapter-1");
-  assert.equal(book.chapters[0].paragraphs[0].stableId, "fixture:paragraph:1");
-  assert.equal(
-    book.chapters[0].paragraphs[0].sentences[0].stableId,
-    "fixture:sentence:1",
-  );
   assert.deepEqual(
-    book.chapters[0].paragraphs[0].sentences.map((sentence) => [
-      sentence.ordinalInParagraph,
-      sentence.ordinalInChapter,
-      sentence.ordinalInBook,
+    book.chapters[0].paragraphs.map((paragraph) => [
+      paragraph.stableId,
+      paragraph.ordinalInChapter,
+      paragraph.ordinalInBook,
     ]),
     [
-      [1, 1, 1],
-      [2, 2, 2],
+      ["fixture:paragraph:1", 1, 1],
+      ["fixture:paragraph:2", 2, 2],
     ],
   );
+  assert.equal("sentences" in book.chapters[0].paragraphs[0], false);
 });
 
 test("metadata and canonical source paths are validated", (context) => {
@@ -247,20 +288,23 @@ test("metadata and canonical source paths are validated", (context) => {
   assert.throws(() => resolveCanonicalPaths(root, "../escape"), /escapes/);
 });
 
-test("legacy places input maps to normalized database locations", (context) => {
+test("source locations and legacy places map to normalized locations", (context) => {
   const root = temporaryDirectory(context);
-  writeFixture(root, { locationField: "places" });
-  const book = loadCanonicalBook(root, "fixture");
+  writeFixture(root, { slug: "locations-fixture", locationField: "locations" });
+  writeFixture(root, { slug: "places-fixture", locationField: "places" });
 
-  assert.equal(book.metadata.locationSourceField, "places");
-  assert.equal(book.metadata.locations[0].name, "Longbourn");
+  assert.equal(loadCanonicalBook(root, "locations-fixture").metadata.locationSourceField, "locations");
+  const legacy = loadCanonicalBook(root, "places-fixture");
+  assert.equal(legacy.metadata.locationSourceField, "places");
+  assert.equal(legacy.metadata.locations[0].name, "Longbourn");
 });
 
-test("controlled fixture imports relational data, foreign keys, and FTS", (context) => {
+test("controlled fixture imports paragraph data, aliases, foreign keys, and FTS", (context) => {
   const root = temporaryDirectory(context);
   writeFixture(root);
   const target = path.join(root, "published.sqlite");
   const report = path.join(root, "import-report.md");
+  fs.writeFileSync(target, "previous generated artifact", "utf8");
 
   const result = runImport({
     slugs: ["fixture"],
@@ -271,24 +315,56 @@ test("controlled fixture imports relational data, foreign keys, and FTS", (conte
   });
 
   assert.equal(result.status, "SUCCESS");
-  const database = openDatabase(target, { readonly: true });
+  const database = openDatabase(target);
   context.after(() => database.close());
   assert.equal(database.pragma("foreign_keys", { simple: true }), 1);
   assert.deepEqual(database.pragma("foreign_key_check"), []);
-  assert.equal(database.prepare("SELECT count(*) AS count FROM books").get().count, 1);
-  assert.equal(database.prepare("SELECT count(*) AS count FROM sentences").get().count, 3);
-  assert.equal(database.prepare("SELECT count(*) AS count FROM locations").get().count, 1);
+  assert.equal(database.prepare("SELECT count(*) AS count FROM paragraphs").get().count, 2);
+  assert.equal(
+    database.prepare("SELECT text FROM paragraphs ORDER BY ordinal_in_book LIMIT 1").get().text,
+    "Mr. Bennet spoke. “Indeed?” she asked.",
+  );
+  assert.equal(database.prepare("SELECT count(*) AS count FROM character_aliases").get().count, 2);
+  assert.equal(database.prepare("SELECT count(*) AS count FROM location_aliases").get().count, 1);
   assert.equal(
     database
-      .prepare("SELECT count(*) AS count FROM sentences_fts WHERE sentences_fts MATCH 'Bennet'")
+      .prepare("SELECT count(*) AS count FROM paragraphs_fts WHERE paragraphs_fts MATCH 'Bennet'")
       .get().count,
     1,
   );
+  assert.equal(
+    database
+      .prepare("SELECT count(*) AS count FROM paragraphs_fts WHERE paragraphs_fts MATCH 'unfindablecaptiontoken'")
+      .get().count,
+    0,
+  );
+
+  database.prepare("UPDATE paragraphs SET text = text || ' testsyncprobe' WHERE id = 1").run();
+  assert.equal(
+    database
+      .prepare("SELECT count(*) AS count FROM paragraphs_fts WHERE paragraphs_fts MATCH 'testsyncprobe'")
+      .get().count,
+    1,
+  );
+  database.prepare("DELETE FROM paragraphs WHERE id = 1").run();
+  assert.equal(
+    database
+      .prepare("SELECT count(*) AS count FROM paragraphs_fts WHERE paragraphs_fts MATCH 'testsyncprobe'")
+      .get().count,
+    0,
+  );
+
+  const schemaNames = database
+    .prepare("SELECT name FROM sqlite_schema WHERE name IN ('sentences', 'sentences_fts')")
+    .all();
+  assert.deepEqual(schemaNames, []);
+  assert.match(fs.readFileSync(report, "utf8"), /Paragraphs E\/P/);
+  assert.doesNotMatch(fs.readFileSync(report, "utf8"), /Sentences E\/P/);
 });
 
-test("count failure writes an audit report and preserves the published database", (context) => {
+test("paragraph mismatch writes diagnostics and preserves the published database", (context) => {
   const root = temporaryDirectory(context);
-  writeFixture(root, { sentenceCount: 4 });
+  writeFixture(root, { paragraphCount: 3 });
   const target = path.join(root, "published.sqlite");
   const report = path.join(root, "import-report.md");
   initializeDatabase({ filename: target });
@@ -308,8 +384,11 @@ test("count failure writes an audit report and preserves the published database"
 
   const after = crypto.createHash("sha256").update(fs.readFileSync(target)).digest("hex");
   assert.equal(after, before);
-  assert.match(fs.readFileSync(report, "utf8"), /PARSER AUDIT REQUIRED/);
-  assert.match(fs.readFileSync(report, "utf8"), /SENTENCE COUNT MISMATCH/);
+  const reportText = fs.readFileSync(report, "utf8");
+  assert.match(reportText, /PARSER AUDIT REQUIRED/);
+  assert.match(reportText, /PARAGRAPH COUNT MISMATCH/);
+  assert.match(reportText, /Excluded source blocks/);
+  assert.doesNotMatch(reportText, /SENTENCE COUNT MISMATCH/);
   assert.equal(
     fs.readdirSync(root).some((name) => name.includes(".staging-")),
     false,

@@ -13,8 +13,7 @@ export const expectedTables = Object.freeze([
   "location_aliases",
   "locations",
   "paragraphs",
-  "sentences",
-  "sentences_fts",
+  "paragraphs_fts",
 ]);
 
 function validateEmptySchema(database) {

@@ -3,44 +3,6 @@ import path from "node:path";
 
 import { mapChapterSections, extractBookBody } from "./chapter-parser.js";
 
-export const PROTECTED_ABBREVIATIONS = Object.freeze([
-  "capt",
-  "chap",
-  "chaps",
-  "col",
-  "dr",
-  "esq",
-  "etc",
-  "gen",
-  "hon",
-  "jr",
-  "lt",
-  "maj",
-  "messrs",
-  "mlle",
-  "mme",
-  "mmes",
-  "mr",
-  "mrs",
-  "ms",
-  "mt",
-  "no",
-  "nos",
-  "p",
-  "pp",
-  "prof",
-  "rev",
-  "sgt",
-  "sr",
-  "st",
-  "viz",
-  "vol",
-  "vols",
-  "vs",
-]);
-
-const protectedAbbreviationSet = new Set(PROTECTED_ABBREVIATIONS);
-const CLOSING_PUNCTUATION = new Set(["\"", "'", "”", "’", ")", "]", "}"]);
 const REQUIRED_METADATA_STRINGS = ["id", "title", "slug", "author", "sourceFile"];
 const REQUIRED_METADATA_INTEGERS = [
   "publicationYear",
@@ -322,163 +284,115 @@ export function normalizeParagraphLines(lines) {
   return paragraph;
 }
 
-export function isStructuralParagraph(paragraph) {
-  return (
-    /^\[Illustration\b/i.test(paragraph) ||
-    /^\[\s*_?Copyright\b/i.test(paragraph) ||
-    /^(?:FINIS\.?|THE END)$/i.test(paragraph)
-  );
+function bracketDelta(line) {
+  return [...line].reduce((total, character) => {
+    if (character === "[") return total + 1;
+    if (character === "]") return total - 1;
+    return total;
+  }, 0);
 }
 
-export function parseParagraphs(lines) {
-  const paragraphs = [];
-  let buffer = [];
+function isIllustrationStart(line) {
+  return /^\s*\[Illustration\b/i.test(line);
+}
 
-  const flush = () => {
-    if (buffer.length === 0) {
-      return;
-    }
-    const paragraph = normalizeParagraphLines(buffer);
-    buffer = [];
-    if (paragraph && !isStructuralParagraph(paragraph)) {
-      paragraphs.push(paragraph);
-    }
+function isCopyrightStart(line) {
+  return /^\s*\[\s*_?Copyright\b/i.test(line);
+}
+
+function isTerminalDecoration(text) {
+  return /^(?:FINIS\.?|THE END)$/i.test(text);
+}
+
+export function parseParagraphBlocks(lines, { firstLineNumber = 1 } = {}) {
+  const paragraphs = [];
+  const excludedBlocks = [];
+  let paragraphLines = [];
+  let paragraphStartLine = null;
+  let exclusion = null;
+
+  const lineNumberFor = (index) => firstLineNumber + index;
+
+  const finishExclusion = (endLine) => {
+    excludedBlocks.push({
+      type: exclusion.type,
+      startLine: exclusion.startLine,
+      endLine,
+      text: normalizeParagraphLines(exclusion.lines),
+    });
+    exclusion = null;
   };
 
-  for (const line of lines) {
-    if (line.trim() === "") {
-      flush();
-    } else {
-      buffer.push(line);
+  const flushParagraph = (endLine) => {
+    if (paragraphLines.length === 0) return;
+
+    const text = normalizeParagraphLines(paragraphLines);
+    const startLine = paragraphStartLine;
+    paragraphLines = [];
+    paragraphStartLine = null;
+
+    if (!text) return;
+    if (isTerminalDecoration(text)) {
+      excludedBlocks.push({
+        type: "terminal-decoration",
+        startLine,
+        endLine,
+        text,
+      });
+      return;
     }
-  }
-  flush();
 
-  return paragraphs;
-}
+    paragraphs.push({ text, startLine, endLine });
+  };
 
-function periodIsProtected(text, sentenceStart, periodIndex) {
-  if (
-    periodIndex > 0 &&
-    periodIndex + 1 < text.length &&
-    /\d/.test(text[periodIndex - 1]) &&
-    /\d/.test(text[periodIndex + 1])
-  ) {
-    return true;
-  }
+  for (const [index, line] of lines.entries()) {
+    const lineNumber = lineNumberFor(index);
 
-  const before = text.slice(sentenceStart, periodIndex);
-  const wordMatch = before.match(/([A-Za-z]+)$/);
-  const word = wordMatch?.[1];
-
-  if (word && protectedAbbreviationSet.has(word.toLowerCase())) {
-    return true;
-  }
-  if (word?.length === 1 && /[A-Z]/.test(word)) {
-    return true;
-  }
-  if (/(?:e\.g|i\.e|a\.m|p\.m)$/i.test(before)) {
-    return true;
-  }
-
-  return false;
-}
-
-export function tokenizeParagraph(paragraph) {
-  if (typeof paragraph !== "string" || paragraph.trim() === "") {
-    throw new Error("Sentence tokenizer requires a non-empty paragraph string.");
-  }
-
-  const sentences = [];
-  let sentenceStart = 0;
-  let index = 0;
-
-  while (index < paragraph.length) {
-    if (![".", "?", "!"].includes(paragraph[index])) {
-      index += 1;
+    if (exclusion) {
+      exclusion.lines.push(line);
+      exclusion.bracketDepth += bracketDelta(line);
+      if (exclusion.bracketDepth <= 0) finishExclusion(lineNumber);
       continue;
     }
 
-    const punctuationStart = index;
-    while (
-      index + 1 < paragraph.length &&
-      [".", "?", "!"].includes(paragraph[index + 1])
-    ) {
-      index += 1;
-    }
-    const punctuationEnd = index + 1;
-
-    let sentenceEnd = punctuationEnd;
-    while (
-      sentenceEnd < paragraph.length &&
-      CLOSING_PUNCTUATION.has(paragraph[sentenceEnd])
-    ) {
-      sentenceEnd += 1;
+    if (isIllustrationStart(line) || isCopyrightStart(line)) {
+      flushParagraph(lineNumber - 1);
+      exclusion = {
+        type: isIllustrationStart(line) ? "illustration" : "copyright",
+        startLine: lineNumber,
+        lines: [line],
+        bracketDepth: bracketDelta(line),
+      };
+      if (exclusion.bracketDepth <= 0) finishExclusion(lineNumber);
+      continue;
     }
 
-    let nextContent = sentenceEnd;
-    while (nextContent < paragraph.length && /\s/.test(paragraph[nextContent])) {
-      nextContent += 1;
+    if (line.trim() === "") {
+      flushParagraph(lineNumber - 1);
+      continue;
     }
 
-    const punctuation = paragraph.slice(punctuationStart, punctuationEnd);
-    const followedBySeparator =
-      sentenceEnd === paragraph.length || nextContent > sentenceEnd;
-    let isBoundary = followedBySeparator;
-
-    if (/^\.{2,}$/.test(punctuation)) {
-      isBoundary = sentenceEnd === paragraph.length;
-    } else if (
-      paragraph[punctuationStart] === "." &&
-      periodIsProtected(paragraph, sentenceStart, punctuationStart)
-    ) {
-      isBoundary = false;
-    }
-
-    if (nextContent < paragraph.length && /[a-z]/.test(paragraph[nextContent])) {
-      isBoundary = false;
-    }
-
-    if (isBoundary) {
-      const sentence = paragraph.slice(sentenceStart, sentenceEnd).trim();
-      if (sentence) {
-        sentences.push(sentence);
-      }
-      sentenceStart = nextContent;
-      index = nextContent;
-    } else {
-      index += 1;
-    }
+    if (paragraphLines.length === 0) paragraphStartLine = lineNumber;
+    paragraphLines.push(line);
   }
 
-  const remainder = paragraph.slice(sentenceStart).trim();
-  if (remainder) {
-    sentences.push(remainder);
-  }
+  const finalLineNumber = lineNumberFor(Math.max(lines.length - 1, 0));
+  if (exclusion) finishExclusion(finalLineNumber);
+  flushParagraph(finalLineNumber);
 
-  return sentences;
+  return { paragraphs, excludedBlocks };
 }
 
-function contextSnippet(text, limit = 240) {
-  if (text.length <= limit) {
-    return text;
-  }
-  return `${text.slice(0, limit - 1)}…`;
+export function parseParagraphs(lines) {
+  return parseParagraphBlocks(lines).paragraphs.map(({ text }) => text);
 }
 
-function diagnosticContext(paragraphs) {
-  const likelyBoundaryCase =
-    /[.?!]+[\"'”’\)\]\}]*\s+[a-z]|\.{2,}|\b(?:Mr|Mrs|Dr|St|Capt|Col|Rev|etc)\./;
-  const likely = paragraphs.filter((paragraph) =>
-    likelyBoundaryCase.test(paragraph.text),
-  );
-  const candidates = likely.length > 0 ? likely : paragraphs;
-  const indexes = [0, Math.floor(candidates.length / 2), candidates.length - 1];
-
+function diagnosticRetainedContext(paragraphs) {
+  const indexes = [0, Math.floor(paragraphs.length / 2), paragraphs.length - 1];
   return [...new Set(indexes)]
-    .map((index) => candidates[index])
+    .map((index) => paragraphs[index])
     .filter(Boolean)
-    .map((paragraph) => contextSnippet(paragraph.text));
+    .map(({ text, startLine, endLine }) => ({ text, startLine, endLine }));
 }
 
 export function parseValidatedBook({ slug, rawText, metadata, relativeTextPath }) {
@@ -490,46 +404,33 @@ export function parseValidatedBook({ slug, rawText, metadata, relativeTextPath }
   );
 
   let paragraphOrdinalInBook = 0;
-  let sentenceOrdinalInBook = 0;
   const chapters = [];
   const discrepancies = [];
+  const excludedBlocks = [];
 
   for (const section of chapterSections) {
-    const paragraphTexts = parseParagraphs(section.contentLines);
-    let sentenceOrdinalInChapter = 0;
-    const paragraphs = paragraphTexts.map((text, paragraphIndex) => {
+    const parsedBlocks = parseParagraphBlocks(section.contentLines, {
+      firstLineNumber: section.lineNumber + 1,
+    });
+    excludedBlocks.push(...parsedBlocks.excludedBlocks);
+
+    const paragraphs = parsedBlocks.paragraphs.map((paragraph, paragraphIndex) => {
       paragraphOrdinalInBook += 1;
-      const sentenceTexts = tokenizeParagraph(text);
-      const sentences = sentenceTexts.map((sentenceText, sentenceIndex) => {
-        sentenceOrdinalInChapter += 1;
-        sentenceOrdinalInBook += 1;
-        return {
-          stableId: `${slug}:sentence:${sentenceOrdinalInBook}`,
-          ordinalInParagraph: sentenceIndex + 1,
-          ordinalInChapter: sentenceOrdinalInChapter,
-          ordinalInBook: sentenceOrdinalInBook,
-          text: sentenceText,
-        };
-      });
 
       return {
         stableId: `${slug}:paragraph:${paragraphOrdinalInBook}`,
         ordinalInChapter: paragraphIndex + 1,
         ordinalInBook: paragraphOrdinalInBook,
-        text,
-        sentences,
+        text: paragraph.text,
+        sourceStartLine: paragraph.startLine,
+        sourceEndLine: paragraph.endLine,
       };
     });
 
     const expectedParagraphs = section.metadata.paragraphCount;
-    const expectedSentences = section.metadata.sentenceCount;
     const parsedParagraphs = paragraphs.length;
-    const parsedSentences = sentenceOrdinalInChapter;
 
-    if (
-      expectedParagraphs !== parsedParagraphs ||
-      expectedSentences !== parsedSentences
-    ) {
+    if (expectedParagraphs !== parsedParagraphs) {
       discrepancies.push({
         bookId: slug,
         bookTitle: metadata.title,
@@ -538,9 +439,8 @@ export function parseValidatedBook({ slug, rawText, metadata, relativeTextPath }
         chapterTitle: section.metadata.title,
         expectedParagraphs,
         parsedParagraphs,
-        expectedSentences,
-        parsedSentences,
-        context: diagnosticContext(paragraphs),
+        retainedContext: diagnosticRetainedContext(parsedBlocks.paragraphs),
+        excludedBlocks: parsedBlocks.excludedBlocks,
       });
     }
 
@@ -551,8 +451,9 @@ export function parseValidatedBook({ slug, rawText, metadata, relativeTextPath }
       title: section.metadata.title,
       sourceHeading: section.text,
       expectedParagraphCount: expectedParagraphs,
-      expectedSentenceCount: expectedSentences,
+      expectedSentenceCount: section.metadata.sentenceCount,
       paragraphs,
+      excludedBlocks: parsedBlocks.excludedBlocks,
     });
   }
 
@@ -565,7 +466,7 @@ export function parseValidatedBook({ slug, rawText, metadata, relativeTextPath }
     chapters,
     parsedChapterCount: chapters.length,
     parsedParagraphCount: paragraphOrdinalInBook,
-    parsedSentenceCount: sentenceOrdinalInBook,
+    excludedBlocks,
     discrepancies,
   };
 }

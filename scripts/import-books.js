@@ -44,8 +44,6 @@ function bookReportRows(books) {
     chaptersParsed: book.parsedChapterCount,
     paragraphsExpected: book.metadata.paragraphCount,
     paragraphsParsed: book.parsedParagraphCount,
-    sentencesExpected: book.metadata.sentenceCount,
-    sentencesParsed: book.parsedSentenceCount,
     characters: book.metadata.characters.length,
     characterAliases: book.metadata.characters.reduce(
       (total, item) => total + item.aliases.length + (item.ambiguousAliases?.length ?? 0),
@@ -90,17 +88,17 @@ export function buildImportReport({
   lines.push(
     "## Book totals",
     "",
-    "| Book | Chapters E/P | Paragraphs E/P | Sentences E/P | Characters | Character aliases | Locations | Location aliases |",
-    "|---|---:|---:|---:|---:|---:|---:|---:|",
+    "| Book | Chapters E/P | Paragraphs E/P | Characters | Character aliases | Locations | Location aliases |",
+    "|---|---:|---:|---:|---:|---:|---:|",
   );
 
   for (const row of rows) {
     lines.push(
-      `| ${markdownEscape(row.title)} (\`${row.slug}\`) | ${row.chaptersExpected}/${row.chaptersParsed} | ${row.paragraphsExpected}/${row.paragraphsParsed} | ${row.sentencesExpected}/${row.sentencesParsed} | ${row.characters} | ${row.characterAliases} | ${row.locations} | ${row.locationAliases} |`,
+      `| ${markdownEscape(row.title)} (\`${row.slug}\`) | ${row.chaptersExpected}/${row.chaptersParsed} | ${row.paragraphsExpected}/${row.paragraphsParsed} | ${row.characters} | ${row.characterAliases} | ${row.locations} | ${row.locationAliases} |`,
     );
   }
   if (rows.length === 0) {
-    lines.push("| _No books completed_ | — | — | — | — | — | — | — |");
+    lines.push("| _No books completed_ | — | — | — | — | — | — |");
   }
   lines.push("");
 
@@ -116,19 +114,35 @@ export function buildImportReport({
         `- **Chapter:** \`${discrepancy.chapterId}\` (ordinal ${discrepancy.chapterOrdinal})`,
         `- **Expected paragraphs:** ${discrepancy.expectedParagraphs}`,
         `- **Parsed paragraphs:** ${discrepancy.parsedParagraphs}`,
-        `- **Expected sentences:** ${discrepancy.expectedSentences}`,
-        `- **Parsed sentences:** ${discrepancy.parsedSentences}`,
-        `- **Result:** ${
-          discrepancy.expectedParagraphs !== discrepancy.parsedParagraphs
-            ? "PARAGRAPH COUNT MISMATCH"
-            : "SENTENCE COUNT MISMATCH"
-        }`,
+        "- **Result:** PARAGRAPH COUNT MISMATCH",
         "",
-        "Normalized context containing likely abbreviation, ellipsis, dialogue-attribution, or closing-punctuation boundary cases:",
+        "Retained source blocks sampled from this chapter:",
         "",
       );
-      for (const context of discrepancy.context) {
-        lines.push("```text", context, "```", "");
+      for (const context of discrepancy.retainedContext) {
+        lines.push(
+          `Source lines ${context.startLine}-${context.endLine}:`,
+          "",
+          "```text",
+          context.text,
+          "```",
+          "",
+        );
+      }
+      lines.push("Excluded source blocks in this chapter:", "");
+      if (discrepancy.excludedBlocks.length === 0) {
+        lines.push("None.", "");
+      } else {
+        for (const block of discrepancy.excludedBlocks) {
+          lines.push(
+            `- ${block.type}, source lines ${block.startLine}-${block.endLine}`,
+            "",
+            "```text",
+            block.text,
+            "```",
+            "",
+          );
+        }
       }
     }
   }
@@ -144,6 +158,8 @@ export function buildImportReport({
       `- **FTS synchronization:** ${validation.fts.synchronization}`,
       `- **FTS row count:** ${validation.fts.rowCount}`,
       `- **Representative FTS matches:** ${validation.fts.representativeMatches}`,
+      `- **Illustration/decorative exclusion:** ${validation.fts.exclusions}`,
+      "- **Sentence schema objects:** absent",
       "",
     );
   }
@@ -204,7 +220,7 @@ export function runImport({
       books.push(book);
       discrepancies.push(...book.discrepancies);
       logger.log(
-        `  chapters ${book.parsedChapterCount}, paragraphs ${book.parsedParagraphCount}, sentences ${book.parsedSentenceCount}`,
+        `  chapters ${book.parsedChapterCount}, paragraphs ${book.parsedParagraphCount}`,
       );
     }
 

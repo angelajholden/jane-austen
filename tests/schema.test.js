@@ -52,5 +52,10 @@ test("the approved schema initializes an empty database", (context) => {
     .all()
     .map(({ name }) => name);
 
-  assert.deepEqual(triggers, ["sentences_ad", "sentences_ai", "sentences_au"]);
+  assert.deepEqual(triggers, ["paragraphs_ad", "paragraphs_ai", "paragraphs_au"]);
+
+  const paragraphColumns = database.pragma("table_info(paragraphs)");
+  assert.ok(paragraphColumns.some(({ name }) => name === "text"));
+  assert.equal(tables.includes("sentences"), false);
+  assert.equal(tables.includes("sentences_fts"), false);
 });

@@ -51,28 +51,10 @@ CREATE TABLE paragraphs (
     chapter_id         INTEGER NOT NULL,
     ordinal_in_chapter INTEGER NOT NULL CHECK (ordinal_in_chapter > 0),
     ordinal_in_book    INTEGER NOT NULL CHECK (ordinal_in_book > 0),
+    text               TEXT    NOT NULL
+                               CHECK (length(trim(text)) > 0),
     FOREIGN KEY (chapter_id, book_id)
         REFERENCES chapters(id, book_id) ON DELETE CASCADE,
-    UNIQUE (chapter_id, ordinal_in_chapter),
-    UNIQUE (book_id, ordinal_in_book),
-    UNIQUE (id, chapter_id, book_id)
-);
-
-CREATE TABLE sentences (
-    id                   INTEGER PRIMARY KEY,
-    stable_id            TEXT    NOT NULL UNIQUE
-                                 CHECK (length(trim(stable_id)) > 0),
-    book_id              INTEGER NOT NULL,
-    chapter_id           INTEGER NOT NULL,
-    paragraph_id         INTEGER NOT NULL,
-    ordinal_in_paragraph INTEGER NOT NULL CHECK (ordinal_in_paragraph > 0),
-    ordinal_in_chapter   INTEGER NOT NULL CHECK (ordinal_in_chapter > 0),
-    ordinal_in_book      INTEGER NOT NULL CHECK (ordinal_in_book > 0),
-    text                 TEXT    NOT NULL
-                                 CHECK (length(trim(text)) > 0),
-    FOREIGN KEY (paragraph_id, chapter_id, book_id)
-        REFERENCES paragraphs(id, chapter_id, book_id) ON DELETE CASCADE,
-    UNIQUE (paragraph_id, ordinal_in_paragraph),
     UNIQUE (chapter_id, ordinal_in_chapter),
     UNIQUE (book_id, ordinal_in_book)
 );
@@ -145,33 +127,33 @@ CREATE INDEX idx_locations_book_name
 CREATE INDEX idx_location_aliases_alias
     ON location_aliases(alias);
 
-CREATE VIRTUAL TABLE sentences_fts USING fts5(
+CREATE VIRTUAL TABLE paragraphs_fts USING fts5(
     text,
-    content = 'sentences',
+    content = 'paragraphs',
     content_rowid = 'id',
     tokenize = 'unicode61 remove_diacritics 0'
 );
 
-CREATE TRIGGER sentences_ai
-AFTER INSERT ON sentences
+CREATE TRIGGER paragraphs_ai
+AFTER INSERT ON paragraphs
 BEGIN
-    INSERT INTO sentences_fts(rowid, text)
+    INSERT INTO paragraphs_fts(rowid, text)
     VALUES (new.id, new.text);
 END;
 
-CREATE TRIGGER sentences_ad
-AFTER DELETE ON sentences
+CREATE TRIGGER paragraphs_ad
+AFTER DELETE ON paragraphs
 BEGIN
-    INSERT INTO sentences_fts(sentences_fts, rowid, text)
+    INSERT INTO paragraphs_fts(paragraphs_fts, rowid, text)
     VALUES ('delete', old.id, old.text);
 END;
 
-CREATE TRIGGER sentences_au
-AFTER UPDATE OF text ON sentences
+CREATE TRIGGER paragraphs_au
+AFTER UPDATE OF text ON paragraphs
 BEGIN
-    INSERT INTO sentences_fts(sentences_fts, rowid, text)
+    INSERT INTO paragraphs_fts(paragraphs_fts, rowid, text)
     VALUES ('delete', old.id, old.text);
 
-    INSERT INTO sentences_fts(rowid, text)
+    INSERT INTO paragraphs_fts(rowid, text)
     VALUES (new.id, new.text);
 END;

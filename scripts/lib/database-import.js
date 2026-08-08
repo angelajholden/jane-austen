@@ -12,7 +12,6 @@ export function expectedImportTotals(books) {
       totals.books += 1;
       totals.chapters += book.metadata.chapterCount;
       totals.paragraphs += book.metadata.paragraphCount;
-      totals.sentences += book.metadata.sentenceCount;
       totals.characters += book.metadata.characters.length;
       totals.characterAliases += countAliases(book.metadata.characters);
       totals.locations += book.metadata.locations.length;
@@ -23,7 +22,6 @@ export function expectedImportTotals(books) {
       books: 0,
       chapters: 0,
       paragraphs: 0,
-      sentences: 0,
       characters: 0,
       characterAliases: 0,
       locations: 0,
@@ -64,14 +62,8 @@ export function populateDatabase(database, books) {
     ),
     paragraph: database.prepare(
       `INSERT INTO paragraphs (
-         stable_id, book_id, chapter_id, ordinal_in_chapter, ordinal_in_book
-       ) VALUES (?, ?, ?, ?, ?)`,
-    ),
-    sentence: database.prepare(
-      `INSERT INTO sentences (
-         stable_id, book_id, chapter_id, paragraph_id,
-         ordinal_in_paragraph, ordinal_in_chapter, ordinal_in_book, text
-       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+         stable_id, book_id, chapter_id, ordinal_in_chapter, ordinal_in_book, text
+       ) VALUES (?, ?, ?, ?, ?, ?)`,
     ),
     character: database.prepare(
       `INSERT INTO characters (book_id, source_id, canonical_name, notes)
@@ -129,28 +121,14 @@ export function populateDatabase(database, books) {
         );
 
         for (const paragraph of chapter.paragraphs) {
-          const paragraphId = Number(
-            statements.paragraph.run(
-              paragraph.stableId,
-              bookId,
-              chapterId,
-              paragraph.ordinalInChapter,
-              paragraph.ordinalInBook,
-            ).lastInsertRowid,
+          statements.paragraph.run(
+            paragraph.stableId,
+            bookId,
+            chapterId,
+            paragraph.ordinalInChapter,
+            paragraph.ordinalInBook,
+            paragraph.text,
           );
-
-          for (const sentence of paragraph.sentences) {
-            statements.sentence.run(
-              sentence.stableId,
-              bookId,
-              chapterId,
-              paragraphId,
-              sentence.ordinalInParagraph,
-              sentence.ordinalInChapter,
-              sentence.ordinalInBook,
-              sentence.text,
-            );
-          }
         }
       }
 
@@ -209,27 +187,95 @@ function validateSequentialRows(database, sql, groupKey, ordinalKey, label) {
   }
 }
 
-function validateFts(database, expectedSentenceCount) {
+function validateStoredCounts(database, books) {
+  for (const book of books) {
+    const storedBook = database
+      .prepare(
+        `SELECT id, chapter_count, paragraph_count, sentence_count
+         FROM books WHERE source_id = ?`,
+      )
+      .get(book.slug);
+
+    assertEqual(storedBook.chapter_count, book.metadata.chapterCount, `${book.slug} stored chapter count`);
+    assertEqual(storedBook.paragraph_count, book.metadata.paragraphCount, `${book.slug} stored paragraph count`);
+    assertEqual(storedBook.sentence_count, book.metadata.sentenceCount, `${book.slug} stored sentence metadata`);
+
+    const actualBookParagraphs = database
+      .prepare("SELECT count(*) AS count FROM paragraphs WHERE book_id = ?")
+      .get(storedBook.id).count;
+    assertEqual(actualBookParagraphs, book.metadata.paragraphCount, `${book.slug} paragraph count`);
+
+    for (const chapter of book.chapters) {
+      const storedChapter = database
+        .prepare(
+          `SELECT id, paragraph_count, sentence_count
+           FROM chapters WHERE book_id = ? AND source_id = ?`,
+        )
+        .get(storedBook.id, chapter.sourceId);
+      assertEqual(
+        storedChapter.paragraph_count,
+        chapter.expectedParagraphCount,
+        `${book.slug}/${chapter.sourceId} stored paragraph count`,
+      );
+      assertEqual(
+        storedChapter.sentence_count,
+        chapter.expectedSentenceCount,
+        `${book.slug}/${chapter.sourceId} stored sentence metadata`,
+      );
+      const actualChapterParagraphs = database
+        .prepare("SELECT count(*) AS count FROM paragraphs WHERE chapter_id = ?")
+        .get(storedChapter.id).count;
+      assertEqual(
+        actualChapterParagraphs,
+        chapter.expectedParagraphCount,
+        `${book.slug}/${chapter.sourceId} paragraph count`,
+      );
+    }
+  }
+}
+
+function validateFts(database, expectedParagraphCount) {
   database
-    .prepare("INSERT INTO sentences_fts(sentences_fts) VALUES ('integrity-check')")
+    .prepare("INSERT INTO paragraphs_fts(paragraphs_fts) VALUES ('integrity-check')")
     .run();
 
-  const representative = database
-    .prepare("SELECT id, text FROM sentences ORDER BY id LIMIT 1")
-    .get();
+  database.exec(
+    "CREATE VIRTUAL TABLE temp.importer_paragraphs_vocab USING fts5vocab(main, paragraphs_fts, instance)",
+  );
+  try {
+    const indexedDocuments = database
+      .prepare("SELECT count(DISTINCT doc) AS count FROM temp.importer_paragraphs_vocab")
+      .get().count;
+    assertEqual(indexedDocuments, expectedParagraphCount, "indexed paragraph documents");
 
-  if (!representative && expectedSentenceCount > 0) {
-    throw new Error("FTS validation: no representative sentence exists");
+    const orphanDocuments = database
+      .prepare(
+        `SELECT count(DISTINCT vocab.doc) AS count
+         FROM temp.importer_paragraphs_vocab AS vocab
+         LEFT JOIN paragraphs AS paragraph ON paragraph.id = vocab.doc
+         WHERE paragraph.id IS NULL`,
+      )
+      .get().count;
+    assertEqual(orphanDocuments, 0, "orphan FTS documents");
+  } finally {
+    database.exec("DROP TABLE temp.importer_paragraphs_vocab");
+  }
+
+  const representative = database
+    .prepare("SELECT id, book_id, chapter_id, text FROM paragraphs ORDER BY id LIMIT 1")
+    .get();
+  if (!representative && expectedParagraphCount > 0) {
+    throw new Error("FTS validation: no representative paragraph exists");
   }
 
   let representativeMatches = 0;
   if (representative) {
     const token = representative.text.match(/[\p{L}\p{N}]{3,}/u)?.[0];
     if (!token) {
-      throw new Error("FTS validation: representative sentence has no searchable token");
+      throw new Error("FTS validation: representative paragraph has no searchable token");
     }
     representativeMatches = database
-      .prepare("SELECT count(*) AS count FROM sentences_fts WHERE sentences_fts MATCH ?")
+      .prepare("SELECT count(*) AS count FROM paragraphs_fts WHERE paragraphs_fts MATCH ?")
       .get(`\"${token.replaceAll('"', '""')}\"`).count;
     if (representativeMatches < 1) {
       throw new Error(`FTS validation: representative token ${JSON.stringify(token)} was not found`);
@@ -238,39 +284,62 @@ function validateFts(database, expectedSentenceCount) {
     database.exec("SAVEPOINT importer_fts_sync_check");
     try {
       database
-        .prepare("UPDATE sentences SET text = text || ' importerftsprobe' WHERE id = ?")
+        .prepare("UPDATE paragraphs SET text = text || ' importerftsupdateprobe' WHERE id = ?")
         .run(representative.id);
-      const probeCount = database
-        .prepare(
-          "SELECT count(*) AS count FROM sentences_fts WHERE sentences_fts MATCH 'importerftsprobe'",
-        )
-        .get().count;
-      if (probeCount !== 1) {
-        throw new Error(`FTS synchronization: expected one probe match; found ${probeCount}`);
-      }
-    } finally {
-      database.exec(
-        "ROLLBACK TO importer_fts_sync_check; RELEASE importer_fts_sync_check",
+      assertEqual(
+        database
+          .prepare("SELECT count(*) AS count FROM paragraphs_fts WHERE paragraphs_fts MATCH 'importerftsupdateprobe'")
+          .get().count,
+        1,
+        "FTS update synchronization",
       );
+
+      const nextChapterOrdinal = database
+        .prepare("SELECT max(ordinal_in_chapter) + 1 AS ordinal FROM paragraphs WHERE chapter_id = ?")
+        .get(representative.chapter_id).ordinal;
+      const nextBookOrdinal = database
+        .prepare("SELECT max(ordinal_in_book) + 1 AS ordinal FROM paragraphs WHERE book_id = ?")
+        .get(representative.book_id).ordinal;
+      const probeId = Number(
+        database
+          .prepare(
+            `INSERT INTO paragraphs (
+               stable_id, book_id, chapter_id, ordinal_in_chapter, ordinal_in_book, text
+             ) VALUES ('__importer_fts_probe__', ?, ?, ?, ?, 'importerftsinsertprobe')`,
+          )
+          .run(
+            representative.book_id,
+            representative.chapter_id,
+            nextChapterOrdinal,
+            nextBookOrdinal,
+          ).lastInsertRowid,
+      );
+      assertEqual(
+        database
+          .prepare("SELECT count(*) AS count FROM paragraphs_fts WHERE paragraphs_fts MATCH 'importerftsinsertprobe'")
+          .get().count,
+        1,
+        "FTS insert synchronization",
+      );
+      database.prepare("DELETE FROM paragraphs WHERE id = ?").run(probeId);
+      assertEqual(
+        database
+          .prepare("SELECT count(*) AS count FROM paragraphs_fts WHERE paragraphs_fts MATCH 'importerftsinsertprobe'")
+          .get().count,
+        0,
+        "FTS delete synchronization",
+      );
+    } finally {
+      database.exec("ROLLBACK TO importer_fts_sync_check; RELEASE importer_fts_sync_check");
     }
   }
 
-  const orphanFtsRows = database
-    .prepare(
-      `SELECT count(*) AS count
-       FROM sentences_fts AS fts
-       LEFT JOIN sentences AS sentence ON sentence.id = fts.rowid
-       WHERE sentence.id IS NULL`,
-    )
-    .get().count;
-
-  assertEqual(orphanFtsRows, 0, "orphan FTS rows");
-
   return {
-    rowCount: tableCount(database, "sentences_fts"),
+    rowCount: tableCount(database, "paragraphs_fts"),
     representativeMatches,
     integrity: "ok",
-    synchronization: "ok",
+    synchronization: "ok (insert/delete/update)",
+    exclusions: "ok",
   };
 }
 
@@ -280,7 +349,6 @@ export function validatePopulatedDatabase(database, books) {
     books: tableCount(database, "books"),
     chapters: tableCount(database, "chapters"),
     paragraphs: tableCount(database, "paragraphs"),
-    sentences: tableCount(database, "sentences"),
     characters: tableCount(database, "characters"),
     characterAliases: tableCount(database, "character_aliases"),
     locations: tableCount(database, "locations"),
@@ -300,6 +368,7 @@ export function validatePopulatedDatabase(database, books) {
     throw new Error("Imported book IDs do not match the configured book set");
   }
 
+  validateStoredCounts(database, books);
   validateSequentialRows(
     database,
     "SELECT book_id, ordinal FROM chapters ORDER BY book_id, ordinal",
@@ -322,29 +391,6 @@ export function validatePopulatedDatabase(database, books) {
     "ordinal_in_book",
     "paragraph book ordinals",
   );
-  validateSequentialRows(
-    database,
-    `SELECT paragraph_id, ordinal_in_paragraph
-     FROM sentences ORDER BY paragraph_id, ordinal_in_paragraph`,
-    "paragraph_id",
-    "ordinal_in_paragraph",
-    "sentence paragraph ordinals",
-  );
-  validateSequentialRows(
-    database,
-    `SELECT chapter_id, ordinal_in_chapter
-     FROM sentences ORDER BY chapter_id, ordinal_in_chapter`,
-    "chapter_id",
-    "ordinal_in_chapter",
-    "sentence chapter ordinals",
-  );
-  validateSequentialRows(
-    database,
-    "SELECT book_id, ordinal_in_book FROM sentences ORDER BY book_id, ordinal_in_book",
-    "book_id",
-    "ordinal_in_book",
-    "sentence book ordinals",
-  );
 
   const orphanParagraphs = database
     .prepare(
@@ -353,23 +399,27 @@ export function validatePopulatedDatabase(database, books) {
        WHERE c.id IS NULL`,
     )
     .get().count;
-  const orphanSentences = database
-    .prepare(
-      `SELECT count(*) AS count FROM sentences AS s
-       LEFT JOIN paragraphs AS p
-         ON p.id = s.paragraph_id
-        AND p.chapter_id = s.chapter_id
-        AND p.book_id = s.book_id
-       WHERE p.id IS NULL`,
-    )
+  const emptyParagraphs = database
+    .prepare("SELECT count(*) AS count FROM paragraphs WHERE length(trim(text)) = 0")
     .get().count;
-  const emptySentences = database
-    .prepare("SELECT count(*) AS count FROM sentences WHERE length(trim(text)) = 0")
+  const leakedDecorations = database
+    .prepare(
+      `SELECT count(*) AS count FROM paragraphs
+       WHERE text LIKE '[Illustration%'
+          OR text LIKE '[Copyright%'
+          OR text LIKE '[_Copyright%'
+          OR upper(trim(text)) IN ('FINIS', 'FINIS.', 'THE END')`,
+    )
     .get().count;
 
   assertEqual(orphanParagraphs, 0, "orphan paragraphs");
-  assertEqual(orphanSentences, 0, "orphan sentences");
-  assertEqual(emptySentences, 0, "empty sentences");
+  assertEqual(emptyParagraphs, 0, "empty paragraphs");
+  assertEqual(leakedDecorations, 0, "excluded structural paragraphs");
+
+  const schemaObjects = database
+    .prepare("SELECT name FROM sqlite_schema WHERE name IN ('sentences', 'sentences_fts')")
+    .all();
+  assertEqual(schemaObjects.length, 0, "sentence schema objects");
 
   const foreignKeyRows = database.pragma("foreign_key_check");
   if (foreignKeyRows.length !== 0) {
@@ -382,8 +432,8 @@ export function validatePopulatedDatabase(database, books) {
     throw new Error(`SQLite integrity check failed: ${integrity.join(", ")}`);
   }
 
-  const fts = validateFts(database, expected.sentences);
-  assertEqual(fts.rowCount, expected.sentences, "FTS row count");
+  const fts = validateFts(database, expected.paragraphs);
+  assertEqual(fts.rowCount, expected.paragraphs, "FTS row count");
 
   return {
     expected,
