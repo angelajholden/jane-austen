@@ -362,6 +362,36 @@ test("controlled fixture imports paragraph data, aliases, foreign keys, and FTS"
   assert.doesNotMatch(fs.readFileSync(report, "utf8"), /Sentences E\/P/);
 });
 
+test("FTS validation accounts for retained paragraphs that tokenize to zero terms", (context) => {
+  const root = temporaryDirectory(context);
+  const { directory, slug } = writeFixture(root, { paragraphCount: 3 });
+  const sourcePath = path.join(directory, `${slug}.txt`);
+  const sourceText = fs
+    .readFileSync(sourcePath, "utf8")
+    .replace("\n\nA wrapped physical\nline ends!", "\n\n“—”\n\nA wrapped physical\nline ends!");
+  fs.writeFileSync(sourcePath, sourceText, "utf8");
+
+  const target = path.join(root, "published.sqlite");
+  const report = path.join(root, "import-report.md");
+  const result = runImport({
+    slugs: [slug],
+    metadataRoot: root,
+    targetDatabasePath: target,
+    reportPath: report,
+    logger: { log() {}, error() {} },
+  });
+
+  assert.equal(result.validation.fts.rowCount, 3);
+  assert.equal(result.validation.fts.indexedDocuments, 2);
+  assert.equal(result.validation.fts.zeroTokenDocuments, 1);
+
+  const database = openDatabase(target, { readonly: true });
+  context.after(() => database.close());
+  assert.equal(database.prepare("SELECT count(*) AS count FROM paragraphs").get().count, 3);
+  assert.equal(database.prepare("SELECT count(*) AS count FROM paragraphs_fts").get().count, 3);
+  assert.match(fs.readFileSync(report, "utf8"), /Paragraphs with no searchable terms:\*\* 1/);
+});
+
 test("paragraph mismatch writes diagnostics and preserves the published database", (context) => {
   const root = temporaryDirectory(context);
   writeFixture(root, { paragraphCount: 3 });

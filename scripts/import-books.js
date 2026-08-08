@@ -102,10 +102,8 @@ export function buildImportReport({
   }
   lines.push("");
 
-  lines.push("## Chapter-level discrepancies", "");
-  if (discrepancies.length === 0) {
-    lines.push("No chapter-level count discrepancies were found.", "");
-  } else {
+  if (discrepancies.length > 0) {
+    lines.push("## Chapter-level discrepancies", "");
     for (const discrepancy of discrepancies) {
       lines.push(
         `### ${discrepancy.bookTitle}: ${discrepancy.chapterTitle}`,
@@ -157,6 +155,8 @@ export function buildImportReport({
       `- **FTS integrity:** ${validation.fts.integrity}`,
       `- **FTS synchronization:** ${validation.fts.synchronization}`,
       `- **FTS row count:** ${validation.fts.rowCount}`,
+      `- **FTS documents with indexed terms:** ${validation.fts.indexedDocuments}`,
+      `- **Paragraphs with no searchable terms:** ${validation.fts.zeroTokenDocuments}`,
       `- **Representative FTS matches:** ${validation.fts.representativeMatches}`,
       `- **Illustration/decorative exclusion:** ${validation.fts.exclusions}`,
       "- **Sentence schema objects:** absent",

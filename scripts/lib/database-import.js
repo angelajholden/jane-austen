@@ -242,11 +242,38 @@ function validateFts(database, expectedParagraphCount) {
   database.exec(
     "CREATE VIRTUAL TABLE temp.importer_paragraphs_vocab USING fts5vocab(main, paragraphs_fts, instance)",
   );
+  let indexedDocuments;
+  let zeroTokenDocuments;
   try {
-    const indexedDocuments = database
+    indexedDocuments = database
       .prepare("SELECT count(DISTINCT doc) AS count FROM temp.importer_paragraphs_vocab")
       .get().count;
-    assertEqual(indexedDocuments, expectedParagraphCount, "indexed paragraph documents");
+
+    const documentsWithoutTerms = database
+      .prepare(
+        `SELECT paragraph.id, paragraph.stable_id, paragraph.text
+         FROM paragraphs AS paragraph
+         LEFT JOIN (
+           SELECT DISTINCT doc FROM temp.importer_paragraphs_vocab
+         ) AS vocab ON vocab.doc = paragraph.id
+         WHERE vocab.doc IS NULL`,
+      )
+      .all();
+    const unexpectedlyUnindexed = documentsWithoutTerms.filter(({ text }) =>
+      /[\p{L}\p{N}]/u.test(text),
+    );
+    if (unexpectedlyUnindexed.length > 0) {
+      throw new Error(
+        `FTS validation: ${unexpectedlyUnindexed.length} paragraph(s) with searchable text have no indexed terms: ` +
+          unexpectedlyUnindexed.map(({ stable_id: stableId }) => stableId).join(", "),
+      );
+    }
+    zeroTokenDocuments = documentsWithoutTerms.length;
+    assertEqual(
+      indexedDocuments + zeroTokenDocuments,
+      expectedParagraphCount,
+      "indexed and zero-token paragraph documents",
+    );
 
     const orphanDocuments = database
       .prepare(
@@ -336,6 +363,8 @@ function validateFts(database, expectedParagraphCount) {
 
   return {
     rowCount: tableCount(database, "paragraphs_fts"),
+    indexedDocuments,
+    zeroTokenDocuments,
     representativeMatches,
     integrity: "ok",
     synchronization: "ok (insert/delete/update)",
