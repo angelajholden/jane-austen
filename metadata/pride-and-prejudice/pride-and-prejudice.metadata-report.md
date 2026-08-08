@@ -5,7 +5,7 @@
 - Source: `books/pride-and-prejudice.txt`
 - Chapters: **61**
 - Sentences: **5,899**
-- Paragraphs: **2,121**
+- Paragraphs: **2,060**
 - Named character entries: **48**
 - Named place entries: **49**
 
@@ -16,6 +16,8 @@ The novel begins with the prose following the decorated `Chapter I.]` heading an
 All 61 chapter headings were detected directly in the source. They run consecutively from Roman numeral I through LXI, so there is no chapter-count discrepancy. The first and forty-sixth headings use mixed-case `Chapter`; the others use uppercase `CHAPTER`. Several headings omit or vary terminal punctuation, but their numbering is unambiguous. JSON chapter titles use the requested normalized form “Chapter 1” through “Chapter 61”; the source supplies numbers, not descriptive chapter titles.
 
 A paragraph is a non-empty prose block separated by one or more blank lines after wrapped lines are joined. Standalone illustration/caption blocks and decorative publishing matter are not paragraphs. Indented letters remain part of the novel and are counted according to their blank-line-separated blocks.
+
+A later paragraph-boundary audit (`docs/audit/pride-and-prejudice-paragraph-boundaries.md`) found that the prior stored total of 2,121 had counted 60 illustration caption payload blocks and one copyright payload block despite that exclusion rule. The paragraph metadata was regenerated from the approved bracket-aware prose parser, producing the corrected total of 2,060. Sentence counts were not regenerated and remain historical reference metadata.
 
 Sentence counts use a deterministic punctuation-based segmentation after joining wrapped lines: terminal periods, question marks, and exclamation marks close sentences, while common honorific abbreviations (such as `Mr.` and `Mrs.`), initials, and decimal points do not. Dialogue punctuation and typographic closing quotation marks are respected. Because the source contains eighteenth-/nineteenth-century punctuation, semicolon-heavy prose, interrupted dialogue, editorial markup, and letters, a different linguistic sentence tokenizer may produce slightly different totals. These counts should therefore be treated as reproducible editorial counts, not as the only possible linguistic interpretation.
 
