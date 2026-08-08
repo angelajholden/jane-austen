@@ -7,10 +7,9 @@ Build a structured, searchable Jane Austen database with an Express.js API.
 The database must support two primary application functions:
 
 1. An eReader for reading books and chapters in source order.
-2. A search and filter interface for locating matching sentence chunks by keyword or exact phrase, with optional book, character, and location filters.
+2. A search and filter interface for locating matching paragraph chunks by keyword or exact phrase, with optional book, character, and location filters.
 
-Search results must include enough book, chapter, paragraph, and sentence
-information to open the matching sentence in the eReader.
+Search results must include enough book, chapter, and paragraph information to open the matching paragraph in the eReader.
 
 The database is not an AI application.
 
@@ -41,7 +40,6 @@ Each approved book directory contains one canonical plain-text book file and one
 Specifically:
 
 ```
-
 metadata/
 emma/
 mansfield-park/
@@ -49,7 +47,6 @@ northanger-abbey/
 persuasion/
 pride-and-prejudice/
 sense-and-sensibility/
-
 ```
 
 The importer reads the local filesystem.
@@ -77,11 +74,23 @@ Every importer run:
 1. Reads the approved metadata-directory configuration.
 2. Traverses every approved directory.
 3. Reads and validates every plain text and JSON metadata file in those directories.
-4. Parses metadata and sentence chunks.
+4. Parses metadata and paragraph chunks.
 5. Rebuilds the SQLite metadata and FTS data.
 6. Commits the replacement only after the complete import succeeds.
 
 No incremental updates in v1.
+
+## Paragraph Chunk Semantics
+
+A searchable chunk is one logical prose paragraph.
+
+Physical line breaks in the canonical plain-text source do not define chunks. Hard-wrapped physical lines belonging to the same prose paragraph are joined during import.
+
+Blank-line paragraph boundaries in the canonical source are used to determine logical paragraph structure.
+
+Illustration, decorative, and other non-prose blocks are not searchable paragraph content. Removing such a block must preserve paragraph boundaries so prose appearing before and after the excluded block is never incorrectly joined into one paragraph.
+
+Sentence boundaries are not used to define searchable chunks in v1.
 
 ---
 
@@ -101,7 +110,7 @@ Each novel/book should include at minimum:
 - location aliases
 - relative book path
 - book text
-- book sentence chunks
+- book paragraph chunks
 
 The relative file path is derived automatically from the folder structure.
 
@@ -114,6 +123,8 @@ metadata/emma/emma.metadata.json
 
 No additional metadata field is required.
 
+Sentence counts may remain part of the canonical book metadata, but sentences are not first-class searchable chunks in the v1 database.
+
 ---
 
 # Search
@@ -124,6 +135,8 @@ Supports:
 
 - keyword search
 - exact phrase search
+
+Search operates on paragraph chunks.
 
 No AI.
 
@@ -139,7 +152,7 @@ Current planned filters:
 
 - Open keyword search
 - Character dropdown
-- Location/Place dropdown
+- Location dropdown
 - Book title dropdown
 
 If a user selects "Emma" from the Book title dropdown, the Character dropdown and the Location dropdown should update to reflect only characters and locations from "Emma".
@@ -152,6 +165,8 @@ If a user selects "Emma" from the Book title dropdown, the Character dropdown an
 - Filters
 - Results table
 - Client-side sorting
+- Highlight matching keyword or exact phrase within paragraph results
+- Open a search result at the corresponding paragraph in the eReader
 
 ---
 
@@ -160,6 +175,7 @@ If a user selects "Emma" from the Book title dropdown, the Character dropdown an
 - Traverse metadata directory
 - Import plain text and JSON
 - Parse plain text and JSON
+- Normalize canonical paragraph chunks
 - Populate SQLite
 - Execute FTS queries
 - Return JSON
@@ -203,11 +219,13 @@ jane-austen/
 
 # Search Result Granularity
 
-One API search result represents one matching book sentence chunk.
+One API search result represents one matching paragraph chunk.
 
-If multiple chunks from the same book match the query, the API returns multiple results. Each result includes the parent book metadata, the matching chunk sentence, chapter and book path.
+If multiple paragraph chunks from the same book match the query, the API returns multiple results. Each result includes the parent book metadata, chapter information, matching paragraph, paragraph location, and book path needed to resolve the result to the eReader.
 
-The frontend may later group, collapse, or deduplicate results by book, but the API preserves chunk-level matches.
+The frontend may later group, collapse, or deduplicate results by book, but the API preserves paragraph-level matches.
+
+The frontend may display either the complete matching paragraph or a shorter excerpt around the match. This presentation choice does not change the paragraph-level search granularity.
 
 ---
 
@@ -238,36 +256,31 @@ The frontend must not:
 
 The API contract must be documented and represented by realistic JSON fixtures before the final frontend is built.
 
+Search results must contain enough information to identify the matching paragraph and resolve that paragraph to its location within the appropriate book and chapter.
+
 ---
 
 # Search Execution
 
 A keyword or exact phrase is required to execute a search.
 
-Selecting or changing a dropdown filter does not return sentence results by
-itself.
+Selecting or changing a dropdown filter does not return paragraph results by itself.
 
-Dropdown filters may update the available options in other dropdowns. For
-example, selecting `Emma` from the book-title dropdown limits the character and
-location dropdowns to characters and locations associated with `Emma`.
+Dropdown filters may update the available options in other dropdowns. For example, selecting `Emma` from the book-title dropdown limits the character and location dropdowns to characters and locations associated with `Emma`.
 
-When the search is submitted, the API returns sentence chunks that match the
-required text query and all selected filters.
+When the search is submitted, the API returns paragraph chunks that match the required text query and all selected filters.
 
 # Character and Location Filter Semantics
 
 The metadata associates characters and locations with books.
 
-Character and location filters are applied at the sentence-chunk level using
-the selected entity's canonical name and configured aliases.
+Character and location filters are applied at the paragraph-chunk level using the selected entity's canonical name and configured aliases.
 
-A returned sentence chunk must:
+A returned paragraph chunk must:
 
 - match the required keyword or exact phrase
 - belong to the selected book, when a book is selected
-- contain the selected character's canonical name or one of its aliases, when a
-  character is selected
-- contain the selected location's canonical name or one of its aliases, when a
-  location is selected
+- contain the selected character's canonical name or one of its aliases, when a character is selected
+- contain the selected location's canonical name or one of its aliases, when a location is selected
 
 Dropdown selections alone never return search results.
